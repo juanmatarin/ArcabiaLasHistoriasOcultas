@@ -1,0 +1,2 @@
+1=..\..\Archivos\Historia_1\Capitulo_2\Acto_1+Curiosear+OPCION:
+2=..\..\Archivos\Historia_1\Capitulo_2\Acto_1+No curiosear+OPCION

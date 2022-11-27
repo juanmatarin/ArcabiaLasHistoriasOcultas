@@ -1,0 +1,232 @@
+[
+    {
+        "id": 0,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_1\\acto1.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Ir hasta su nuevo encargo",
+                "tipo": "acto",
+                "siguienteActo": 1
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_2\\acto2.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Entrar en la habitación",
+                "tipo": "acto",
+                "siguienteActo": 2
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_3\\acto3.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Regatear",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_3\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dejar pasar el tiempo",
+                "siguienteActo": 3
+            },
+            {
+                "id": 1,
+                "descripcion": "No Regatear",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_3\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dejar pasar el tiempo",
+                "siguienteActo": 3
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_4\\acto4.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Coger el kit de escalada",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_4\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dirigirse al objetivo",
+                "siguienteActo": 4
+            },
+            {
+                "id": 1,
+                "descripcion": "No coger el kit de escalada",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_4\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dirigirse al objetivo",
+                "siguienteActo": 4
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_5\\acto5.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Infiltrarse provocando una distracción",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_5\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Buscar al objetivo",
+                "siguienteActo": 5
+            },
+            {
+                "id": 1,
+                "descripcion": "Disfrazarse de uno de los Guardias",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_5\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Buscar al objetivo",
+                "siguienteActo": 5
+            },
+            {
+                "id": 2,
+                "descripcion": "Decide escalar",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_5\\opcion3.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Buscar al objetivo",
+                "siguienteActo": 5
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_6\\acto6.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Persuadir al objetivo",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_6\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Terminar misión",
+                "siguienteActo": 6
+            },
+            {
+                "id": 1,
+                "descripcion": "Arremeter diréctamente",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_6\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Terminar misión",
+                "siguienteActo": 6
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_7\\acto7.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Curiosear",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_7\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Asomarse a la escena",
+                "siguienteActo": 7
+            },
+            {
+                "id": 1,
+                "descripcion": "No curiosear",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_7\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dejar pasar el tiempo",
+                "siguienteActo": 9
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_8\\acto8.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Intervenir",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_8\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dejar pasar el tiempo",
+                "siguienteActo": 8
+            },
+            {
+                "id": 1,
+                "descripcion": "No Intervenir",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_8\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Dejar pasar el tiempo",
+                "siguienteActo": 9
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_9\\acto9.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Sacar a Lady Casterly",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_9\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Vivir una vida feliz en Caliope...",
+                "siguienteActo": 0
+            },
+            {
+                "id": 1,
+                "descripcion": "Huir sin Lady Casterly",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_9\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Terminar con su redencion",
+                "siguienteActo": 0
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_10\\acto10.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Deshacerse de los Volgrimm",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_10\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Infiltrarse en la Mansion Volgrimm",
+                "siguienteActo": 10
+            },
+            {
+                "id": 1,
+                "descripcion": "Huir de Damescu",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_10\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Vivir toda la vida arrepentido de tu decision",
+                "siguienteActo": 0
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "ruta": "..\\..\\Archivos\\Historia_1\\Acto_11\\acto11.markdown",
+        "opciones": [
+            {
+                "id": 0,
+                "descripcion": "Atacar de frente",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_7\\opcion1.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Morir siendo comido por Adiris Volgrimm",
+                "siguienteActo": 0
+            },
+            {
+                "id": 1,
+                "descripcion": "Atacar en sigilo",
+                "ruta": "..\\..\\Archivos\\Historia_1\\Acto_7\\opcion2.markdown",
+                "tipo": "opcion",
+                "descripcionOpcion": "Morir descompuesto en el foso de la mansion Volgrimm",
+                "siguienteActo": 0
+            }
+        ]
+    }
+]

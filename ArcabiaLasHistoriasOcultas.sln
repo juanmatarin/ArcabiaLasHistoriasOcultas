@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcabiaLasHistoriasOcultas", "ArcabiaLasHistoriasOcultas\ArcabiaLasHistoriasOcultas.csproj", "{B57F742B-5CD2-4969-AE06-3760C5CEDECC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B57F742B-5CD2-4969-AE06-3760C5CEDECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57F742B-5CD2-4969-AE06-3760C5CEDECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57F742B-5CD2-4969-AE06-3760C5CEDECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57F742B-5CD2-4969-AE06-3760C5CEDECC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {809A22EC-925F-4E84-AD83-628AC24F826F}
+	EndGlobalSection
+EndGlobal

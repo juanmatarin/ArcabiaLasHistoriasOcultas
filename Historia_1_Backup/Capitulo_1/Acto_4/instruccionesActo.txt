@@ -1,0 +1,2 @@
+1=..\..\Archivos\Historia_1\Capitulo_1\Acto_4+Coger Kit de Escalada+OPCION:
+2=..\..\Archivos\Historia_1\Capitulo_1\Acto_4+No coger Kit de Escalada+OPCION

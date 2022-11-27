@@ -1,0 +1,2 @@
+1=..\..\Archivos\Historia_1\Capitulo_2\Acto_2.2\Opcion_1+Asaltarlos de frente+OPCION:
+2=..\..\Archivos\Historia_1\Capitulo_2\Acto_2.2\Opcion_1+Usar el sigilo+OPCION

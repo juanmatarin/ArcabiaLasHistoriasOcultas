@@ -1,0 +1,2 @@
+1=..\..\Archivos\Historia_1\Capitulo_2\Acto_2+Sacar a Lady Casterly+OPCION:
+2=..\..\Archivos\Historia_1\Capitulo_2\Acto_2+Huir sin Lady Casterly+OPCION
