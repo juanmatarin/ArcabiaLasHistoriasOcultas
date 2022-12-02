@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +23,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Iniciar_Sesion_Load(object sender, EventArgs e)
         {
-
+        
         }
 
         private void volverBTN_Click(object sender, EventArgs e)
@@ -34,7 +36,38 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void inisesBTN_Click(object sender, EventArgs e)
         {
+            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
 
+            //Si coinciden usuario y contraseña, sino mostramos error
+            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
+            {
+                MessageBox.Show("Has iniciado sesion");
+                this.Close();
+                Bienvenida_Conectado bienvenida = new Bienvenida_Conectado(padre,txtUsuario.Text);
+                bienvenida.Show();
+
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
+        }
+
+        private void usuarioTXTB_TextChanged(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+        }
+
+        private void contrasenaTXTB_TextChanged(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+        }
+
+        private void linkLabelCrearUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registrarse registrarse = new Registrarse(padre);
+            this.Close();
+            registrarse.Show();
         }
     }
 }
