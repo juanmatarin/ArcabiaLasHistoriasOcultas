@@ -28,33 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.usuarioTXTB = new System.Windows.Forms.TextBox();
-            this.contrasenaTXTB = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.usuarioLBL = new System.Windows.Forms.Label();
             this.contrasenaLBL = new System.Windows.Forms.Label();
             this.inisesBTN = new System.Windows.Forms.Button();
             this.volverBTN = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.linkLabelCrearUser = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
-            // usuarioTXTB
+            // txtUsuario
             // 
-            this.usuarioTXTB.Location = new System.Drawing.Point(137, 31);
-            this.usuarioTXTB.Name = "usuarioTXTB";
-            this.usuarioTXTB.Size = new System.Drawing.Size(212, 20);
-            this.usuarioTXTB.TabIndex = 0;
+            this.txtUsuario.Location = new System.Drawing.Point(137, 45);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(212, 20);
+            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.usuarioTXTB_TextChanged);
             // 
-            // contrasenaTXTB
+            // txtContraseña
             // 
-            this.contrasenaTXTB.Location = new System.Drawing.Point(137, 84);
-            this.contrasenaTXTB.Name = "contrasenaTXTB";
-            this.contrasenaTXTB.Size = new System.Drawing.Size(212, 20);
-            this.contrasenaTXTB.TabIndex = 1;
+            this.txtContraseña.Location = new System.Drawing.Point(137, 98);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(212, 20);
+            this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.contrasenaTXTB_TextChanged);
             // 
             // usuarioLBL
             // 
             this.usuarioLBL.AutoSize = true;
             this.usuarioLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuarioLBL.Location = new System.Drawing.Point(25, 26);
+            this.usuarioLBL.Location = new System.Drawing.Point(25, 40);
             this.usuarioLBL.Name = "usuarioLBL";
             this.usuarioLBL.Size = new System.Drawing.Size(74, 24);
             this.usuarioLBL.TabIndex = 2;
@@ -64,7 +69,7 @@
             // 
             this.contrasenaLBL.AutoSize = true;
             this.contrasenaLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contrasenaLBL.Location = new System.Drawing.Point(25, 80);
+            this.contrasenaLBL.Location = new System.Drawing.Point(25, 94);
             this.contrasenaLBL.Name = "contrasenaLBL";
             this.contrasenaLBL.Size = new System.Drawing.Size(106, 24);
             this.contrasenaLBL.TabIndex = 3;
@@ -72,7 +77,7 @@
             // 
             // inisesBTN
             // 
-            this.inisesBTN.Location = new System.Drawing.Point(29, 132);
+            this.inisesBTN.Location = new System.Drawing.Point(29, 174);
             this.inisesBTN.Name = "inisesBTN";
             this.inisesBTN.Size = new System.Drawing.Size(154, 41);
             this.inisesBTN.TabIndex = 4;
@@ -82,7 +87,7 @@
             // 
             // volverBTN
             // 
-            this.volverBTN.Location = new System.Drawing.Point(195, 132);
+            this.volverBTN.Location = new System.Drawing.Point(195, 174);
             this.volverBTN.Name = "volverBTN";
             this.volverBTN.Size = new System.Drawing.Size(154, 41);
             this.volverBTN.TabIndex = 5;
@@ -90,17 +95,43 @@
             this.volverBTN.UseVisualStyleBackColor = true;
             this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(94, 137);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(187, 20);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "Usuario y/o clave errónea";
+            this.lblError.Visible = false;
+            // 
+            // linkLabelCrearUser
+            // 
+            this.linkLabelCrearUser.AutoSize = true;
+            this.linkLabelCrearUser.Location = new System.Drawing.Point(12, 9);
+            this.linkLabelCrearUser.Name = "linkLabelCrearUser";
+            this.linkLabelCrearUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.linkLabelCrearUser.Size = new System.Drawing.Size(360, 13);
+            this.linkLabelCrearUser.TabIndex = 19;
+            this.linkLabelCrearUser.TabStop = true;
+            this.linkLabelCrearUser.Text = "En caso de no tener un usuario creado, pulsa aquí para registrar tu usuario";
+            this.linkLabelCrearUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCrearUser_LinkClicked);
+            // 
             // Iniciar_Sesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 185);
+            this.ClientSize = new System.Drawing.Size(405, 239);
+            this.Controls.Add(this.linkLabelCrearUser);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.volverBTN);
             this.Controls.Add(this.inisesBTN);
             this.Controls.Add(this.contrasenaLBL);
             this.Controls.Add(this.usuarioLBL);
-            this.Controls.Add(this.contrasenaTXTB);
-            this.Controls.Add(this.usuarioTXTB);
+            this.Controls.Add(this.txtContraseña);
+            this.Controls.Add(this.txtUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Iniciar_Sesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -113,11 +144,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox usuarioTXTB;
-        private System.Windows.Forms.TextBox contrasenaTXTB;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label usuarioLBL;
         private System.Windows.Forms.Label contrasenaLBL;
         private System.Windows.Forms.Button inisesBTN;
         private System.Windows.Forms.Button volverBTN;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.LinkLabel linkLabelCrearUser;
     }
 }
