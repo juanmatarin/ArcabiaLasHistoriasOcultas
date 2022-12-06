@@ -1,4 +1,4 @@
-﻿using ArcabiaLasHistoriasOcultas.Vistas.Varios;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
