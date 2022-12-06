@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.seleccionarBTN = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.PartidasLST = new System.Windows.Forms.ListBox();
+            this.volverBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // seleccionarBTN
             // 
-            this.seleccionarBTN.Location = new System.Drawing.Point(717, 448);
+            this.seleccionarBTN.Location = new System.Drawing.Point(567, 446);
             this.seleccionarBTN.Name = "seleccionarBTN";
             this.seleccionarBTN.Size = new System.Drawing.Size(144, 65);
             this.seleccionarBTN.TabIndex = 0;
@@ -42,27 +43,39 @@
             this.seleccionarBTN.UseVisualStyleBackColor = true;
             this.seleccionarBTN.Click += new System.EventHandler(this.seleccionarBTN_Click);
             // 
-            // listBox1
+            // PartidasLST
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 31;
-            this.listBox1.Location = new System.Drawing.Point(161, 76);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(700, 345);
-            this.listBox1.TabIndex = 1;
+            this.PartidasLST.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PartidasLST.FormattingEnabled = true;
+            this.PartidasLST.ItemHeight = 31;
+            this.PartidasLST.Location = new System.Drawing.Point(161, 76);
+            this.PartidasLST.Name = "PartidasLST";
+            this.PartidasLST.Size = new System.Drawing.Size(700, 345);
+            this.PartidasLST.TabIndex = 1;
+            // 
+            // volverBTN
+            // 
+            this.volverBTN.Location = new System.Drawing.Point(717, 446);
+            this.volverBTN.Name = "volverBTN";
+            this.volverBTN.Size = new System.Drawing.Size(144, 65);
+            this.volverBTN.TabIndex = 2;
+            this.volverBTN.Text = "Volver";
+            this.volverBTN.UseVisualStyleBackColor = true;
+            this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
             // Seleccion_Partidas_Guardadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 605);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.volverBTN);
+            this.Controls.Add(this.PartidasLST);
             this.Controls.Add(this.seleccionarBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Seleccion_Partidas_Guardadas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seleccion_Partidas_Guardadas";
+            this.Load += new System.EventHandler(this.Seleccion_Partidas_Guardadas_Load);
             this.ResumeLayout(false);
 
         }
@@ -70,6 +83,7 @@
         #endregion
 
         private System.Windows.Forms.Button seleccionarBTN;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox PartidasLST;
+        private System.Windows.Forms.Button volverBTN;
     }
 }

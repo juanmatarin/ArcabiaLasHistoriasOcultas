@@ -14,12 +14,18 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         public string tipo { get; set; }
         public string descripcionOpcion { get; set; }
         public int siguienteActo { get; set; }
+        public bool decisionCondicionante { get; set; }
+        public bool decisionElegida { get; set; }
+        public int decisionAConsiderarActo { get; set; }
+        public int decisionAConsiderarOpcion { get; set; }
+        public int opcionAMostrar { get; set; }
 
         public Opcion()
         {
         }
 
-        public Opcion(int id, string descripcion, string ruta, string tipo, string descripcionOpcion, int siguienteActo)
+        public Opcion(int id, string descripcion, string ruta, string tipo, string descripcionOpcion, 
+            int siguienteActo, bool decisionElegida, int decisionAConsiderarActo, int decisionAConsiderarOpcion, int opcionAMostrar)
         {
             this.id = id;
             this.descripcion = descripcion;
@@ -27,6 +33,10 @@ namespace ArcabiaLasHistoriasOcultas.Clases
             this.tipo = tipo;
             this.descripcionOpcion = descripcionOpcion;
             this.siguienteActo = siguienteActo;
+            this.decisionElegida = decisionElegida;
+            this.decisionAConsiderarActo = decisionAConsiderarActo;
+            this.decisionAConsiderarOpcion = decisionAConsiderarOpcion;
+            this.opcionAMostrar = opcionAMostrar;
         }
     }
 }

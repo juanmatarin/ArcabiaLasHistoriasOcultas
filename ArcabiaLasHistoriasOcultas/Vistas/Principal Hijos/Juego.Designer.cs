@@ -38,22 +38,22 @@
             // 
             // ventanaTexto
             // 
-            this.ventanaTexto.Location = new System.Drawing.Point(191, 40);
+            this.ventanaTexto.Location = new System.Drawing.Point(93, 44);
             this.ventanaTexto.MinimumSize = new System.Drawing.Size(20, 20);
             this.ventanaTexto.Name = "ventanaTexto";
-            this.ventanaTexto.Size = new System.Drawing.Size(616, 328);
+            this.ventanaTexto.Size = new System.Drawing.Size(963, 391);
             this.ventanaTexto.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(191, 384);
+            this.panel1.Location = new System.Drawing.Point(93, 443);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(435, 192);
+            this.panel1.Size = new System.Drawing.Size(782, 190);
             this.panel1.TabIndex = 1;
             // 
             // salirBTN
             // 
-            this.salirBTN.Location = new System.Drawing.Point(632, 533);
+            this.salirBTN.Location = new System.Drawing.Point(881, 590);
             this.salirBTN.Name = "salirBTN";
             this.salirBTN.Size = new System.Drawing.Size(175, 43);
             this.salirBTN.TabIndex = 5;
@@ -63,7 +63,7 @@
             // 
             // historiaBTN
             // 
-            this.historiaBTN.Location = new System.Drawing.Point(632, 484);
+            this.historiaBTN.Location = new System.Drawing.Point(881, 541);
             this.historiaBTN.Name = "historiaBTN";
             this.historiaBTN.Size = new System.Drawing.Size(175, 43);
             this.historiaBTN.TabIndex = 6;
@@ -72,27 +72,29 @@
             // 
             // cargarBTN
             // 
-            this.cargarBTN.Location = new System.Drawing.Point(632, 435);
+            this.cargarBTN.Location = new System.Drawing.Point(881, 492);
             this.cargarBTN.Name = "cargarBTN";
             this.cargarBTN.Size = new System.Drawing.Size(175, 43);
             this.cargarBTN.TabIndex = 7;
             this.cargarBTN.Text = "Cargar";
             this.cargarBTN.UseVisualStyleBackColor = true;
+            this.cargarBTN.Click += new System.EventHandler(this.cargarBTN_Click);
             // 
             // GuardarBTN
             // 
-            this.GuardarBTN.Location = new System.Drawing.Point(632, 384);
+            this.GuardarBTN.Location = new System.Drawing.Point(881, 441);
             this.GuardarBTN.Name = "GuardarBTN";
             this.GuardarBTN.Size = new System.Drawing.Size(175, 45);
             this.GuardarBTN.TabIndex = 8;
             this.GuardarBTN.Text = "Guardar";
             this.GuardarBTN.UseVisualStyleBackColor = true;
+            this.GuardarBTN.Click += new System.EventHandler(this.GuardarBTN_Click);
             // 
             // Juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 605);
+            this.ClientSize = new System.Drawing.Size(1198, 697);
             this.Controls.Add(this.GuardarBTN);
             this.Controls.Add(this.cargarBTN);
             this.Controls.Add(this.historiaBTN);
@@ -103,6 +105,7 @@
             this.Name = "Juego";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Juego";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Juego_FormClosing);
             this.Load += new System.EventHandler(this.Juego_Load);
             this.ResumeLayout(false);
 

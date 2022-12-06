@@ -21,7 +21,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void historias_sahir_Click(object sender, EventArgs e)
         {
-            Juego juego = new Juego(padre, "Historia_1", 0);
+            Juego juego = new Juego(padre, historias_sahir_btn.Tag + "", 0, true, @"..\..\Archivos\Historias\" + historias_sahir_btn.Tag);
             juego.MdiParent = padre;
             juego.Show();
             this.Close();

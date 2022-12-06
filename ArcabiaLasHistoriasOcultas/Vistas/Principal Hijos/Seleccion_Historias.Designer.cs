@@ -37,6 +37,7 @@
             this.historias_sahir_btn.Name = "historias_sahir_btn";
             this.historias_sahir_btn.Size = new System.Drawing.Size(88, 160);
             this.historias_sahir_btn.TabIndex = 0;
+            this.historias_sahir_btn.Tag = "Historia_1";
             this.historias_sahir_btn.Text = "Sahir";
             this.historias_sahir_btn.UseVisualStyleBackColor = true;
             this.historias_sahir_btn.Click += new System.EventHandler(this.historias_sahir_Click);

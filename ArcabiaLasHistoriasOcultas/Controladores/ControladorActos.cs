@@ -14,16 +14,17 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorActos
     {
-        public static List<Acto> getListaActos(string historia)
+        public static List<Acto> getListaActos(string ruta)
         {
             List<Acto> listaActos = new List<Acto>();
-            string ruta = @"..\..\Archivos\" + historia + @"\instrucciones.json";
+            ruta += @"\instrucciones.json"; //Siempre se añade el nombre del archivo a la ruta recibida,
+                                            //puesto que puede ser una ruta creada dinámicamente por el programa donde se albergan los cambios
             try
             {
-                if (File.Exists(ruta))
+                if (File.Exists(ruta)) //Si el archivo existe
                 {
-                    string JsonString = File.ReadAllText(ruta);
-                    listaActos = JsonSerializer.Deserialize<List<Acto>>(JsonString);
+                    var contenido = File.ReadAllBytes(ruta);
+                    listaActos = JsonSerializer.Deserialize<List<Acto>>(contenido);
                 }
             }
             catch (Exception e)
@@ -33,12 +34,35 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaActos;
         }
 
+        public static bool guardarListaActos(List<Acto> listaActos, string ruta)
+        {
+            bool guardar = false;
+            
+
+            try
+            {
+                if (!File.Exists(ruta))
+                {
+                    ruta += @"\instrucciones.json";
+                }
+                var contenido = JsonSerializer.SerializeToUtf8Bytes(listaActos);
+                File.WriteAllBytes(ruta, contenido);
+                guardar = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error leyendo json " + e.Message);
+            }
+            return guardar;
+        }
         public static string getTexto(string ruta)
         {
-            string texto = File.ReadAllText(ruta);
-            var documento = Markdown.Parse(texto);
-            var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
-            return Markdown.ToHtml(texto, pipeline);
+            string texto = ""; 
+            if (!ruta.Equals("[FIN]"))
+            {
+                texto = File.ReadAllText(ruta);
+            }
+            return texto;
         }
     }
 }
