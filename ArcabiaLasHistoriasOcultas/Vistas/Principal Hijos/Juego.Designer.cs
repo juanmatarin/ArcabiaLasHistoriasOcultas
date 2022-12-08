@@ -31,7 +31,6 @@
             this.ventanaTexto = new System.Windows.Forms.WebBrowser();
             this.panel1 = new System.Windows.Forms.Panel();
             this.salirBTN = new System.Windows.Forms.Button();
-            this.historiaBTN = new System.Windows.Forms.Button();
             this.cargarBTN = new System.Windows.Forms.Button();
             this.GuardarBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,22 +52,13 @@
             // 
             // salirBTN
             // 
-            this.salirBTN.Location = new System.Drawing.Point(881, 590);
+            this.salirBTN.Location = new System.Drawing.Point(881, 541);
             this.salirBTN.Name = "salirBTN";
             this.salirBTN.Size = new System.Drawing.Size(175, 43);
             this.salirBTN.TabIndex = 5;
             this.salirBTN.Text = "Salir al Menú principal";
             this.salirBTN.UseVisualStyleBackColor = true;
             this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
-            // 
-            // historiaBTN
-            // 
-            this.historiaBTN.Location = new System.Drawing.Point(881, 541);
-            this.historiaBTN.Name = "historiaBTN";
-            this.historiaBTN.Size = new System.Drawing.Size(175, 43);
-            this.historiaBTN.TabIndex = 6;
-            this.historiaBTN.Text = "Historia";
-            this.historiaBTN.UseVisualStyleBackColor = true;
             // 
             // cargarBTN
             // 
@@ -97,7 +87,6 @@
             this.ClientSize = new System.Drawing.Size(1198, 697);
             this.Controls.Add(this.GuardarBTN);
             this.Controls.Add(this.cargarBTN);
-            this.Controls.Add(this.historiaBTN);
             this.Controls.Add(this.salirBTN);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ventanaTexto);
@@ -116,7 +105,6 @@
         private System.Windows.Forms.WebBrowser ventanaTexto;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button salirBTN;
-        private System.Windows.Forms.Button historiaBTN;
         private System.Windows.Forms.Button cargarBTN;
         private System.Windows.Forms.Button GuardarBTN;
     }
