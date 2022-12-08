@@ -31,11 +31,12 @@
             this.seleccionarBTN = new System.Windows.Forms.Button();
             this.PartidasLST = new System.Windows.Forms.ListBox();
             this.volverBTN = new System.Windows.Forms.Button();
+            this.borrarBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // seleccionarBTN
             // 
-            this.seleccionarBTN.Location = new System.Drawing.Point(567, 446);
+            this.seleccionarBTN.Location = new System.Drawing.Point(417, 446);
             this.seleccionarBTN.Name = "seleccionarBTN";
             this.seleccionarBTN.Size = new System.Drawing.Size(144, 65);
             this.seleccionarBTN.TabIndex = 0;
@@ -63,11 +64,22 @@
             this.volverBTN.UseVisualStyleBackColor = true;
             this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
+            // borrarBTN
+            // 
+            this.borrarBTN.Location = new System.Drawing.Point(567, 446);
+            this.borrarBTN.Name = "borrarBTN";
+            this.borrarBTN.Size = new System.Drawing.Size(144, 65);
+            this.borrarBTN.TabIndex = 3;
+            this.borrarBTN.Text = "Borrar";
+            this.borrarBTN.UseVisualStyleBackColor = true;
+            this.borrarBTN.Click += new System.EventHandler(this.borrarBTN_Click);
+            // 
             // Seleccion_Partidas_Guardadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 605);
+            this.Controls.Add(this.borrarBTN);
             this.Controls.Add(this.volverBTN);
             this.Controls.Add(this.PartidasLST);
             this.Controls.Add(this.seleccionarBTN);
@@ -85,5 +97,6 @@
         private System.Windows.Forms.Button seleccionarBTN;
         private System.Windows.Forms.ListBox PartidasLST;
         private System.Windows.Forms.Button volverBTN;
+        private System.Windows.Forms.Button borrarBTN;
     }
 }

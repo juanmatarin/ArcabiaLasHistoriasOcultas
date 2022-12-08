@@ -27,13 +27,19 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void Seleccion_Partidas_Guardadas_Load(object sender, EventArgs e)
         {
-            listaPartidas = ControladorPartidas.getPartidas();
+            
             listaInterfaces = Application.OpenForms;
+            cargarLista();
+            salir = false;
+            index = 0;
+        }
+
+        public void cargarLista()
+        {
+            listaPartidas = ControladorPartidas.getPartidas();
             listaPartidas.Sort((x, y) => DateTime.Compare(x.fechaGuardado, y.fechaGuardado));
             PartidasLST.DataSource = listaPartidas;
             PartidasLST.DisplayMember = "nombreCompleto";
-            salir = false;
-            index = 0;
         }
 
         private void seleccionarBTN_Click(object sender, EventArgs e)
@@ -47,12 +53,14 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     {
                         salir = true;
                         listaInterfaces[index].Close(); //Si la encuentra sale del bucle y cierra la interfaz encontrada
+                        index = 0;
                     }
                     else
                     {
                         if (index == listaInterfaces.Count)
                         {
                             salir = true; //Si llega al tope de la lista, sale del bucle
+                            salir = true;
                         }
                         else
                         {
@@ -67,6 +75,51 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             juego.MdiParent = padre;
             juego.Show();
             this.Close(); //Abre la pestaña nueva y se cierra la ventana
+        }
+
+        private void borrarBTN_Click(object sender, EventArgs e)
+        {
+            if (!partidaEmpezada)
+            {
+                if (MessageBox.Show("¿Está seguro que quiere borrar esta partida? Esta acción no se puede deshacer", "Arcabia: Las Historias Ocultas",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Partida elegida = (Partida)PartidasLST.SelectedValue;
+                    while (!salir)
+                    {
+                        if (listaPartidas[index].id == elegida.id)
+                        {
+                            listaPartidas.Remove(listaPartidas[index]);
+                            ControladorPartidas.guardarPartidas(listaPartidas);
+                            MessageBox.Show("Partida borrada con éxito");
+                            cargarLista();
+                            salir = true;
+                            index = 0;
+                            if (listaPartidas.Count == 0)
+                            {
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            if (index == listaInterfaces.Count)
+                            {
+                                salir = true; //Si llega al tope de la lista, sale del bucle
+                                index = 0;
+                            }
+                            else
+                            {
+                                ++index; //Si no, se sigue buscando en la lista
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pueden eliminar partidas cuando hay una en transcurso. Accede a esta opción desde el menú principal");
+            }
+            
         }
 
         private void volverBTN_Click(object sender, EventArgs e)

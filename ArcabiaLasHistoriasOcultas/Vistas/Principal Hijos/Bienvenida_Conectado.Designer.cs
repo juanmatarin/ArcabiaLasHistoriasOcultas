@@ -34,12 +34,12 @@
             this.nuevaPartidaBTN = new System.Windows.Forms.Button();
             this.titulo = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.labelBienvenido = new System.Windows.Forms.Label();
             this.toolStripLblUsuario = new System.Windows.Forms.ToolStripSplitButton();
             this.tuPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.labelBienvenido = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,23 +101,6 @@
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // labelBienvenido
-            // 
-            this.labelBienvenido.AutoSize = true;
-            this.labelBienvenido.Location = new System.Drawing.Point(264, 70);
-            this.labelBienvenido.Name = "labelBienvenido";
-            this.labelBienvenido.Size = new System.Drawing.Size(0, 13);
-            this.labelBienvenido.TabIndex = 14;
-            // 
             // toolStripLblUsuario
             // 
             this.toolStripLblUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -145,6 +128,23 @@
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.signOutToolStripMenuItem.Text = "Sign out";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // labelBienvenido
+            // 
+            this.labelBienvenido.AutoSize = true;
+            this.labelBienvenido.Location = new System.Drawing.Point(264, 70);
+            this.labelBienvenido.Name = "labelBienvenido";
+            this.labelBienvenido.Size = new System.Drawing.Size(0, 13);
+            this.labelBienvenido.TabIndex = 14;
+            // 
             // Bienvenida_Conectado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +157,7 @@
             this.Controls.Add(this.continuarPartidaBTN);
             this.Controls.Add(this.nuevaPartidaBTN);
             this.Controls.Add(this.titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Bienvenida_Conectado";
             this.Text = "Bienvenido_Conectado";
             this.Load += new System.EventHandler(this.Bienvenida_Conectado_Load);

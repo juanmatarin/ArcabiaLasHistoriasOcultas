@@ -64,9 +64,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void cargarBTN_Click(object sender, EventArgs e)
         {
-            Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, true); //True es para determinar que se cambia de partida en medio de otra.
-            seleccion_Partidas_Guardadas.MdiParent = padre;
-            seleccion_Partidas_Guardadas.Show(); //Carga la interfaz dentro del MdiParent
+            if (listaPartidas.Count != 0)
+            {
+                Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, true); //True es para determinar que se cambia de partida en medio de otra.
+                seleccion_Partidas_Guardadas.MdiParent = padre;
+                seleccion_Partidas_Guardadas.Show(); //Carga la interfaz dentro del MdiParent
+            }
+            else
+            {
+                MessageBox.Show("No hay partidas guardadas.");
+            }
         }
         private void GuardarBTN_Click(object sender, EventArgs e)
         {
@@ -84,6 +91,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 {
                     MessageBox.Show("Partida guardada con éxito");
                     haGuardado = true; //Se confirma que se ha guardado la partida.
+                    listaPartidas = ControladorPartidas.getPartidas();
                 }
                 else
                 {
