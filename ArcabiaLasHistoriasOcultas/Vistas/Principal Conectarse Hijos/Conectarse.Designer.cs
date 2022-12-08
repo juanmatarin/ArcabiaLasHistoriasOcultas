@@ -75,6 +75,7 @@
             this.Name = "Conectarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conectarse";
+            this.Load += new System.EventHandler(this.Conectarse_Load);
             this.ResumeLayout(false);
 
         }

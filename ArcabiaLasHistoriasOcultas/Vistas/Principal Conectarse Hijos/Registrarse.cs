@@ -41,13 +41,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void registrarseBTN_Click(object sender, EventArgs e)
         {
-            /*
+            
             Usuario nuevoUsuario = new Usuario(txtNombre.Text, txtApellidos.Text, txtUsername.Text, dtpFechaNacimiento.Value, txtCorreo.Text, txtContraseña.Text);
             if (ValidarDatos() && ControladorUsuarios.AñadirUsuario(nuevoUsuario))
             {
                 MessageBox.Show("Usuario registrado");
                 this.Close();
-            }*/
+            }
         }   
         
        
@@ -124,5 +124,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             return noHayError;
         }
 
+        private void Registrarse_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

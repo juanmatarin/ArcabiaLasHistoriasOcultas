@@ -40,5 +40,10 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.Close();
             padre.Close();
         }
+
+        private void Conectarse_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
