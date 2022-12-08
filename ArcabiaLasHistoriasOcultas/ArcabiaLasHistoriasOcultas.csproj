@@ -183,6 +183,7 @@
     <Compile Include="Clases\Partida.cs" />
     <Compile Include="Controladores\ControladorActos.cs" />
     <Compile Include="Controladores\ControladorBBDD.cs" />
+    <Compile Include="Controladores\ControladorHistorias.cs" />
     <Compile Include="Controladores\ControladorPartidas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

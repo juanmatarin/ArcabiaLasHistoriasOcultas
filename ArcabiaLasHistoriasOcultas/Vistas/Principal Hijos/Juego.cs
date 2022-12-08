@@ -23,17 +23,17 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         List<Acto> listaActos;
         List<Partida> listaPartidas;
         int ejeY, numeroActo;
-        string historia, rutaPartida;
+        string rutaPartida, historia;
         bool haSeleccionadoOpcion, partidaNueva, haGuardado;
         public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida)
         {
             InitializeComponent();
             this.padre = padre;
             this.ejeY = 27;
-            this.historia = historia;
             this.numeroActo = numeroActo;
             this.partidaNueva = partidaNueva;
             this.rutaPartida = rutaPartida;
+            this.historia = historia;
         }
         private void Juego_Load(object sender, EventArgs e)
         {
@@ -43,15 +43,63 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             haSeleccionadoOpcion = false;
             if (partidaNueva)
             {
-                haGuardado = false;
+                haGuardado = false; //Si la partida es nueva se marca el guardado como false (Para que se tenga en cuenta si se guarda o no)
             }
             else
             {
-                haGuardado = true;
+                haGuardado = true; //Si la partida no es nueva se marca el guardado como true (Ya que existe un archivo de guardado)
             }
             cargarActo();
         }
+        private void Juego_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!haGuardado) //Si no ha guardado la partida, sale una ventana preguntando si está seguro de que desea salir de la partida.
+            {
+                if (MessageBox.Show("No se ha guardado el progreso. ¿Continuar?", "Arcabia: Las Historias Ocultas",
+                    MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+        private void cargarBTN_Click(object sender, EventArgs e)
+        {
+            Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, true); //True es para determinar que se cambia de partida en medio de otra.
+            seleccion_Partidas_Guardadas.MdiParent = padre;
+            seleccion_Partidas_Guardadas.Show(); //Carga la interfaz dentro del MdiParent
+        }
+        private void GuardarBTN_Click(object sender, EventArgs e)
+        {
+            Partida partidaGuardada = new Partida(listaPartidas.Count, historia, numeroActo, rutaPartida);
+            if (partidaNueva) //Si la partida es una comenzada de nuevo...
+            {
+                partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.
 
+            }
+            listaPartidas.Add(partidaGuardada);
+
+            if (ControladorPartidas.guardarPartidas(listaPartidas)) //Comprueba si no hay ningún fallo al guardar
+            {
+                if (ControladorActos.guardarListaActos(listaActos, partidaGuardada.rutaInstrucciones))
+                {
+                    MessageBox.Show("Partida guardada con éxito");
+                    haGuardado = true; //Se confirma que se ha guardado la partida.
+                }
+                else
+                {
+                    MessageBox.Show("ERROR al guardar el json con las decisiones.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ERROR al guardar en el json de partidas.");
+            }
+
+        }
+        private void salirBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void cargarActo() 
         {
             borrarOpciones(); //Se borran los botones del panel
@@ -62,7 +110,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Se añaden las acciones a cada botón.
             }
         }
-
         private void cargarOpcion(Opcion op) //Esto se carga en caso de que un acto tenga varias opciones.
         {
             List<Opcion> aux = new List<Opcion>(); //Se crea una lista auxiliar.
@@ -75,14 +122,20 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Acciones para cada botón.
             }
         }
-
         private void cargarOpcionNoValida(int opcionAMostrar, int opcionAOcultar)
         {
             Opcion op = listaActos[numeroActo].opciones[opcionAMostrar]; //Se carga la opción que se debe de mostrar el texto
             ventanaTexto.DocumentText = ControladorActos.getTexto(op.ruta); //Se carga en el webBrowser
             borrarOpcionIndividual(opcionAOcultar); //Se borra la opción ya elegida
         }
-
+        private void borrarOpciones()
+        {
+            foreach (Button btn in listaOpciones) //Se borran todos los botones.
+            {
+                panel1.Controls.Remove(btn);
+            }
+            ejeY = 27; //Se pone el ejeY a la posición original.
+        }
         private void borrarOpcionIndividual(int opcionAOcultar)
         {
             foreach (Button btn in listaOpciones)
@@ -93,7 +146,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 }
             }
         }
-
         private void accionBoton(object sender, EventArgs e, Opcion op)
         {
             
@@ -153,7 +205,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 
             }
         }
-
         private void crearOpcíones(List<Opcion> opciones)
         {
             string descripcion;
@@ -184,66 +235,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 }
             }
         }
-
-        private void Juego_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!haGuardado) //Si no ha guardado la partida, sale una ventana preguntando si está seguro de que desea salir de la partida.
-            {
-                if (MessageBox.Show("No se ha guardado el progreso. ¿Continuar?", "Arcabia: Las Historias Ocultas",
-                    MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
-        private void borrarOpciones()
-        {
-            foreach (Button btn in listaOpciones) //Se borran todos los botones.
-            {
-                panel1.Controls.Remove(btn);
-            }
-            ejeY = 27; //Se pone el ejeY a la posición original.
-        }
-
-        private void cargarBTN_Click(object sender, EventArgs e)
-        {
-            Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, true); //True es para determinar que se cambia de partida en medio de otra.
-            seleccion_Partidas_Guardadas.MdiParent = padre;
-            seleccion_Partidas_Guardadas.Show(); //Carga la interfaz dentro del MdiParent
-        }
-        private void GuardarBTN_Click(object sender, EventArgs e)
-        {
-            Partida partidaGuardada = new Partida(listaPartidas.Count, historia, numeroActo, rutaPartida);
-            if (partidaNueva) //Si la partida es una comenzada de nuevo...
-            {
-                partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.
-
-            }
-            listaPartidas.Add(partidaGuardada);
-            
-            if (ControladorPartidas.guardarPartidas(listaPartidas)) //Comprueba si no hay ningún fallo al guardar
-            {
-                if (ControladorActos.guardarListaActos(listaActos,partidaGuardada.rutaInstrucciones))
-                {
-                    MessageBox.Show("Partida guardada con éxito");
-                    haGuardado = true; //Se confirma que se ha guardado la partida.
-                }
-                else
-                {
-                    MessageBox.Show("ERROR al guardar el json con las decisiones.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("ERROR al guardar en el json de partidas.");
-            }
-            
-        }
-
-        private void salirBTN_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }

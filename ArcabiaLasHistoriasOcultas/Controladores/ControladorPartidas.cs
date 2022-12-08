@@ -20,8 +20,8 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             {
                 if (File.Exists(ruta))
                 {
-                    string JsonString = File.ReadAllText(ruta);
-                    listaPartidas = JsonSerializer.Deserialize<List<Partida>>(JsonString);
+                    var contenido = File.ReadAllBytes(ruta);
+                    listaPartidas = JsonSerializer.Deserialize<List<Partida>>(contenido);
                 }
             }
             catch (Exception e)
@@ -39,8 +39,8 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             {
                 if (File.Exists(ruta))
                 {
-                    string JsonString = JsonSerializer.Serialize(listaPartidas);
-                    File.WriteAllText(ruta, JsonString);
+                    var contenido = JsonSerializer.SerializeToUtf8Bytes(listaPartidas);
+                    File.WriteAllBytes(ruta, contenido);
                     guardar = true;
                 }
             }

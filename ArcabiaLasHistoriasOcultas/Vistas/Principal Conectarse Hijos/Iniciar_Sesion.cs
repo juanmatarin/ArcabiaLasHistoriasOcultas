@@ -39,7 +39,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
 
             //Si coinciden usuario y contraseña, sino mostramos error
-            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
+           /* if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
             {
                 MessageBox.Show("Has iniciado sesion");
                 this.Close();
@@ -50,7 +50,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             else
             {
                 lblError.Visible = true;
-            }
+            }*/
         }
 
         private void usuarioTXTB_TextChanged(object sender, EventArgs e)

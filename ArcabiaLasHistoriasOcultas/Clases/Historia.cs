@@ -10,6 +10,5 @@ namespace ArcabiaLasHistoriasOcultas.Clases
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public List<Acto> actos { get; set; }
     }
 }
