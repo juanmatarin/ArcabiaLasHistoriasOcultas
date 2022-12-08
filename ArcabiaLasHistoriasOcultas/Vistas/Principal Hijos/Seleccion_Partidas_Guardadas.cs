@@ -60,7 +60,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                         if (index == listaInterfaces.Count)
                         {
                             salir = true; //Si llega al tope de la lista, sale del bucle
-                            salir = true;
+                            index = 0;
                         }
                         else
                         {
