@@ -2,6 +2,7 @@
 using ArcabiaLasHistoriasOcultas.Controladores;
 using Gremlin.Net.Process.Traversal;
 using Markdig;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,6 +53,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
             cargarActo();
         }
+
         private void Juego_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!haGuardado) //Si no ha guardado la partida, sale una ventana preguntando si está seguro de que desea salir de la partida.
@@ -136,6 +139,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             ventanaTexto.DocumentText = ControladorActos.getTexto(op.ruta); //Se carga en el webBrowser
             borrarOpcionIndividual(opcionAOcultar); //Se borra la opción ya elegida
         }
+
         private void borrarOpciones()
         {
             foreach (Button btn in listaOpciones) //Se borran todos los botones.
