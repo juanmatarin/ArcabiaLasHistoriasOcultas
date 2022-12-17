@@ -183,6 +183,7 @@
     <Compile Include="Clases\Partida.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Controladores\ControladorActos.cs" />
+    <Compile Include="Controladores\ControladorBaseDeDatos.cs" />
     <Compile Include="Controladores\ControladorHistorias.cs" />
     <Compile Include="Controladores\ControladorPartidas.cs" />
     <Compile Include="Controladores\ControladorUsuarios.cs" />

@@ -41,7 +41,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                     comando.Parameters.AddWithValue("@username", usuario.Username);
                     comando.Parameters.AddWithValue("@fecha_nacimiento", usuario.Fecha_Nacimiento);
                     comando.Parameters.AddWithValue("@correo", usuario.Correo);
-                    comando.Parameters.AddWithValue("@contraseña", usuario.Contraseña);
+                    comando.Parameters.AddWithValue("@contraseña", usuario.Contrasena);
 
                     comando.Prepare();
                     MySqlDataAdapter adaptador = new MySqlDataAdapter();

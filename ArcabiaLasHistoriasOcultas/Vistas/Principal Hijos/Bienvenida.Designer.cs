@@ -34,6 +34,13 @@
             this.cargarPartidaBTN = new System.Windows.Forms.Button();
             this.salirBTN = new System.Windows.Forms.Button();
             this.conectarseBTN = new System.Windows.Forms.Button();
+            this.usuarioConectado = new System.Windows.Forms.ToolStrip();
+            this.toolStripLblUsuario = new System.Windows.Forms.ToolStripSplitButton();
+            this.tuPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.usuarioConectado.SuspendLayout();
             this.SuspendLayout();
             // 
             // titulo
@@ -96,12 +103,61 @@
             this.conectarseBTN.UseVisualStyleBackColor = true;
             this.conectarseBTN.Click += new System.EventHandler(this.conectarseBTN_Click);
             // 
+            // usuarioConectado
+            // 
+            this.usuarioConectado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLblUsuario,
+            this.toolStripButton1});
+            this.usuarioConectado.Location = new System.Drawing.Point(0, 0);
+            this.usuarioConectado.Name = "usuarioConectado";
+            this.usuarioConectado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.usuarioConectado.Size = new System.Drawing.Size(1036, 25);
+            this.usuarioConectado.TabIndex = 14;
+            this.usuarioConectado.Text = "toolStrip1";
+            // 
+            // toolStripLblUsuario
+            // 
+            this.toolStripLblUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tuPerfilToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.signOutToolStripMenuItem});
+            this.toolStripLblUsuario.Name = "toolStripLblUsuario";
+            this.toolStripLblUsuario.Size = new System.Drawing.Size(102, 22);
+            this.toolStripLblUsuario.Text = "toolStripLabel1";
+            // 
+            // tuPerfilToolStripMenuItem
+            // 
+            this.tuPerfilToolStripMenuItem.Name = "tuPerfilToolStripMenuItem";
+            this.tuPerfilToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.tuPerfilToolStripMenuItem.Text = "Tu perfil";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.signOutToolStripMenuItem.Text = "Sign out";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
             // Bienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 605);
             this.ControlBox = false;
+            this.Controls.Add(this.usuarioConectado);
             this.Controls.Add(this.conectarseBTN);
             this.Controls.Add(this.salirBTN);
             this.Controls.Add(this.cargarPartidaBTN);
@@ -114,6 +170,8 @@
             this.Text = "Bienvenida";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bienvenida_FormClosing);
             this.Load += new System.EventHandler(this.Bienvenida_Load);
+            this.usuarioConectado.ResumeLayout(false);
+            this.usuarioConectado.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +185,11 @@
         private System.Windows.Forms.Button cargarPartidaBTN;
         private System.Windows.Forms.Button salirBTN;
         private System.Windows.Forms.Button conectarseBTN;
+        private System.Windows.Forms.ToolStrip usuarioConectado;
+        private System.Windows.Forms.ToolStripSplitButton toolStripLblUsuario;
+        private System.Windows.Forms.ToolStripMenuItem tuPerfilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }

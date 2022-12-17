@@ -24,7 +24,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Bienvenida_Load(object sender, EventArgs e)
         {
-            
+            usuarioConectado.Visible = false;
         }
 
         private void nuevaPartidaBTN_Click(object sender, EventArgs e)
@@ -73,8 +73,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void conectarseBTN_Click(object sender, EventArgs e)
         {
-            Principal_Conectarse conectarse = new Principal_Conectarse();
-            conectarse.Show();
+            if (ControladorBaseDeDatos.comprobarConexión())
+            {
+                Principal_Conectarse conectarse = new Principal_Conectarse();
+                conectarse.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error al conectarse a la Base de Datos.", "Arcabia: Las Historias Ocultas");
+            }
+            
         }
 
         private void salirBTN_Click(object sender, EventArgs e)

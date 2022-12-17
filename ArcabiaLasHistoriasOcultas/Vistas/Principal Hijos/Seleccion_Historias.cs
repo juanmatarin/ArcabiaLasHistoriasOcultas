@@ -26,7 +26,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Seleccion_Historias_Load(object sender, EventArgs e)
         {
-            listaHistorias = ControladorHistorias.getPartidas();
+            listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
             barraLateral.Value = panel.VerticalScroll.Value;
             barraLateral.Minimum = panel.VerticalScroll.Minimum;
