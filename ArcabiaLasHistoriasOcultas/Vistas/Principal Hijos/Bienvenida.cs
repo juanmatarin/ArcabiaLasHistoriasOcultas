@@ -1,5 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Bienvenida_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = Resources.Título_de_inicio;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.BackColor = Color.Transparent;
             usuarioConectado.Visible = false;
         }
 

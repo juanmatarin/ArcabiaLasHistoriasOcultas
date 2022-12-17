@@ -1,5 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void Seleccion_Partidas_Guardadas_Load(object sender, EventArgs e)
         {
-            
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             listaInterfaces = Application.OpenForms;
             cargarLista();
             salir = false;

@@ -34,23 +34,23 @@
             // 
             // panel
             // 
-            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Location = new System.Drawing.Point(2, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1016, 605);
+            this.panel.Size = new System.Drawing.Size(626, 423);
             this.panel.TabIndex = 0;
             // 
             // barraLateral
             // 
-            this.barraLateral.Location = new System.Drawing.Point(1019, 0);
+            this.barraLateral.Location = new System.Drawing.Point(631, 0);
             this.barraLateral.Name = "barraLateral";
-            this.barraLateral.Size = new System.Drawing.Size(19, 605);
+            this.barraLateral.Size = new System.Drawing.Size(19, 423);
             this.barraLateral.TabIndex = 0;
             // 
             // Seleccion_Historias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 605);
+            this.ClientSize = new System.Drawing.Size(649, 423);
             this.Controls.Add(this.barraLateral);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

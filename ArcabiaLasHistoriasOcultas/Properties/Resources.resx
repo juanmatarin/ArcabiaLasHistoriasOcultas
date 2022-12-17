@@ -121,4 +121,16 @@
   <data name="fotoUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\fotoUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FondoVentanas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\FondoVentanas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FondoListas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\FondoListas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Título de inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Título de inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

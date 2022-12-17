@@ -1,5 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Properties;
 using Gremlin.Net.Process.Traversal;
 using Markdig;
 using Microsoft.Win32;
@@ -39,6 +40,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void Juego_Load(object sender, EventArgs e)
         {
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             listaActos = ControladorActos.getListaActos(rutaPartida);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
