@@ -40,8 +40,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void Juego_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            apilicarFondos();
             listaActos = ControladorActos.getListaActos(rutaPartida);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
@@ -55,6 +54,14 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 haGuardado = true; //Si la partida no es nueva se marca el guardado como true (Ya que existe un archivo de guardado)
             }
             cargarActo();
+        }
+
+        private void apilicarFondos()
+        {
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.BackgroundImage = Resources.FondoListas;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void Juego_FormClosing(object sender, FormClosingEventArgs e)
@@ -238,7 +245,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
                     Button opcion = new Button();
                     panel1.Controls.Add(opcion);
-                    opcion.Location = new System.Drawing.Point(137, ejeY); //ejeY es una variable ya que se irá sumando según se vayan creando botones.
+                    opcion.Location = new System.Drawing.Point((panel1.Width * 40)/100, ejeY); //ejeY es una variable ya que se irá sumando según se vayan creando botones.
                     opcion.Name = op.id + "";
                     opcion.Size = new System.Drawing.Size(113, 44);
                     opcion.TabIndex = 9;

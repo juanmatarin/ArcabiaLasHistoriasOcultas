@@ -45,8 +45,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             barraLateral.Maximum = panel.VerticalScroll.Maximum;
             panel.ControlAdded += Panel_ControlAdded;
             barraLateral.Scroll += BarraLateral_Scroll;
-            ejeX = (this.Size.Width * 60) / 100;
-            ejeY = (this.Size.Height * 60) / 100;
+            ejeX = (panel.Size.Width * 60) / 100;
+            ejeY = (panel.Size.Height * 60) / 100;
         }
 
         private void aplicarFondos()

@@ -34,16 +34,16 @@
             // 
             // panel
             // 
-            this.panel.Location = new System.Drawing.Point(2, 0);
+            this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(626, 423);
+            this.panel.Size = new System.Drawing.Size(606, 399);
             this.panel.TabIndex = 0;
             // 
             // barraLateral
             // 
-            this.barraLateral.Location = new System.Drawing.Point(631, 0);
+            this.barraLateral.Location = new System.Drawing.Point(621, 12);
             this.barraLateral.Name = "barraLateral";
-            this.barraLateral.Size = new System.Drawing.Size(19, 423);
+            this.barraLateral.Size = new System.Drawing.Size(19, 399);
             this.barraLateral.TabIndex = 0;
             // 
             // Seleccion_Historias
