@@ -28,7 +28,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         private void Seleccion_Historias_Load(object sender, EventArgs e)
         {
             aplicarFondos();
-            ajustarBarraConPanel();
             listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
             cargarBotones();
@@ -38,33 +37,12 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
-        private void ajustarBarraConPanel()
-        {
-            barraLateral.Value = panel.VerticalScroll.Value;
-            barraLateral.Minimum = panel.VerticalScroll.Minimum;
-            barraLateral.Maximum = panel.VerticalScroll.Maximum;
-            panel.ControlAdded += Panel_ControlAdded;
-            barraLateral.Scroll += BarraLateral_Scroll;
-            ejeX = (panel.Size.Width * 60) / 100;
-            ejeY = (panel.Size.Height * 60) / 100;
-        }
-
         private void aplicarFondos()
         {
             this.BackgroundImage = Resources.FondoVentanas;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            panel.BackgroundImage = Resources.FondoListas;
+            panel.BackgroundImage = Resources.FondoListas2;
             panel.BackgroundImageLayout = ImageLayout.Stretch;
-        }
-
-        private void BarraLateral_Scroll(object sender, ScrollEventArgs e)
-        {
-            barraLateral.Value = panel.VerticalScroll.Value;
-        }
-
-        private void Panel_ControlAdded(object sender, ControlEventArgs e)
-        {
-            barraLateral.Maximum = panel.VerticalScroll.Maximum;
         }
 
         private void cargarBotones()
@@ -75,16 +53,12 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 panel.Controls.Add(botonHistoria);
                 botonHistoria.Location = new System.Drawing.Point(ejeX, ejeY);
                 botonHistoria.Name = historia.id + "";
-                botonHistoria.Size = new System.Drawing.Size(88, 100);
+                botonHistoria.Size = new System.Drawing.Size(200, 300);
                 botonHistoria.TabIndex = 0;
                 botonHistoria.Tag = "Historia_" + (historia.id + 1);
                 botonHistoria.Text = historia.nombre;
                 botonHistoria.UseVisualStyleBackColor = true;
-                ejeX += 60;
-                if (ejeX > (this.Size.Width * 80) / 100)
-                {
-                    ejeX = 100;
-                }
+                botonHistoria.Anchor = AnchorStyles.Right;
                 listaOpciones.Add(botonHistoria);
             }
         }

@@ -29,29 +29,22 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.barraLateral = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.AutoScroll = true;
+            this.panel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(606, 399);
+            this.panel.Size = new System.Drawing.Size(851, 619);
             this.panel.TabIndex = 0;
-            // 
-            // barraLateral
-            // 
-            this.barraLateral.Location = new System.Drawing.Point(621, 12);
-            this.barraLateral.Name = "barraLateral";
-            this.barraLateral.Size = new System.Drawing.Size(19, 399);
-            this.barraLateral.TabIndex = 0;
             // 
             // Seleccion_Historias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 423);
-            this.Controls.Add(this.barraLateral);
+            this.ClientSize = new System.Drawing.Size(875, 643);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Seleccion_Historias";
@@ -65,6 +58,5 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel panel;
-        private System.Windows.Forms.VScrollBar barraLateral;
     }
 }
