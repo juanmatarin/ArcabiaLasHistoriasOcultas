@@ -58,6 +58,7 @@
             // usuarioLBL
             // 
             this.usuarioLBL.AutoSize = true;
+            this.usuarioLBL.BackColor = System.Drawing.Color.Transparent;
             this.usuarioLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuarioLBL.Location = new System.Drawing.Point(25, 40);
             this.usuarioLBL.Name = "usuarioLBL";
@@ -68,6 +69,7 @@
             // contrasenaLBL
             // 
             this.contrasenaLBL.AutoSize = true;
+            this.contrasenaLBL.BackColor = System.Drawing.Color.Transparent;
             this.contrasenaLBL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contrasenaLBL.Location = new System.Drawing.Point(25, 94);
             this.contrasenaLBL.Name = "contrasenaLBL";
@@ -77,30 +79,34 @@
             // 
             // inisesBTN
             // 
-            this.inisesBTN.Location = new System.Drawing.Point(29, 174);
+            this.inisesBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.IniSes_No_Pulsado;
+            this.inisesBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inisesBTN.Location = new System.Drawing.Point(14, 174);
             this.inisesBTN.Name = "inisesBTN";
-            this.inisesBTN.Size = new System.Drawing.Size(154, 41);
+            this.inisesBTN.Size = new System.Drawing.Size(175, 45);
             this.inisesBTN.TabIndex = 4;
-            this.inisesBTN.Text = "Iniciar Sesión";
             this.inisesBTN.UseVisualStyleBackColor = true;
             this.inisesBTN.Click += new System.EventHandler(this.inisesBTN_Click);
             // 
             // volverBTN
             // 
-            this.volverBTN.Location = new System.Drawing.Point(195, 174);
+            this.volverBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Volver_No_Pulsado;
+            this.volverBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBTN.Cursor = System.Windows.Forms.Cursors.Default;
+            this.volverBTN.Location = new System.Drawing.Point(218, 174);
             this.volverBTN.Name = "volverBTN";
-            this.volverBTN.Size = new System.Drawing.Size(154, 41);
+            this.volverBTN.Size = new System.Drawing.Size(175, 45);
             this.volverBTN.TabIndex = 5;
-            this.volverBTN.Text = "Volver";
             this.volverBTN.UseVisualStyleBackColor = true;
             this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(94, 137);
+            this.lblError.Location = new System.Drawing.Point(113, 135);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(187, 20);
             this.lblError.TabIndex = 6;
@@ -110,7 +116,8 @@
             // linkLabelCrearUser
             // 
             this.linkLabelCrearUser.AutoSize = true;
-            this.linkLabelCrearUser.Location = new System.Drawing.Point(12, 9);
+            this.linkLabelCrearUser.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabelCrearUser.Location = new System.Drawing.Point(29, 9);
             this.linkLabelCrearUser.Name = "linkLabelCrearUser";
             this.linkLabelCrearUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.linkLabelCrearUser.Size = new System.Drawing.Size(360, 13);
@@ -123,6 +130,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(405, 239);
             this.Controls.Add(this.linkLabelCrearUser);
             this.Controls.Add(this.lblError);
@@ -132,6 +141,7 @@
             this.Controls.Add(this.usuarioLBL);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Iniciar_Sesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

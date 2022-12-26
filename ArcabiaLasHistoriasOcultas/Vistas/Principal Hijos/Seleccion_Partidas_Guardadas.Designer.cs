@@ -36,11 +36,12 @@
             // 
             // seleccionarBTN
             // 
-            this.seleccionarBTN.Location = new System.Drawing.Point(99, 341);
+            this.seleccionarBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Seleccionar_No_Pulsado;
+            this.seleccionarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.seleccionarBTN.Location = new System.Drawing.Point(59, 348);
             this.seleccionarBTN.Name = "seleccionarBTN";
-            this.seleccionarBTN.Size = new System.Drawing.Size(144, 65);
+            this.seleccionarBTN.Size = new System.Drawing.Size(175, 45);
             this.seleccionarBTN.TabIndex = 0;
-            this.seleccionarBTN.Text = "Seleccionar";
             this.seleccionarBTN.UseVisualStyleBackColor = true;
             this.seleccionarBTN.Click += new System.EventHandler(this.seleccionarBTN_Click);
             // 
@@ -56,21 +57,23 @@
             // 
             // volverBTN
             // 
-            this.volverBTN.Location = new System.Drawing.Point(399, 341);
+            this.volverBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Volver_No_Pulsado;
+            this.volverBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBTN.Location = new System.Drawing.Point(421, 348);
             this.volverBTN.Name = "volverBTN";
-            this.volverBTN.Size = new System.Drawing.Size(144, 65);
+            this.volverBTN.Size = new System.Drawing.Size(175, 45);
             this.volverBTN.TabIndex = 2;
-            this.volverBTN.Text = "Volver";
             this.volverBTN.UseVisualStyleBackColor = true;
             this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
             // borrarBTN
             // 
-            this.borrarBTN.Location = new System.Drawing.Point(249, 341);
+            this.borrarBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Borrar_No_Pulsado;
+            this.borrarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.borrarBTN.Location = new System.Drawing.Point(240, 348);
             this.borrarBTN.Name = "borrarBTN";
-            this.borrarBTN.Size = new System.Drawing.Size(144, 65);
+            this.borrarBTN.Size = new System.Drawing.Size(175, 45);
             this.borrarBTN.TabIndex = 3;
-            this.borrarBTN.Text = "Borrar";
             this.borrarBTN.UseVisualStyleBackColor = true;
             this.borrarBTN.Click += new System.EventHandler(this.borrarBTN_Click);
             // 

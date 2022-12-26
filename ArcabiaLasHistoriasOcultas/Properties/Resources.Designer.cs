@@ -63,6 +63,86 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Borrar_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Borrar_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Borrar_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Borrar_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cargar_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Cargar_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cargar_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Cargar_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CargarPartida_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("CargarPartida_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CargarPartida_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("CargarPartida_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ContinuarPartida_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("ContinuarPartida_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ContinuarPartida_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("ContinuarPartida_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fondo {
             get {
                 object obj = ResourceManager.GetObject("Fondo", resourceCulture);
@@ -113,9 +193,149 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guardar_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Guardar_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Guardar_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Guardar_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IniSes_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("IniSes_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IniSes_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("IniSes_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NuevaPartida_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("NuevaPartida_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NuevaPartida_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("NuevaPartida_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalirJuego_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("SalirJuego_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalirJuego_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("SalirJuego_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalirMenu_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("SalirMenu_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SalirMenu_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("SalirMenu_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Seleccionar_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Seleccionar_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Seleccionar_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Seleccionar_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Título_de_inicio {
             get {
-                object obj = ResourceManager.GetObject("Título de inicio", resourceCulture);
+                object obj = ResourceManager.GetObject("Título_de_inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volver_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Volver_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Volver_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Volver_Pulsado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

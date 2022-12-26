@@ -357,6 +357,90 @@
   <ItemGroup>
     <None Include="Archivos\Imagenes\FondoListas2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Borrar_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Cargar_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Cargar_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\CargarPartida_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\CargarPartida_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\ContinuarPartida_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\ContinuarPartida_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\FondoListas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\FondoListas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\FondoVentanas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\fotoUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Guardar_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Guardar_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\IniSes_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\IniSes_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\NuevaPartida_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\NuevaPartida_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\SalirJuego_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\SalirJuego_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\SalirMenu_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\SalirMenu_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Seleccionar_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Seleccionar_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Título de inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Volver_No_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Volver_Pulsado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Archivos\Imagenes\Interfaz\Borrar_No_Pulsado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

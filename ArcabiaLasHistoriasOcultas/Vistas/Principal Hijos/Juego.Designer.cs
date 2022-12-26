@@ -52,31 +52,34 @@
             // 
             // salirBTN
             // 
+            this.salirBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.SalirMenu_No_Pulsado;
+            this.salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.salirBTN.Location = new System.Drawing.Point(881, 541);
             this.salirBTN.Name = "salirBTN";
             this.salirBTN.Size = new System.Drawing.Size(175, 43);
             this.salirBTN.TabIndex = 5;
-            this.salirBTN.Text = "Salir al Menú principal";
             this.salirBTN.UseVisualStyleBackColor = true;
             this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
             // 
             // cargarBTN
             // 
+            this.cargarBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Cargar_No_Pulsado;
+            this.cargarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cargarBTN.Location = new System.Drawing.Point(881, 492);
             this.cargarBTN.Name = "cargarBTN";
             this.cargarBTN.Size = new System.Drawing.Size(175, 43);
             this.cargarBTN.TabIndex = 7;
-            this.cargarBTN.Text = "Cargar";
             this.cargarBTN.UseVisualStyleBackColor = true;
             this.cargarBTN.Click += new System.EventHandler(this.cargarBTN_Click);
             // 
             // GuardarBTN
             // 
+            this.GuardarBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Guardar_No_Pulsado;
+            this.GuardarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GuardarBTN.Location = new System.Drawing.Point(881, 441);
             this.GuardarBTN.Name = "GuardarBTN";
             this.GuardarBTN.Size = new System.Drawing.Size(175, 45);
             this.GuardarBTN.TabIndex = 8;
-            this.GuardarBTN.Text = "Guardar";
             this.GuardarBTN.UseVisualStyleBackColor = true;
             this.GuardarBTN.Click += new System.EventHandler(this.GuardarBTN_Click);
             // 
