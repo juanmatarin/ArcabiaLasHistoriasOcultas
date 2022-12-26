@@ -233,6 +233,26 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IniSesConectarse_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("IniSesConectarse_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IniSesConectarse_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("IniSesConectarse_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NuevaPartida_No_Pulsado {
             get {
                 object obj = ResourceManager.GetObject("NuevaPartida_No_Pulsado", resourceCulture);
@@ -246,6 +266,26 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         internal static System.Drawing.Bitmap NuevaPartida_Pulsado {
             get {
                 object obj = ResourceManager.GetObject("NuevaPartida_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Registrar_No_Pulsado_png {
+            get {
+                object obj = ResourceManager.GetObject("Registrar_No_Pulsado-png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Registrar_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("Registrar_Pulsado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +376,26 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         internal static System.Drawing.Bitmap Volver_Pulsado {
             get {
                 object obj = ResourceManager.GetObject("Volver_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolverCon_No_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("VolverCon_No_Pulsado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VolverCon_Pulsado {
+            get {
+                object obj = ResourceManager.GetObject("VolverCon_Pulsado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

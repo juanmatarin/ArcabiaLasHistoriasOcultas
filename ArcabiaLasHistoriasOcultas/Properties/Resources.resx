@@ -130,6 +130,9 @@
   <data name="FondoListas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\FondoListas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IniSesConectarse_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\IniSesConectarse_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fotoUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\fotoUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,11 +160,14 @@
   <data name="NuevaPartida_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\NuevaPartida_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Volver_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Archivos\Imagenes\Interfaz\Volver_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FondoVentanas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\FondoVentanas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cargar_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\Cargar_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Registrar_No_Pulsado-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\Registrar_No_Pulsado-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CargarPartida_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\CargarPartida_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,11 +181,11 @@
   <data name="Seleccionar_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\Seleccionar_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Volver_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\Volver_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ContinuarPartida_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\ContinuarPartida_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Guardar_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Archivos\Imagenes\Interfaz\Guardar_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Seleccionar_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\Seleccionar_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,13 +199,25 @@
   <data name="CargarPartida_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\CargarPartida_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IniSes_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Archivos\Imagenes\Interfaz\IniSes_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Cargar_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Archivos\Imagenes\Interfaz\Cargar_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FondoVentanas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Archivos\Imagenes\Interfaz\FondoVentanas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IniSes_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\IniSes_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guardar_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\Guardar_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VolverCon_No_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\VolverCon_No_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IniSesConectarse_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\IniSesConectarse_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Registrar_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\Registrar_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VolverCon_Pulsado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Archivos\Imagenes\Interfaz\VolverCon_Pulsado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -16,22 +16,21 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Registrarse : Form
     {
         Principal_Conectarse padre;
+
+        //Constructor
         public Registrarse(Principal_Conectarse padre)
         {
             InitializeComponent();
             this.padre = padre;
         }
-        private void LimpiarErrores()
+
+        //Load
+        private void Registrarse_Load(object sender, EventArgs e)
         {
-            lblErrorNombre.Visible = false;
-            lblErrorApellidos.Visible = false;
-            lblErrorUsername.Visible = false;
-            lblErrorEdad.Visible = false;
-            lblErrorCorreo.Visible = false;
-            lblErrorContraseña.Visible = false;
+
         }
 
-
+        //Click
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
             Conectarse conectarse = new Conectarse(padre);
@@ -41,17 +40,25 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void registrarseBTN_Click(object sender, EventArgs e)
         {
-            
+
             Usuario nuevoUsuario = new Usuario(txtNombre.Text, txtApellidos.Text, txtUsername.Text, dtpFechaNacimiento.Value, txtCorreo.Text, txtContraseña.Text);
             if (ValidarDatos() && ControladorUsuarios.AñadirUsuario(nuevoUsuario))
             {
                 MessageBox.Show("Usuario registrado");
                 this.Close();
             }
-        }   
-        
-       
+        }
 
+        //Métodos Varios
+        private void LimpiarErrores()
+        {
+            lblErrorNombre.Visible = false;
+            lblErrorApellidos.Visible = false;
+            lblErrorUsername.Visible = false;
+            lblErrorEdad.Visible = false;
+            lblErrorCorreo.Visible = false;
+            lblErrorContraseña.Visible = false;
+        }
         private bool ValidarDatos()
         {
             bool noHayError = true;
@@ -122,11 +129,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
 
             return noHayError;
-        }
-
-        private void Registrarse_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

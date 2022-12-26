@@ -25,19 +25,24 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         List<Button> listaOpciones;
         List<Acto> listaActos;
         List<Partida> listaPartidas;
-        int ejeY, numeroActo;
+        int ejeX, ejeY, numeroActo;
         string rutaPartida, historia;
         bool haSeleccionadoOpcion, partidaNueva, haGuardado;
+
+        //Constructor
         public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida)
         {
             InitializeComponent();
             this.padre = padre;
-            this.ejeY = 27;
+            this.ejeY = ( panel1.Height * 20 ) / 100;
+            this.ejeX = (panel1.Width * 40) / 100;
             this.numeroActo = numeroActo;
             this.partidaNueva = partidaNueva;
             this.rutaPartida = rutaPartida;
             this.historia = historia;
         }
+
+        //Load
         private void Juego_Load(object sender, EventArgs e)
         {
             apilicarFondos();
@@ -56,25 +61,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             cargarActo();
         }
 
-        private void apilicarFondos()
-        {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.BackgroundImage = Resources.FondoListas;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-        }
-
-        private void Juego_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!haGuardado) //Si no ha guardado la partida, sale una ventana preguntando si está seguro de que desea salir de la partida.
-            {
-                if (MessageBox.Show("No se ha guardado el progreso. ¿Continuar?", "Arcabia: Las Historias Ocultas",
-                    MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
+        //Click
         private void cargarBTN_Click(object sender, EventArgs e)
         {
             if (listaPartidas.Count != 0)
@@ -121,6 +108,64 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             this.Close();
         }
+
+        //MouseHover
+        private void GuardarBTN_MouseHover(object sender, EventArgs e)
+        {
+            GuardarBTN.BackgroundImage = Resources.Guardar_Pulsado;
+            GuardarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void cargarBTN_MouseHover(object sender, EventArgs e)
+        {
+            cargarBTN.BackgroundImage = Resources.Cargar_Pulsado;
+            cargarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void salirBTN_MouseHover(object sender, EventArgs e)
+        {
+            salirBTN.BackgroundImage = Resources.SalirMenu_Pulsado;
+            salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+
+        //MouseLeave
+        private void GuardarBTN_MouseLeave(object sender, EventArgs e)
+        {
+            GuardarBTN.BackgroundImage = Resources.Guardar_No_Pulsado;
+            GuardarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+
+        private void cargarBTN_MouseLeave(object sender, EventArgs e)
+        {
+            cargarBTN.BackgroundImage = Resources.Cargar_No_Pulsado;
+            cargarBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+
+        private void salirBTN_MouseLeave(object sender, EventArgs e)
+        {
+            salirBTN.BackgroundImage = Resources.SalirMenu_No_Pulsado;
+            salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+
+        //Form Closing
+        private void Juego_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!haGuardado) //Si no ha guardado la partida, sale una ventana preguntando si está seguro de que desea salir de la partida.
+            {
+                if (MessageBox.Show("No se ha guardado el progreso. ¿Continuar?", "Arcabia: Las Historias Ocultas",
+                    MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        //Métodos Varios
+        private void apilicarFondos()
+        {
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.BackgroundImage = Resources.FondoListas;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+        }
         private void cargarActo() 
         {
             borrarOpciones(); //Se borran los botones del panel
@@ -149,14 +194,12 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             ventanaTexto.DocumentText = ControladorActos.getTexto(op.ruta); //Se carga en el webBrowser
             borrarOpcionIndividual(opcionAOcultar); //Se borra la opción ya elegida
         }
-
         private void borrarOpciones()
         {
             foreach (Button btn in listaOpciones) //Se borran todos los botones.
             {
                 panel1.Controls.Remove(btn);
             }
-            ejeY = 27; //Se pone el ejeY a la posición original.
         }
         private void borrarOpcionIndividual(int opcionAOcultar)
         {
@@ -230,6 +273,18 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         private void crearOpcíones(List<Opcion> opciones)
         {
             string descripcion;
+            bool masDeUnaOpcion;
+
+            if (opciones.Count > 1) //Si hay más de una opción...
+            {
+                ejeX = ejeX - (30 * opciones.Count); //Se divide ej eje de inicio entre 30 * el número de opciones que haya en la lista.
+                masDeUnaOpcion = true;
+            }
+            else
+            {
+                masDeUnaOpcion = false;
+            }
+
             foreach (Opcion op in opciones) //Se crea un botón por cada opción de la lista de opciones.
             {
                 if (!op.tipo.Equals("decision"))
@@ -237,6 +292,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     if (op.tipo.Equals("opcion") && haSeleccionadoOpcion == true) //Si es de tipo opción y ya se ha seleccionado dicha opción...
                     {
                         descripcion = op.descripcionOpcion; //...o bien pasa a tener la descripción resultante de la opción elegida...
+                        ejeX = (panel1.Width * 40) / 100;
                     }
                     else
                     {
@@ -245,14 +301,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
                     Button opcion = new Button();
                     panel1.Controls.Add(opcion);
-                    opcion.Location = new System.Drawing.Point((panel1.Width * 40)/100, ejeY); //ejeY es una variable ya que se irá sumando según se vayan creando botones.
+                    opcion.Location = new System.Drawing.Point(ejeX, ejeY); //ejeX es una variable ya que se irá sumando según se vayan creando botones.
                     opcion.Name = op.id + "";
-                    opcion.Size = new System.Drawing.Size(113, 44);
+                    opcion.Size = new System.Drawing.Size(120, 80);
                     opcion.TabIndex = 9;
                     opcion.Text = descripcion;
+                    opcion.Font = new Font("Perpetua", 12);
                     opcion.Tag = op.id;
                     opcion.UseVisualStyleBackColor = true;
-                    ejeY += 50;
+                    if (masDeUnaOpcion)
+                    {
+                        ejeX += 120;
+                    }
+                    else
+                    {
+                        ejeX = (panel1.Width * 40) / 100;
+                    }
                     listaOpciones.Add(opcion);
                 }
             }

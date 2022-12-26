@@ -54,6 +54,8 @@
             this.nuevaPartidaBTN.TabIndex = 2;
             this.nuevaPartidaBTN.UseVisualStyleBackColor = false;
             this.nuevaPartidaBTN.Click += new System.EventHandler(this.nuevaPartidaBTN_Click);
+            this.nuevaPartidaBTN.MouseLeave += new System.EventHandler(this.nuevaPartidaBTN_MouseLeave);
+            this.nuevaPartidaBTN.MouseHover += new System.EventHandler(this.nuevaPartidaBTN_MouseHover);
             // 
             // continuarPartidaBTN
             // 
@@ -66,6 +68,8 @@
             this.continuarPartidaBTN.TabIndex = 3;
             this.continuarPartidaBTN.UseVisualStyleBackColor = false;
             this.continuarPartidaBTN.Click += new System.EventHandler(this.continuarPartidaBTN_Click);
+            this.continuarPartidaBTN.MouseLeave += new System.EventHandler(this.continuarPartidaBTN_MouseLeave);
+            this.continuarPartidaBTN.MouseHover += new System.EventHandler(this.continuarPartidaBTN_MouseHover);
             // 
             // cargarPartidaBTN
             // 
@@ -78,6 +82,8 @@
             this.cargarPartidaBTN.TabIndex = 4;
             this.cargarPartidaBTN.UseVisualStyleBackColor = false;
             this.cargarPartidaBTN.Click += new System.EventHandler(this.cargarPartidaBTN_Click);
+            this.cargarPartidaBTN.MouseLeave += new System.EventHandler(this.cargarPartidaBTN_MouseLeave);
+            this.cargarPartidaBTN.MouseHover += new System.EventHandler(this.cargarPartidaBTN_MouseHover);
             // 
             // salirBTN
             // 
@@ -90,9 +96,12 @@
             this.salirBTN.TabIndex = 5;
             this.salirBTN.UseVisualStyleBackColor = false;
             this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
+            this.salirBTN.MouseLeave += new System.EventHandler(this.salirBTN_MouseLeave);
+            this.salirBTN.MouseHover += new System.EventHandler(this.salirBTN_MouseHover);
             // 
             // conectarseBTN
             // 
+            this.conectarseBTN.Font = new System.Drawing.Font("Perpetua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conectarseBTN.Location = new System.Drawing.Point(283, 363);
             this.conectarseBTN.Name = "conectarseBTN";
             this.conectarseBTN.Size = new System.Drawing.Size(78, 24);

@@ -17,12 +17,15 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     {
         Principal padre; //Esto es la ventana padre que se va pasando entre los hijos para que salgan todos dentro de principal con los botones de la vista que se carga dentro
         List<Partida> listaPartidas;
+
+        //Constructor
         public Bienvenida(Principal padre)
         {
             InitializeComponent();
             this.padre = padre; //Recibe la vista padre
         }
 
+        //Load
         private void Bienvenida_Load(object sender, EventArgs e)
         {
             this.BackgroundImage = Resources.FondoVentanas;
@@ -33,6 +36,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             usuarioConectado.Visible = false;
         }
 
+        //Click
         private void nuevaPartidaBTN_Click(object sender, EventArgs e)
         {
             Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
@@ -40,7 +44,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             //seleccion_Historias = (Seleccion_Historias) centrarVentana(seleccion_Historias);
             seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
         }
-
         private void cargarPartidaBTN_Click(object sender, EventArgs e)
         {
             listaPartidas = ControladorPartidas.getPartidas();
@@ -56,7 +59,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 MessageBox.Show("No hay partidas guardadas", "Arcabia: Las Historias Ocultas"); //Si no hay partidas, muestra un mensaje.
             }
         }
-
         private void continuarPartidaBTN_Click(object sender, EventArgs e)
         {
             listaPartidas = ControladorPartidas.getPartidas(); //Carga la lista de partidas
@@ -76,7 +78,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
 
         }
-
         private void conectarseBTN_Click(object sender, EventArgs e)
         {
             if (ControladorBaseDeDatos.comprobarConexión())
@@ -90,21 +91,57 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
             
         }
-
         private void salirBTN_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private Form centrarVentana(Form vista)
+        //MouseHover
+        private void salirBTN_MouseHover(object sender, EventArgs e)
         {
-            Form aux = vista;
-            aux.StartPosition = FormStartPosition.Manual;
-            aux.Location = new Point((this.ClientSize.Width - vista.Width) / 2,
-                                            (this.ClientSize.Height - vista.Height) / 2); //Esto es porque, de otra forma no se centra el hijo dentro del padre (desconozco el motivo de esto).
-            return aux;
+            salirBTN.BackgroundImage = Resources.SalirJuego_Pulsado;
+            salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void cargarPartidaBTN_MouseHover(object sender, EventArgs e)
+        {
+            cargarPartidaBTN.BackgroundImage = Resources.CargarPartida_Pulsado;
+            cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void continuarPartidaBTN_MouseHover(object sender, EventArgs e)
+        {
+            continuarPartidaBTN.BackgroundImage = Resources.ContinuarPartida_Pulsado;
+            continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void nuevaPartidaBTN_MouseHover(object sender, EventArgs e)
+        {
+            nuevaPartidaBTN.BackgroundImage = Resources.NuevaPartida_Pulsado;
+            nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         }
 
+
+        //MouseLeave
+        private void salirBTN_MouseLeave(object sender, EventArgs e)
+        {
+            salirBTN.BackgroundImage = Resources.SalirJuego_No_Pulsado;
+            salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void cargarPartidaBTN_MouseLeave(object sender, EventArgs e)
+        {
+            cargarPartidaBTN.BackgroundImage = Resources.CargarPartida_No_Pulsado;
+            cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void continuarPartidaBTN_MouseLeave(object sender, EventArgs e)
+        {
+            continuarPartidaBTN.BackgroundImage = Resources.ContinuarPartida_No_Pulsado;
+            continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+        private void nuevaPartidaBTN_MouseLeave(object sender, EventArgs e)
+        {
+            nuevaPartidaBTN.BackgroundImage = Resources.NuevaPartida_No_Pulsado;
+            nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        }
+
+        //FormClosing
         private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
@@ -113,5 +150,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 e.Cancel = true;
             }
         }
+
     }
 }
