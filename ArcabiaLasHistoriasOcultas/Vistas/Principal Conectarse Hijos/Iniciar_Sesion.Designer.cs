@@ -87,6 +87,8 @@
             this.inisesBTN.TabIndex = 4;
             this.inisesBTN.UseVisualStyleBackColor = true;
             this.inisesBTN.Click += new System.EventHandler(this.inisesBTN_Click);
+            this.inisesBTN.MouseLeave += new System.EventHandler(this.inisesBTN_MouseLeave);
+            this.inisesBTN.MouseHover += new System.EventHandler(this.inisesBTN_MouseHover);
             // 
             // volverBTN
             // 
@@ -99,6 +101,8 @@
             this.volverBTN.TabIndex = 5;
             this.volverBTN.UseVisualStyleBackColor = true;
             this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
+            this.volverBTN.MouseLeave += new System.EventHandler(this.volverBTN_MouseLeave);
+            this.volverBTN.MouseHover += new System.EventHandler(this.volverBTN_MouseHover);
             // 
             // lblError
             // 

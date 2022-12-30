@@ -70,7 +70,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         }
 
-        //MouseLeave
+        //MouseLeave 
+
         private void iniciarSesionBTN_MouseLeave(object sender, EventArgs e)
         {
             iniciarSesionBTN.BackgroundImage = Resources.IniSesConectarse_No_Pulsado;

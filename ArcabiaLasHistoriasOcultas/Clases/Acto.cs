@@ -8,9 +8,9 @@ namespace ArcabiaLasHistoriasOcultas.Clases
 {
     public class Acto
     {
-        public int id { get; set; }
-        public string ruta { get; set; }
-        public List<Opcion> opciones { get; set; }
+        public int id { get; set; } //Id del acto
+        public string ruta { get; set; } //Ruta del html que corresponde a dicho acto
+        public List<Opcion> opciones { get; set; } //Lista de opciones de cada acto
 
         public Acto()
         {
