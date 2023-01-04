@@ -48,7 +48,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
             seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
-            //seleccion_Historias = (Seleccion_Historias) centrarVentana(seleccion_Historias);
             seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
         }
         private void cargarPartidaBTN_Click(object sender, EventArgs e)
@@ -58,7 +57,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, false); //False es para determinar que no está en una partida ya empezada.
                 seleccion_Partidas_Guardadas.MdiParent = padre;
-                //seleccion_Partidas_Guardadas = (Seleccion_Partidas_Guardadas) centrarVentana(seleccion_Partidas_Guardadas);
                 seleccion_Partidas_Guardadas.Show();
             }
             else
@@ -96,7 +94,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void salirBTN_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); //Sale de la aplicación
         }
 
         //MouseHover
@@ -145,7 +143,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
 
         //FormClosing
-        private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e)
+        private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e) //Esto se ejecuta en el momento que se va a cerrar la ventana.
         {
             if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
                     MessageBoxButtons.YesNo) == DialogResult.No)

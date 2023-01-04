@@ -1,4 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Properties;
 using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
 using System;
 using System.Windows.Forms;
@@ -62,5 +63,31 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.Close();
             registrarse.Show();
         }
+
+        //MouseHover
+        private void inisesBTN_MouseHover(object sender, EventArgs e)
+        {
+            inisesBTN.BackgroundImage = Resources.IniSes_Pulsado;
+            inisesBTN.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void volverBTN_MouseHover(object sender, EventArgs e)
+        {
+            volverBTN.BackgroundImage = Resources.Volver_Pulsado;
+            volverBTN.BackgroundImageLayout= ImageLayout.Stretch;
+        }
+
+        private void inisesBTN_MouseLeave(object sender, EventArgs e)
+        {
+            inisesBTN.BackgroundImage = Resources.IniSes_No_Pulsado;
+            inisesBTN.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void volverBTN_MouseLeave(object sender, EventArgs e)
+        {
+            volverBTN.BackgroundImage = Resources.Volver_No_Pulsado;
+            volverBTN.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+    
     }
 }

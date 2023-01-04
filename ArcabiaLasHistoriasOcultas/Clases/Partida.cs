@@ -4,12 +4,12 @@ namespace ArcabiaLasHistoriasOcultas.Clases
 {
     public class Partida
     {
-        public int id { get; set; }
-        public string historia { get; set; }
-        public int numeroActo { get; set; }
-        public string rutaInstrucciones { get; set; }
-        public DateTime fechaGuardado { get; set; }
-        public string nombreCompleto { get; set; }
+        public int id { get; set; } //Identificador de Partida.
+        public string historia { get; set; } //Indica a que historia pertenece.
+        public int numeroActo { get; set; } //Indica el número de acto en el que se ha guardado.
+        public string rutaInstrucciones { get; set; } //Indica la ruta de instrucciones que la partida guardada debe de usar.
+        public DateTime fechaGuardado { get; set; } //Guarda la fecha en la que se guardó la partida.
+        public string nombreCompleto { get; set; } //Junta los campos en un campo de texto para ser mostrados.
 
         public Partida()
         {

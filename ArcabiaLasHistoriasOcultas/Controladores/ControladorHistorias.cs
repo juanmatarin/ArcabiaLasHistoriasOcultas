@@ -36,16 +36,17 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             DirectoryInfo directorioHistoria, directorioActo;
 
             directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historia.id); //Crea el directorio de la historia.
-            crearYEscribirHTML(directorioHistoria.FullName, "acto", historia.id, html);
             foreach (Acto acto in listaActos)
             {
                 directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + (acto.id + 1)); //Crea cada directorio de cada acto.
                 crearYEscribirHTML(directorioActo.FullName, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
-                foreach (Opcion opcion in listaActos[index].opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
+                if (acto.opciones.Count != 0)
                 {
-                    crearYEscribirHTML(directorioActo.FullName, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                    foreach (Opcion opcion in listaActos[index].opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
+                    {
+                        crearYEscribirHTML(directorioActo.FullName, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                    }
                 }
-                
             }
 
             crearYEscribirJSON(directorioHistoria.FullName, listaActos); //Crea el Json de las instrucciones.
