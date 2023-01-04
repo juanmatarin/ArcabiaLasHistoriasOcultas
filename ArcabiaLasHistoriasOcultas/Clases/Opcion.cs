@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArcabiaLasHistoriasOcultas.Clases
+﻿namespace ArcabiaLasHistoriasOcultas.Clases
 {
     public class Opcion
     {
@@ -19,6 +13,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         public int decisionAConsiderarActo { get; set; }
         public int decisionAConsiderarOpcion { get; set; }
         public int opcionAMostrar { get; set; }
+        public string contenidoHTMLOpcion { get; set; }
 
         public Opcion()
         {

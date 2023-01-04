@@ -1,4 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using System;
 using System.Collections.Generic;
@@ -40,11 +41,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void registrarseBTN_Click(object sender, EventArgs e)
         {
+            DTOUsuario nuevoUsuario = new DTOUsuario(txtNombre.Text, txtApellidos.Text, txtUsername.Text, dtpFechaNacimiento.Value, txtCorreo.Text, txtContraseña.Text);
 
-            Usuario nuevoUsuario = new Usuario(txtNombre.Text, txtApellidos.Text, txtUsername.Text, dtpFechaNacimiento.Value, txtCorreo.Text, txtContraseña.Text);
-            if (ValidarDatos() && ControladorUsuarios.AñadirUsuario(nuevoUsuario))
+            if (ValidarDatos())
             {
-                MessageBox.Show("Usuario registrado");
+                ControladorUsuarios.AñadirUsuario(nuevoUsuario);
                 this.Close();
             }
         }
@@ -83,7 +84,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 noHayError = false;
             }
 
-            //comprobamos los apellidos
+            //comprobamos el nombre de usuario
             if (txtUsername.Text.Trim() == "")
             {
                 lblErrorUsername.Visible = true;
@@ -91,12 +92,26 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 txtUsername.SelectAll();
                 txtUsername.Focus();
                 noHayError = false;
+                
             }
+            else
+            {
+                if (ControladorUsuarios.comprobarUsuarioUnico(txtUsername.Text)) //Comprobamos que el nombre de usuario sea único
+                {
+                    MessageBox.Show("Ya existe un usuario con ese nombre, prueba con otro");
+                    lblErrorUsername.Visible = true;
+                    txtUsername.SelectAll();
+                    txtUsername.Focus();
+                    noHayError = false;
+                }
+            }
+            
 
-            if (dtpFechaNacimiento.Value >= DateTime.Now.AddYears(-15))
+            //Comprobamos la fecha de nacimiento
+            if (dtpFechaNacimiento.Value >= DateTime.Now.AddYears(-16))
             {
                 lblErrorEdad.Visible = true;
-                MessageBox.Show("La fecha de nacimiento tiene que ser inferior a hoy");
+                MessageBox.Show("Tiene que ser mayor de 16 años");
                 dtpFechaNacimiento.Focus();
                 noHayError = false;
             }

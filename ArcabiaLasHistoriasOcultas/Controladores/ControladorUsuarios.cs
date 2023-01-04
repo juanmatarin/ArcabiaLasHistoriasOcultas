@@ -1,139 +1,74 @@
-﻿using ArcabiaLasHistoriasOcultas.Clases;
-using MySql.Data.MySqlClient;
+﻿using ArcabiaLasHistoriasOcultas.Clases.DAO;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorUsuarios
     {
-        public static MySqlConnection conexion;
-        public static MySqlDataAdapter dataAdapterUsuarios;
-
-        public static bool AñadirUsuario(Usuario usuario)
+        static DAOUsuario daousuario = new DAOUsuario();
+        public static void AñadirUsuario(DTOUsuario dtousuario)
         {
-            bool respuesta = true;
-            int contador = 0;
-            //conexion = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["ConexionPostgreSQL"].ConnectionString);
-            conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConexionMySql"].ConnectionString);
-            //NpgsqlTransaction transaction = null;
-            using (conexion)
+            if (daousuario.insert(dtousuario))
             {
-                try
-                {
-                    conexion.Open();
-                    MySqlCommand comando = conexion.CreateCommand();
-                    comando.CommandText = "INSERT INTO `Usuario`(`Nombre`, `Apellidos`, `Username`, `Fecha_Nacimiento`, `Correo`, `Contraseña`) VALUES  " +
-                        "(@nombre, @apellidos, @username, @fecha_nacimiento, @correo, @contraseña)";
-                    /* comando.CommandText = "INSERT INTO \"Usuario\"'(\"Nombre\", \"Apellidos\", \"Username\", \"Fecha_Nacimiento\", \"Correo\", \"Contraseña\")" +
-                        " VALUES ('" + usuario.Nombre + "','" + usuario.Apellidos + "', '" + usuario.Username + "', " + usuario.FechaNacimiento+
-                        ", '"+ usuario.Correo + "', '" + usuario.Contraseña + "')";
-                    */
-                    comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
-                    comando.Parameters.AddWithValue("@apellidos", usuario.Apellidos);
-                    comando.Parameters.AddWithValue("@username", usuario.Username);
-                    comando.Parameters.AddWithValue("@fecha_nacimiento", usuario.Fecha_Nacimiento);
-                    comando.Parameters.AddWithValue("@correo", usuario.Correo);
-                    comando.Parameters.AddWithValue("@contraseña", usuario.Contrasena);
-
-                    comando.Prepare();
-                    MySqlDataAdapter adaptador = new MySqlDataAdapter();
-                    //NpgsqlDataAdapter adaptador = new NpgsqlDataAdapter();
-                    adaptador.InsertCommand = comando;
-
-                    // transaction = conexion.BeginTransaction();
-                    contador = adaptador.InsertCommand.ExecuteNonQuery();//Ejecuta una consulta y devuelve el número de columnas afectadas
-
-                    if (contador == 0)
-                    {
-                        respuesta = false;
-                    }
-                    comando.Dispose();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error en la inserción de datos" + e.Message);
-                    respuesta = false;
-                }
+                MessageBox.Show("Usuario registrado");
+                Console.WriteLine("Usuario guardado en la base de datos");
             }
-            return respuesta;
-
-        }
-        public static bool ValidarLogin(string usuario, string clave)
-        {
-
-            bool respuesta = true;
-
-            try
-            {
-                conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConexionMySql"].ConnectionString);
-                conexion.Open();
-
-                MySqlCommand comando = conexion.CreateCommand();
-                comando.CommandText = "SELECT `Username`,`Contraseña` FROM `Usuario` WHERE `Username` = @username";
-                comando.Parameters.AddWithValue("@username", usuario);
-                comando.Prepare();
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    string contraseña = reader.GetString("Contraseña");
-                    string nombre_completo = "";
-                    if (contraseña == clave)
-                    {
-                        //nombre_completo = reader.GetString("NombreCompleto");
-                        respuesta = true;
-                        //MessageBox.Show("Bienvenido " + nombre_completo);
-                    }
-                    else
-                    {
-                        respuesta = false;
-                    }
-                    reader.Close();
-                    comando.Dispose();
-                    conexion.Close();
-                }
-                else
-                {
-                    respuesta = false;
-
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error en la conexión " + e.Message);
-                respuesta = false;
-            }
-
-            return respuesta;
-
-
         }
 
-        public static void CargarUsuario(DataSet dataset, string usuario)
+        public static bool ValidarLogin(string nombreUsuario, string claveRecibida)
         {
-            try
+            bool login = false;
+            var consulta = daousuario.login(nombreUsuario);//Consulta va a tener el valor de la contraseña de ese usuario
+
+            foreach (var contraseñaConsulta in consulta)
             {
-                conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConexionMySql"].ConnectionString);
-                conexion.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuarios WHERE `Username` = @usuario", conexion);
-                comando.Parameters.AddWithValue("@username", usuario);
-                dataAdapterUsuarios = new MySqlDataAdapter();
-                dataAdapterUsuarios.SelectCommand = comando;
-                dataAdapterUsuarios.Fill(dataset);
-                conexion.Close();
+                string contraseña = contraseñaConsulta.GetValue<string>("contrasenia");
+                if (contraseña == claveRecibida) //Si la contraseña recibida en la consulta es igual a la clave recibida, salimos y devolvemos true
+                {
+                    login = true;
+                    break;
+                }
             }
-            catch (Exception e)
+            return login;
+        }
+
+
+        public static void ActualizarUsuario(string nombre, string apellidos, string nombreUsuario, string correo, string nombreUsuario_Recibido)
+        {
+            if (daousuario.update(nombre, apellidos, nombreUsuario, correo, nombreUsuario_Recibido))
             {
-                MessageBox.Show("Error al leer el usuario " + e.Message);
+                Console.WriteLine("El usuario ha sido actualizado");
             }
+        }
+
+        public static bool comprobarUsuarioUnico(string usernameRecibido)
+        {
+            var consulta = daousuario.getUsername(usernameRecibido);//La variable consulta va a tener el valor del username de ese usuario
+            bool noUnico = false;
+            foreach ( var usernameConsulta in consulta)
+            {
+                string username = usernameConsulta.GetValue<string>("nombre_usuario");//Esta variable string va a tener el valor de la columna username que hemos recibido en la consulta
+                if(username == null)//Si no, no existe existe ningún usuario con ese username
+                {
+                    noUnico = false;
+                    break;
+                }
+                else if(username == usernameRecibido) //Si username es igual al username que hemos recibido por parámetro, significa que ya existe un usuario con ese username
+                                                      
+                {
+                    noUnico = true;
+                    break;
+                }
+            }
+            return noUnico;
+        }
+
+        public static dynamic CargarDatosUsuario(string username)
+        {
+            var consulta = daousuario.getUsuario(username);
+            return consulta;
         }
     }
 }

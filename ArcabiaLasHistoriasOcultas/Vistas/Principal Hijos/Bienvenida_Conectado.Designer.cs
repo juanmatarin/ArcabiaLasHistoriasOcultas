@@ -116,6 +116,7 @@
             this.tuPerfilToolStripMenuItem.Name = "tuPerfilToolStripMenuItem";
             this.tuPerfilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tuPerfilToolStripMenuItem.Text = "Tu perfil";
+            this.tuPerfilToolStripMenuItem.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

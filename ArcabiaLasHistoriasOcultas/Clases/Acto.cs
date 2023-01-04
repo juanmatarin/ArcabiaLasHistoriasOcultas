@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ArcabiaLasHistoriasOcultas.Clases
 {
@@ -11,6 +7,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         public int id { get; set; }
         public string ruta { get; set; }
         public List<Opcion> opciones { get; set; }
+        public string contenidoHTMLActo { get; set; }
 
         public Acto()
         {

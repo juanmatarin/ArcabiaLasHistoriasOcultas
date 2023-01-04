@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,18 +13,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
     public partial class Bienvenida_Conectado : Form
     {
         Principal_Conectarse padre;
-        string usuario;
+        string nombreUsuario;
         public Bienvenida_Conectado(Principal_Conectarse padre, string usuario_recibido)
         {
             InitializeComponent();
-            this.usuario = usuario_recibido;
+            this.nombreUsuario = usuario_recibido;
         }
 
         private void Bienvenida_Conectado_Load(object sender, EventArgs e)
         {
-            toolStripLblUsuario.Text = usuario;
+            toolStripLblUsuario.Text = nombreUsuario;
         }
 
-   
+        private void tuPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Perfil_Usuario perfil = new Perfil_Usuario(nombreUsuario);
+            perfil.Show();
+        }
     }
 }

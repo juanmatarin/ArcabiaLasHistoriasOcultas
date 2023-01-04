@@ -1,14 +1,11 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
+using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas
@@ -16,13 +13,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Bienvenida : Form
     {
         Principal padre; //Esto es la ventana padre que se va pasando entre los hijos para que salgan todos dentro de principal con los botones de la vista que se carga dentro
+        Principal_Conectarse padre_conectarse;
         List<Partida> listaPartidas;
+        string nombreUsuario;
 
         //Constructor
         public Bienvenida(Principal padre)
         {
             InitializeComponent();
             this.padre = padre; //Recibe la vista padre
+        }
+        public Bienvenida(Principal_Conectarse padre_conectarse,string nombreUsuario)
+        {
+            InitializeComponent();
+            this.padre_conectarse = padre_conectarse; //Recibe la vista padre
+            this.nombreUsuario = nombreUsuario;    
+            conectarseBTN.Visible= false;
         }
 
         //Load
@@ -34,6 +40,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.BackColor = Color.Transparent;
             usuarioConectado.Visible = false;
+            toolStripLblUsuario.Text = nombreUsuario;
         }
 
         //Click
@@ -84,10 +91,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 Principal_Conectarse conectarse = new Principal_Conectarse();
                 conectarse.Show();
-            }
-            else
-            {
-                MessageBox.Show("Error al conectarse a la Base de Datos.", "Arcabia: Las Historias Ocultas");
             }
             
         }
@@ -151,5 +154,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
+        private void tuPerfilToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Perfil_Usuario perfil_Usuario = new Perfil_Usuario(nombreUsuario);
+            perfil_Usuario.Show();
+
+        }
     }
 }

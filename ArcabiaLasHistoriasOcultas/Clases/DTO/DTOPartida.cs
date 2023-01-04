@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ArcabiaLasHistoriasOcultas.Clases
+namespace ArcabiaLasHistoriasOcultas.Clases.DTO
 {
-    public class Partida
+    public class DTOPartida
     {
         public int id { get; set; }
         public string historia { get; set; }
@@ -11,11 +11,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         public DateTime fechaGuardado { get; set; }
         public string nombreCompleto { get; set; }
 
-        public Partida()
-        {
-        }
-
-        public Partida(int id, string historia, int numeroActo, string rutaInstrucciones)
+        public DTOPartida(int id, string historia, int numeroActo, string rutaInstrucciones)
         {
             this.id = id;
             this.historia = historia;
@@ -24,5 +20,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases
             fechaGuardado = DateTime.Now;
             nombreCompleto = "Historia " + historia[historia.Length - 1] + ", Acto " + (numeroActo + 1) + ", " + fechaGuardado.ToString();
         }
+        public DTOPartida() { }
     }
 }

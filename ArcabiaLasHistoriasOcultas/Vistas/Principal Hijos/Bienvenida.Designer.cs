@@ -28,81 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nuevaPartidaBTN = new System.Windows.Forms.Button();
-            this.continuarPartidaBTN = new System.Windows.Forms.Button();
-            this.cargarPartidaBTN = new System.Windows.Forms.Button();
-            this.salirBTN = new System.Windows.Forms.Button();
             this.conectarseBTN = new System.Windows.Forms.Button();
             this.usuarioConectado = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabelUsuario = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripLblUsuario = new System.Windows.Forms.ToolStripSplitButton();
             this.tuPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.salirBTN = new System.Windows.Forms.Button();
+            this.cargarPartidaBTN = new System.Windows.Forms.Button();
+            this.continuarPartidaBTN = new System.Windows.Forms.Button();
+            this.nuevaPartidaBTN = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tuPerfilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.usuarioConectado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nuevaPartidaBTN
-            // 
-            this.nuevaPartidaBTN.BackColor = System.Drawing.Color.Transparent;
-            this.nuevaPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.NuevaPartida_No_Pulsado;
-            this.nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nuevaPartidaBTN.Location = new System.Drawing.Point(22, 275);
-            this.nuevaPartidaBTN.Name = "nuevaPartidaBTN";
-            this.nuevaPartidaBTN.Size = new System.Drawing.Size(146, 82);
-            this.nuevaPartidaBTN.TabIndex = 2;
-            this.nuevaPartidaBTN.UseVisualStyleBackColor = false;
-            this.nuevaPartidaBTN.Click += new System.EventHandler(this.nuevaPartidaBTN_Click);
-            this.nuevaPartidaBTN.MouseLeave += new System.EventHandler(this.nuevaPartidaBTN_MouseLeave);
-            this.nuevaPartidaBTN.MouseHover += new System.EventHandler(this.nuevaPartidaBTN_MouseHover);
-            // 
-            // continuarPartidaBTN
-            // 
-            this.continuarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
-            this.continuarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ContinuarPartida_No_Pulsado;
-            this.continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.continuarPartidaBTN.Location = new System.Drawing.Point(174, 275);
-            this.continuarPartidaBTN.Name = "continuarPartidaBTN";
-            this.continuarPartidaBTN.Size = new System.Drawing.Size(146, 82);
-            this.continuarPartidaBTN.TabIndex = 3;
-            this.continuarPartidaBTN.UseVisualStyleBackColor = false;
-            this.continuarPartidaBTN.Click += new System.EventHandler(this.continuarPartidaBTN_Click);
-            this.continuarPartidaBTN.MouseLeave += new System.EventHandler(this.continuarPartidaBTN_MouseLeave);
-            this.continuarPartidaBTN.MouseHover += new System.EventHandler(this.continuarPartidaBTN_MouseHover);
-            // 
-            // cargarPartidaBTN
-            // 
-            this.cargarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
-            this.cargarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.CargarPartida_No_Pulsado;
-            this.cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cargarPartidaBTN.Location = new System.Drawing.Point(326, 275);
-            this.cargarPartidaBTN.Name = "cargarPartidaBTN";
-            this.cargarPartidaBTN.Size = new System.Drawing.Size(146, 82);
-            this.cargarPartidaBTN.TabIndex = 4;
-            this.cargarPartidaBTN.UseVisualStyleBackColor = false;
-            this.cargarPartidaBTN.Click += new System.EventHandler(this.cargarPartidaBTN_Click);
-            this.cargarPartidaBTN.MouseLeave += new System.EventHandler(this.cargarPartidaBTN_MouseLeave);
-            this.cargarPartidaBTN.MouseHover += new System.EventHandler(this.cargarPartidaBTN_MouseHover);
-            // 
-            // salirBTN
-            // 
-            this.salirBTN.BackColor = System.Drawing.Color.Transparent;
-            this.salirBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.SalirJuego_No_Pulsado;
-            this.salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.salirBTN.Location = new System.Drawing.Point(478, 275);
-            this.salirBTN.Name = "salirBTN";
-            this.salirBTN.Size = new System.Drawing.Size(146, 82);
-            this.salirBTN.TabIndex = 5;
-            this.salirBTN.UseVisualStyleBackColor = false;
-            this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
-            this.salirBTN.MouseLeave += new System.EventHandler(this.salirBTN_MouseLeave);
-            this.salirBTN.MouseHover += new System.EventHandler(this.salirBTN_MouseHover);
             // 
             // conectarseBTN
             // 
             this.conectarseBTN.Font = new System.Drawing.Font("Perpetua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conectarseBTN.Location = new System.Drawing.Point(283, 363);
+            this.conectarseBTN.Location = new System.Drawing.Point(284, 426);
             this.conectarseBTN.Name = "conectarseBTN";
             this.conectarseBTN.Size = new System.Drawing.Size(78, 24);
             this.conectarseBTN.TabIndex = 6;
@@ -112,12 +60,24 @@
             // 
             // usuarioConectado
             // 
+            this.usuarioConectado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton2,
+            this.toolStripLabelUsuario});
             this.usuarioConectado.Location = new System.Drawing.Point(0, 0);
             this.usuarioConectado.Name = "usuarioConectado";
             this.usuarioConectado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.usuarioConectado.Size = new System.Drawing.Size(649, 25);
             this.usuarioConectado.TabIndex = 14;
             this.usuarioConectado.Text = "toolStrip1";
+            // 
+            // toolStripLabelUsuario
+            // 
+            this.toolStripLabelUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tuPerfilToolStripMenuItem1});
+            this.toolStripLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabelUsuario.Name = "toolStripLabelUsuario";
+            this.toolStripLabelUsuario.Size = new System.Drawing.Size(105, 22);
+            this.toolStripLabelUsuario.Text = "toolStripLabel1";
             // 
             // toolStripLblUsuario
             // 
@@ -154,19 +114,88 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // salirBTN
+            // 
+            this.salirBTN.BackColor = System.Drawing.Color.Transparent;
+            this.salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.salirBTN.Location = new System.Drawing.Point(479, 338);
+            this.salirBTN.Name = "salirBTN";
+            this.salirBTN.Size = new System.Drawing.Size(146, 82);
+            this.salirBTN.TabIndex = 5;
+            this.salirBTN.UseVisualStyleBackColor = false;
+            this.salirBTN.Click += new System.EventHandler(this.salirBTN_Click);
+            this.salirBTN.MouseLeave += new System.EventHandler(this.salirBTN_MouseLeave);
+            this.salirBTN.MouseHover += new System.EventHandler(this.salirBTN_MouseHover);
+            // 
+            // cargarPartidaBTN
+            // 
+            this.cargarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cargarPartidaBTN.Location = new System.Drawing.Point(327, 338);
+            this.cargarPartidaBTN.Name = "cargarPartidaBTN";
+            this.cargarPartidaBTN.Size = new System.Drawing.Size(146, 82);
+            this.cargarPartidaBTN.TabIndex = 4;
+            this.cargarPartidaBTN.UseVisualStyleBackColor = false;
+            this.cargarPartidaBTN.Click += new System.EventHandler(this.cargarPartidaBTN_Click);
+            this.cargarPartidaBTN.MouseLeave += new System.EventHandler(this.cargarPartidaBTN_MouseLeave);
+            this.cargarPartidaBTN.MouseHover += new System.EventHandler(this.cargarPartidaBTN_MouseHover);
+            // 
+            // continuarPartidaBTN
+            // 
+            this.continuarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.continuarPartidaBTN.Location = new System.Drawing.Point(175, 338);
+            this.continuarPartidaBTN.Name = "continuarPartidaBTN";
+            this.continuarPartidaBTN.Size = new System.Drawing.Size(146, 82);
+            this.continuarPartidaBTN.TabIndex = 3;
+            this.continuarPartidaBTN.UseVisualStyleBackColor = false;
+            this.continuarPartidaBTN.Click += new System.EventHandler(this.continuarPartidaBTN_Click);
+            this.continuarPartidaBTN.MouseLeave += new System.EventHandler(this.continuarPartidaBTN_MouseLeave);
+            this.continuarPartidaBTN.MouseHover += new System.EventHandler(this.continuarPartidaBTN_MouseHover);
+            // 
+            // nuevaPartidaBTN
+            // 
+            this.nuevaPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nuevaPartidaBTN.Location = new System.Drawing.Point(23, 338);
+            this.nuevaPartidaBTN.Name = "nuevaPartidaBTN";
+            this.nuevaPartidaBTN.Size = new System.Drawing.Size(146, 82);
+            this.nuevaPartidaBTN.TabIndex = 2;
+            this.nuevaPartidaBTN.UseVisualStyleBackColor = false;
+            this.nuevaPartidaBTN.Click += new System.EventHandler(this.nuevaPartidaBTN_Click);
+            this.nuevaPartidaBTN.MouseLeave += new System.EventHandler(this.nuevaPartidaBTN_MouseLeave);
+            this.nuevaPartidaBTN.MouseHover += new System.EventHandler(this.nuevaPartidaBTN_MouseHover);
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 83);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(622, 235);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
+            // tuPerfilToolStripMenuItem1
+            // 
+            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
+            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
+            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
             // Bienvenida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 423);
+            this.ClientSize = new System.Drawing.Size(649, 488);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.usuarioConectado);
@@ -183,6 +212,8 @@
             this.Text = "Bienvenida";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bienvenida_FormClosing);
             this.Load += new System.EventHandler(this.Bienvenida_Load);
+            this.usuarioConectado.ResumeLayout(false);
+            this.usuarioConectado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,5 +233,8 @@
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripLabelUsuario;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripMenuItem tuPerfilToolStripMenuItem1;
     }
 }

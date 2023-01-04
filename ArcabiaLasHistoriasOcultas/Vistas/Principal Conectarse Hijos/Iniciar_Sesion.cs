@@ -1,13 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas
@@ -40,13 +33,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
             //Si coinciden usuario y contraseña, sino mostramos error
            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
-            {
+           {
                 MessageBox.Show("Has iniciado sesion");
+                Bienvenida bienvenida = new Bienvenida(padre,txtUsuario.Text);
                 this.Close();
-                Bienvenida_Conectado bienvenida = new Bienvenida_Conectado(padre,txtUsuario.Text);
                 bienvenida.Show();
 
-            }
+           }
             else
             {
                 lblError.Visible = true;

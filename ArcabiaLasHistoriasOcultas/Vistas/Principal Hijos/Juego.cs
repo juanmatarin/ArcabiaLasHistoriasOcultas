@@ -1,20 +1,9 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
-using Gremlin.Net.Process.Traversal;
-using Markdig;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas
