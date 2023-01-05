@@ -219,12 +219,6 @@
     <Compile Include="Vistas\Principal Conectarse Hijos\Iniciar_Sesion.Designer.cs">
       <DependentUpon>Iniciar_Sesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Principal Hijos\Bienvenida_Conectado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Principal Hijos\Bienvenida_Conectado.Designer.cs">
-      <DependentUpon>Bienvenida_Conectado.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Principal Hijos\Juego.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,9 +265,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Principal Hijos\Bienvenida_Conectado.resx">
-      <DependentUpon>Bienvenida_Conectado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal Hijos\Perfil_Usuario.resx">
       <DependentUpon>Perfil_Usuario.cs</DependentUpon>

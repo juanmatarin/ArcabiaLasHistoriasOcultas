@@ -13,7 +13,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Bienvenida : Form
     {
         Principal padre; //Esto es la ventana padre que se va pasando entre los hijos para que salgan todos dentro de principal con los botones de la vista que se carga dentro
-        Principal_Conectarse padre_conectarse;
         List<Partida> listaPartidas;
         string nombreUsuario;
 
@@ -23,10 +22,10 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             InitializeComponent();
             this.padre = padre; //Recibe la vista padre
         }
-        public Bienvenida(Principal_Conectarse padre_conectarse,string nombreUsuario)
+        public Bienvenida(Principal padre,string nombreUsuario)
         {
             InitializeComponent();
-            this.padre_conectarse = padre_conectarse; //Recibe la vista padre
+            this.padre = padre; //Recibe la vista padre
             this.nombreUsuario = nombreUsuario;    
             conectarseBTN.Visible= false;
         }
@@ -87,8 +86,12 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             if (ControladorBaseDeDatos.comprobarConexión())
             {
-                Principal_Conectarse conectarse = new Principal_Conectarse();
+                Principal_Conectarse conectarse = new Principal_Conectarse(padre);
                 conectarse.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido acceder a la Base De Datos", "Arcabia: Las Historias Ocultas");
             }
             
         }

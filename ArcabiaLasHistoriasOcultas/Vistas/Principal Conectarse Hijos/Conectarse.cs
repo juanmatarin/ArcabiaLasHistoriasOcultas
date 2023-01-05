@@ -7,8 +7,15 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Conectarse : Form
     {
         Principal_Conectarse padre;
+        Principal padre_bienvenida;
 
-        //Constructor
+        //Constructores
+        public Conectarse(Principal_Conectarse padre, Principal padre_bienvenida)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.padre_bienvenida = padre_bienvenida;
+        }
         public Conectarse(Principal_Conectarse padre)
         {
             InitializeComponent();
@@ -24,7 +31,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Click
         private void iniciarSesionBTN_Click(object sender, EventArgs e)
         {
-            Iniciar_Sesion iniSes = new Iniciar_Sesion(padre);
+            Iniciar_Sesion iniSes = new Iniciar_Sesion(padre, padre_bienvenida);
             iniSes.MdiParent = padre;
             iniSes.Show();
             this.Close();

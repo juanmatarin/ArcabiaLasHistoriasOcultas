@@ -30,7 +30,9 @@
         {
             this.conectarseBTN = new System.Windows.Forms.Button();
             this.usuarioConectado = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelUsuario = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tuPerfilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLblUsuario = new System.Windows.Forms.ToolStripSplitButton();
             this.tuPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -41,8 +43,6 @@
             this.continuarPartidaBTN = new System.Windows.Forms.Button();
             this.nuevaPartidaBTN = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tuPerfilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.usuarioConectado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,15 @@
             this.usuarioConectado.TabIndex = 14;
             this.usuarioConectado.Text = "toolStrip1";
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
             // toolStripLabelUsuario
             // 
             this.toolStripLabelUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -78,6 +87,14 @@
             this.toolStripLabelUsuario.Name = "toolStripLabelUsuario";
             this.toolStripLabelUsuario.Size = new System.Drawing.Size(105, 22);
             this.toolStripLabelUsuario.Text = "toolStripLabel1";
+            // 
+            // tuPerfilToolStripMenuItem1
+            // 
+            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
+            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
+            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
             // 
             // toolStripLblUsuario
             // 
@@ -117,6 +134,7 @@
             // salirBTN
             // 
             this.salirBTN.BackColor = System.Drawing.Color.Transparent;
+            this.salirBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.SalirJuego_No_Pulsado;
             this.salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.salirBTN.Location = new System.Drawing.Point(479, 338);
             this.salirBTN.Name = "salirBTN";
@@ -130,6 +148,7 @@
             // cargarPartidaBTN
             // 
             this.cargarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.cargarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.CargarPartida_No_Pulsado;
             this.cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cargarPartidaBTN.Location = new System.Drawing.Point(327, 338);
             this.cargarPartidaBTN.Name = "cargarPartidaBTN";
@@ -143,6 +162,7 @@
             // continuarPartidaBTN
             // 
             this.continuarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.continuarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ContinuarPartida_No_Pulsado;
             this.continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.continuarPartidaBTN.Location = new System.Drawing.Point(175, 338);
             this.continuarPartidaBTN.Name = "continuarPartidaBTN";
@@ -156,6 +176,7 @@
             // nuevaPartidaBTN
             // 
             this.nuevaPartidaBTN.BackColor = System.Drawing.Color.Transparent;
+            this.nuevaPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.NuevaPartida_No_Pulsado;
             this.nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nuevaPartidaBTN.Location = new System.Drawing.Point(23, 338);
             this.nuevaPartidaBTN.Name = "nuevaPartidaBTN";
@@ -173,23 +194,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(622, 235);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
-            // 
-            // tuPerfilToolStripMenuItem1
-            // 
-            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
-            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
-            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
-            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
             // 
             // Bienvenida
             // 

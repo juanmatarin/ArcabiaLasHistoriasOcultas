@@ -9,15 +9,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Iniciar_Sesion : Form
     {
         Principal_Conectarse padre;
-        public Iniciar_Sesion(Principal_Conectarse padre)
+        Principal padre_bienvenida;
+        FormCollection listaInterfaces;
+        int index;
+        bool salir;
+        public Iniciar_Sesion(Principal_Conectarse padre, Principal padre_bienvenida)
         {
             InitializeComponent();
             this.padre = padre;
+            this.padre_bienvenida = padre_bienvenida;
         }
 
         private void Iniciar_Sesion_Load(object sender, EventArgs e)
         {
-        
+            listaInterfaces = Application.OpenForms;
+            index = 0;
+            salir = false;
         }
 
         private void volverBTN_Click(object sender, EventArgs e)
@@ -28,22 +35,33 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.Close();
         }
 
-        private void inisesBTN_Click(object sender, EventArgs e)
+        private void inisesBTN_Click(object sender, EventArgs e, Form bienvenida)
         {
-            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
+            
+        }
 
-            //Si coinciden usuario y contraseña, sino mostramos error
-           if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
-           {
-                MessageBox.Show("Has iniciado sesion");
-                Bienvenida bienvenida = new Bienvenida(padre,txtUsuario.Text);
-                this.Close();
-                bienvenida.Show();
-
-           }
-            else
+        private void borrarVentana(Form Ventana)
+        {
+            while (!salir)
             {
-                lblError.Visible = true;
+                if (listaInterfaces[index].GetType().Equals(Ventana.GetType())) //Busca la interfaz que sea de tipo Juego
+                {
+                    salir = true;
+                    listaInterfaces[index].Close(); //Si la encuentra sale del bucle y cierra la interfaz encontrada
+                    index = 0;
+                }
+                else
+                {
+                    if (index == listaInterfaces.Count)
+                    {
+                        salir = true; //Si llega al tope de la lista, sale del bucle
+                        index = 0;
+                    }
+                    else
+                    {
+                        ++index; //Si no, se sigue buscando en la lista
+                    }
+                }
             }
         }
 
@@ -88,6 +106,27 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             volverBTN.BackgroundImage = Resources.Volver_No_Pulsado;
             volverBTN.BackgroundImageLayout = ImageLayout.Stretch;
         }
-    
+
+        private void inisesBTN_Click(object sender, EventArgs e)
+        {
+            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
+
+            //Si coinciden usuario y contraseña, sino mostramos error
+            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
+            {
+                MessageBox.Show("Has iniciado sesion");
+                borrarVentana(Bienvenida.ActiveForm);
+                Bienvenida bienvenida1 = new Bienvenida(padre_bienvenida, txtUsuario.Text);
+                bienvenida1.MdiParent = padre_bienvenida;
+                this.Close();
+                borrarVentana(padre);
+                bienvenida1.Show();
+
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
+        }
     }
 }
