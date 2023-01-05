@@ -22,7 +22,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             {
                 /*string insert = "INSERT INTO Historia(id, nombre, rutaImagen, contenidoJSON) VALUES (" + dtohistoria.id + ",'"
                     + dtohistoria.nombre + "', " + dtohistoria.rutaImagen + ", '" + dtohistoria.contenidoJSON + "');";
-                session.Execute(insert); */
+                session.Execute(insert);*/
             }
             catch (Exception e)
             {

@@ -17,7 +17,5 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DTO
 
         }
 
-  
-
     }
 }

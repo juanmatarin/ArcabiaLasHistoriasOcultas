@@ -95,6 +95,14 @@
             this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
             this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
             // 
+            // tuPerfilToolStripMenuItem1
+            // 
+            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
+            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
+            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
+            // 
             // toolStripLblUsuario
             // 
             this.toolStripLblUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {

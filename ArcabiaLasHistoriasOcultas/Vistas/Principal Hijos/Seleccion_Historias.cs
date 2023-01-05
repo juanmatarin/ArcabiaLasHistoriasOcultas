@@ -32,10 +32,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             aplicarFondos();
             listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
+            index = 0;
             cargarBotones();
             foreach (Button button in listaOpciones)
             {
-                button.Click += delegate (object s, EventArgs ev) { accionBoton(sender, ev, button.Tag + ""); };
+                button.Click += delegate (object s, EventArgs ev) { accionClick(sender, ev, button.Tag + ""); };
             }
         }
 
@@ -66,7 +67,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
-        private void accionBoton(object sender, EventArgs e, string numeroHistoria)
+        private void accionClick(object sender, EventArgs e, string numeroHistoria)
         {
             if (conectado)//Si está conectado, Juego tiene que saberlo, asi que se lo pasamos por parámetro
             {
