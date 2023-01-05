@@ -28,18 +28,26 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.padre = padre; //Recibe la vista padre
             this.nombreUsuario = nombreUsuario;    
             conectarseBTN.Visible= false;
+
         }
 
         //Load
         private void Bienvenida_Load(object sender, EventArgs e)
         {
+            if(nombreUsuario == null)
+            {
+                usuarioConectado.Visible = false;
+            }
+            else
+            {
+                usuarioConectado.Visible = true;
+                toolStripLabelUsuario.Text = nombreUsuario;
+            }
             this.BackgroundImage = Resources.FondoVentanas;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Image = Resources.Título_de_inicio;
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.BackColor = Color.Transparent;
-            usuarioConectado.Visible = false;
-            toolStripLblUsuario.Text = nombreUsuario;
         }
 
         //Click
@@ -88,6 +96,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 Principal_Conectarse conectarse = new Principal_Conectarse(padre);
                 conectarse.Show();
+                
             }
             else
             {

@@ -50,7 +50,7 @@
             // conectarseBTN
             // 
             this.conectarseBTN.Font = new System.Drawing.Font("Perpetua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conectarseBTN.Location = new System.Drawing.Point(284, 426);
+            this.conectarseBTN.Location = new System.Drawing.Point(287, 378);
             this.conectarseBTN.Name = "conectarseBTN";
             this.conectarseBTN.Size = new System.Drawing.Size(78, 24);
             this.conectarseBTN.TabIndex = 6;
@@ -85,8 +85,15 @@
             this.tuPerfilToolStripMenuItem1});
             this.toolStripLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelUsuario.Name = "toolStripLabelUsuario";
-            this.toolStripLabelUsuario.Size = new System.Drawing.Size(105, 22);
-            this.toolStripLabelUsuario.Text = "toolStripLabel1";
+            this.toolStripLabelUsuario.Size = new System.Drawing.Size(13, 22);
+            // 
+            // tuPerfilToolStripMenuItem1
+            // 
+            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
+            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
+            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
             // 
             // tuPerfilToolStripMenuItem1
             // 
@@ -136,7 +143,7 @@
             this.salirBTN.BackColor = System.Drawing.Color.Transparent;
             this.salirBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.SalirJuego_No_Pulsado;
             this.salirBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.salirBTN.Location = new System.Drawing.Point(479, 338);
+            this.salirBTN.Location = new System.Drawing.Point(482, 290);
             this.salirBTN.Name = "salirBTN";
             this.salirBTN.Size = new System.Drawing.Size(146, 82);
             this.salirBTN.TabIndex = 5;
@@ -150,7 +157,7 @@
             this.cargarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
             this.cargarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.CargarPartida_No_Pulsado;
             this.cargarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cargarPartidaBTN.Location = new System.Drawing.Point(327, 338);
+            this.cargarPartidaBTN.Location = new System.Drawing.Point(330, 290);
             this.cargarPartidaBTN.Name = "cargarPartidaBTN";
             this.cargarPartidaBTN.Size = new System.Drawing.Size(146, 82);
             this.cargarPartidaBTN.TabIndex = 4;
@@ -164,7 +171,7 @@
             this.continuarPartidaBTN.BackColor = System.Drawing.Color.Transparent;
             this.continuarPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ContinuarPartida_No_Pulsado;
             this.continuarPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.continuarPartidaBTN.Location = new System.Drawing.Point(175, 338);
+            this.continuarPartidaBTN.Location = new System.Drawing.Point(178, 290);
             this.continuarPartidaBTN.Name = "continuarPartidaBTN";
             this.continuarPartidaBTN.Size = new System.Drawing.Size(146, 82);
             this.continuarPartidaBTN.TabIndex = 3;
@@ -178,7 +185,7 @@
             this.nuevaPartidaBTN.BackColor = System.Drawing.Color.Transparent;
             this.nuevaPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.NuevaPartida_No_Pulsado;
             this.nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nuevaPartidaBTN.Location = new System.Drawing.Point(23, 338);
+            this.nuevaPartidaBTN.Location = new System.Drawing.Point(26, 290);
             this.nuevaPartidaBTN.Name = "nuevaPartidaBTN";
             this.nuevaPartidaBTN.Size = new System.Drawing.Size(146, 82);
             this.nuevaPartidaBTN.TabIndex = 2;
@@ -189,7 +196,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(15, 83);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(622, 235);
             this.pictureBox1.TabIndex = 15;
@@ -199,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 488);
+            this.ClientSize = new System.Drawing.Size(649, 416);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.usuarioConectado);
