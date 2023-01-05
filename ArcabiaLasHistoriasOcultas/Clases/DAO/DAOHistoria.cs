@@ -1,10 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using Cassandra;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArcabiaLasHistoriasOcultas.Clases.DAO
 {
@@ -24,9 +20,9 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
         {
             try
             {
-                string insert = "INSERT INTO Historia(id, nombre, rutaImagen, contenidoJSON) VALUES (" + dtohistoria.id + ",'"
+                /*string insert = "INSERT INTO Historia(id, nombre, rutaImagen, contenidoJSON) VALUES (" + dtohistoria.id + ",'"
                     + dtohistoria.nombre + "', " + dtohistoria.rutaImagen + ", '" + dtohistoria.contenidoJSON + "');";
-                session.Execute(insert);
+                session.Execute(insert); */
             }
             catch (Exception e)
             {

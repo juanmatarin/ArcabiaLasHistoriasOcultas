@@ -1,6 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
-using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
 using System;
 using System.Windows.Forms;
 
@@ -9,6 +8,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Iniciar_Sesion : Form
     {
         Principal_Conectarse padre;
+        FormCollection listaInterfaces;
+        int index;
+        bool salir;
         public Iniciar_Sesion(Principal_Conectarse padre)
         {
             InitializeComponent();
@@ -17,7 +19,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Iniciar_Sesion_Load(object sender, EventArgs e)
         {
-        
+            listaInterfaces = Application.OpenForms;
+            index = 0;
+            salir = false;
         }
 
         private void volverBTN_Click(object sender, EventArgs e)
@@ -30,7 +34,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void inisesBTN_Click(object sender, EventArgs e)
         {
-            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
 
             //Si coinciden usuario y contraseña, sino mostramos error
            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
@@ -38,9 +41,10 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 MessageBox.Show("Has iniciado sesion");
                 Bienvenida bienvenida = new Bienvenida(padre,txtUsuario.Text);
                 this.Close();
+                
                 bienvenida.Show();
-
-           }
+                
+            }
             else
             {
                 lblError.Visible = true;

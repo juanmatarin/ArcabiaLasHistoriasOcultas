@@ -21,6 +21,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
         {
             InitializeComponent();
             this.nombreUsuario = nombreUsuario;
+            mostrarDatosUsuario();
         }
         private void LimpiarErrores()
         {
@@ -32,7 +33,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
 
         private void Perfil_Usuario_Load(object sender, EventArgs e)
         {
-
+            
+            
+        }
+        public void mostrarDatosUsuario()
+        {
             var consulta = ControladorUsuarios.CargarDatosUsuario(nombreUsuario);
 
             foreach (var usuario in consulta)
@@ -116,12 +121,23 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
             if (ValidarDatos())
             {
                 ControladorUsuarios.ActualizarUsuario(txtNombre.Text, txtApellidos.Text, txtNombreUsuario.Text, txtCorreo.Text, nombreUsuario);
+                MessageBox.Show("El usuario " + nombreUsuario + " ha sido actualizado");
+                this.Close();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            txtNombre.ReadOnly= false;
+            txtApellidos.ReadOnly= false;
+            txtNombreUsuario.ReadOnly = false;
+            txtCorreo.ReadOnly= false; 
+            btnGuardar.Enabled= true;    
         }
     }
 }
