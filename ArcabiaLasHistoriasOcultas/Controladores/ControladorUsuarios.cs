@@ -8,7 +8,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
     public class ControladorUsuarios
     {
         static DAOUsuario daousuario = new DAOUsuario();
-        public static void AñadirUsuario(DTOUsuario dtousuario)
+        public static void AñadirUsuarioBD(DTOUsuario dtousuario)
         {
             if (daousuario.insert(dtousuario))
             {
@@ -65,7 +65,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return noUnico;
         }
 
-        public static dynamic CargarDatosUsuario(string username)
+        public static dynamic CargarUsuario(string username)
         {
             var consulta = daousuario.getUsuario(username);
             return consulta;

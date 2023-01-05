@@ -1,4 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
 using System;
@@ -17,8 +18,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         int ejeX, ejeY, numeroActo;
         string rutaPartida, historia;
         bool haSeleccionadoOpcion, partidaNueva, haGuardado;
+        bool conectado;
 
-        //Constructor
+        //Constructor normal
         public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida)
         {
             InitializeComponent();
@@ -30,11 +32,24 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.rutaPartida = rutaPartida;
             this.historia = historia;
         }
+        //Contructor si está conectado a la base de datos
+        public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida, bool conectado)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.ejeY = (panel1.Height * 20) / 100;
+            this.ejeX = (panel1.Width * 40) / 100;
+            this.numeroActo = numeroActo;
+            this.partidaNueva = partidaNueva;
+            this.rutaPartida = rutaPartida;
+            this.historia = historia;
+            this.conectado = true;
+        }
 
         //Load
         private void Juego_Load(object sender, EventArgs e)
         {
-            apilicarFondos();
+            aplicarFondos();
             listaActos = ControladorActos.getListaActos(rutaPartida);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
@@ -81,6 +96,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     MessageBox.Show("Partida guardada con éxito");
                     haGuardado = true; //Se confirma que se ha guardado la partida.
                     listaPartidas = ControladorPartidas.getPartidas();
+                    if (conectado)//Si estamos conectados, la partida se guarda en la base de datos
+                    {
+                        DTOPartida dtopartida = new DTOPartida(listaPartidas.Count, historia, numeroActo, rutaPartida);
+                        ControladorPartidas.GuardarPartidaBD(dtopartida);
+                    }
                 }
                 else
                 {
@@ -148,7 +168,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
 
         //Métodos Varios
-        private void apilicarFondos()
+        private void aplicarFondos()
         {
             this.BackgroundImage = Resources.FondoVentanas;
             this.BackgroundImageLayout = ImageLayout.Stretch;

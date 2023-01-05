@@ -14,10 +14,17 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         List<Historia> listaHistorias;
         List<Button> listaOpciones;
         int ejeX, ejeY;
+        bool conectado;
         public Seleccion_Historias(Principal padre)
         {
             InitializeComponent();
             this.padre = padre;
+        }
+        public Seleccion_Historias(Principal padre, bool conectado)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.conectado = conectado;
         }
 
         private void Seleccion_Historias_Load(object sender, EventArgs e)
@@ -61,10 +68,21 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void accionBoton(object sender, EventArgs e, string numeroHistoria)
         {
-            Juego juego = new Juego(padre, "Historia_" + numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
-            juego.MdiParent = padre;
-            juego.Show();
-            this.Close();
+            if (conectado)//Si está conectado, Juego tiene que saberlo, asi que se lo pasamos por parámetro
+            {
+                Juego juego = new Juego(padre, "Historia_" + numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria, conectado);
+                juego.MdiParent = padre;
+                juego.Show();
+                this.Close();
+            }
+            else
+            {
+                Juego juego = new Juego(padre, "Historia_" + numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
+                juego.MdiParent = padre;
+                juego.Show();
+                this.Close();
+            }
+            
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
         {
             InitializeComponent();
             this.nombreUsuario = nombreUsuario;
-            mostrarDatosUsuario();
+            mostrarDatosUsuario();//Muestra los datos en los campos de texto
         }
         private void LimpiarErrores()
         {
@@ -38,16 +38,18 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
         }
         public void mostrarDatosUsuario()
         {
-            var consulta = ControladorUsuarios.CargarDatosUsuario(nombreUsuario);
+            var consulta = ControladorUsuarios.CargarUsuario(nombreUsuario);//consulta recibe el valor de una serie de datos del usuario con el nombreUsuario enviado por parámetro
 
             foreach (var usuario in consulta)
             {
+                //Recogemos estos valores
                 int id = usuario.GetValue<int>("id");
                 string nombre = usuario.GetValue<string>("nombre");
                 string apellidos = usuario.GetValue<string>("apellidos");
                 string nombreUsuario = usuario.GetValue<string>("nombre_usuario");
                 string correo = usuario.GetValue<string>("correo");
 
+                //Los mostramos en los campos de texto
                 txtId.Text = "" + id + "";
                 txtNombre.Text = nombre;
                 txtApellidos.Text = apellidos;
@@ -131,7 +133,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
             this.Close();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)//Hasta no clickar en el botón editar, no podemos editar ningún campo de texto
         {
             txtNombre.ReadOnly= false;
             txtApellidos.ReadOnly= false;

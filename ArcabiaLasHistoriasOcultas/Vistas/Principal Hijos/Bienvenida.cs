@@ -16,6 +16,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         Principal_Conectarse padre_conectarse;
         List<Partida> listaPartidas;
         string nombreUsuario;
+        bool conectado;
 
         //Constructor
         public Bienvenida(Principal padre)
@@ -29,7 +30,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.padre_conectarse = padre; //Recibe la vista padre
             this.nombreUsuario = nombreUsuario;    
             conectarseBTN.Visible= false;
-
+            conectado = true;
         }
 
         //Load
@@ -54,9 +55,20 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Click
         private void nuevaPartidaBTN_Click(object sender, EventArgs e)
         {
-            Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
-            seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
-            seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+            if(conectado)//Si está conectado, se lo pasamos por parámetro a Seleccion historias
+            {
+                Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre, conectado);
+                seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
+                seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+            }
+            else
+            {
+                Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
+                seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
+                seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+
+            }
+            
         }
         private void cargarPartidaBTN_Click(object sender, EventArgs e)
         {

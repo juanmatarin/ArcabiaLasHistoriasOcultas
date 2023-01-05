@@ -16,20 +16,27 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             Cluster cluster = Cluster.Builder().AddContactPoint("192.168.1.131").Build();
             session = (Session)cluster.Connect("arcabia_keyspace");
         }
-        public void insert(DTOPartida dtopartida)
+        public bool insert(DTOPartida dtopartida)
         {
+            bool insertada;
             try
             {
-                string insert = "INSERT INTO Partida(id, historia, numeroActo, rutaInstrucciones) VALUES (" + dtopartida.id + ",'" 
-                    + dtopartida.historia + "', " + dtopartida.numeroActo + ", '" + dtopartida.rutaInstrucciones + "');";
+                
+                string fechaParseada = dtopartida.fechaGuardado.ToString();
+
+                string insert = "INSERT INTO Partida(id, historia, numeroActo, rutaInstrucciones,fechaGuardado) VALUES (" + dtopartida.id + ",'"
+                    + dtopartida.historia + "', " + dtopartida.numeroActo + ", '" + dtopartida.rutaInstrucciones + "', '" + fechaParseada + "');";
                 session.Execute(insert);
+                insertada = true;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error en la inserción de datos" + e.Message);
+                insertada = false;
             }
-
+            return insertada;
         }
+
         public void update()
         {
             try

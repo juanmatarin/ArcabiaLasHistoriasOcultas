@@ -45,7 +45,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
             if (ValidarDatos())
             {
-                ControladorUsuarios.AñadirUsuario(nuevoUsuario);
+                ControladorUsuarios.AñadirUsuarioBD(nuevoUsuario);
                 this.Close();
             }
         }
