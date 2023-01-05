@@ -17,12 +17,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     public partial class Registrarse : Form
     {
         Principal_Conectarse padre;
+        Principal padre_bienvenida;
+        Bienvenida bienvenida;
 
         //Constructor
-        public Registrarse(Principal_Conectarse padre)
+        public Registrarse(Principal_Conectarse padre, Bienvenida bienvenida, Principal padre_bienvenida)
         {
             InitializeComponent();
             this.padre = padre;
+            this.bienvenida = bienvenida;
+            this.padre_bienvenida = padre_bienvenida;
         }
 
         //Load
@@ -34,7 +38,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Click
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            Conectarse conectarse = new Conectarse(padre);
+            Conectarse conectarse = new Conectarse(padre, bienvenida, padre_bienvenida);
             conectarse.MdiParent = padre;
             conectarse.Show();
             this.Close();

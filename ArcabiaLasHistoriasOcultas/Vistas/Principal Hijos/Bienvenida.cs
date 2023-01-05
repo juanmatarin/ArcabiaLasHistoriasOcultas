@@ -15,6 +15,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         Principal padre; //Esto es la ventana padre que se va pasando entre los hijos para que salgan todos dentro de principal con los botones de la vista que se carga dentro
         List<Partida> listaPartidas;
         string nombreUsuario;
+        bool haIniciadoSesion;
 
         //Constructor
         public Bienvenida(Principal padre)
@@ -22,12 +23,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             InitializeComponent();
             this.padre = padre; //Recibe la vista padre
         }
-        public Bienvenida(Principal padre,string nombreUsuario)
+        public Bienvenida(Principal padre,string nombreUsuario, bool haIniciadoSesion)
         {
             InitializeComponent();
             this.padre = padre; //Recibe la vista padre
-            this.nombreUsuario = nombreUsuario;    
-            conectarseBTN.Visible= false;
+            this.nombreUsuario = nombreUsuario;
+            this.haIniciadoSesion = haIniciadoSesion; //Indica si bienvenida se ha abierto tras iniciar sesion
+            
 
         }
 
@@ -42,6 +44,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 usuarioConectado.Visible = true;
                 toolStripLabelUsuario.Text = nombreUsuario;
+                conectarseBTN.Visible = false;
             }
             this.BackgroundImage = Resources.FondoVentanas;
             this.BackgroundImageLayout = ImageLayout.Stretch;
@@ -94,7 +97,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             if (ControladorBaseDeDatos.comprobarConexión())
             {
-                Principal_Conectarse conectarse = new Principal_Conectarse(padre);
+                Principal_Conectarse conectarse = new Principal_Conectarse(padre, this);
                 conectarse.Show();
                 
             }
@@ -157,10 +160,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //FormClosing
         private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e) //Esto se ejecuta en el momento que se va a cerrar la ventana.
         {
-            if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
-                    MessageBoxButtons.YesNo) == DialogResult.No)
+            if (haIniciadoSesion)
             {
-                e.Cancel = true;
+                if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
+                   MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -168,7 +174,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             Perfil_Usuario perfil_Usuario = new Perfil_Usuario(nombreUsuario);
             perfil_Usuario.Show();
-
         }
     }
 }

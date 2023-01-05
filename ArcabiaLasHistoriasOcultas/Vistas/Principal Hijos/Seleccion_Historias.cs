@@ -13,7 +13,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         Principal padre;
         List<Historia> listaHistorias;
         List<Button> listaOpciones;
-        int ejeX, ejeY;
+        int ejeX, ejeY, index;
         public Seleccion_Historias(Principal padre)
         {
             InitializeComponent();
@@ -25,10 +25,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             aplicarFondos();
             listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
+            index = 0;
             cargarBotones();
             foreach (Button button in listaOpciones)
             {
-                button.Click += delegate (object s, EventArgs ev) { accionBoton(sender, ev, button.Tag + ""); };
+                button.Click += delegate (object s, EventArgs ev) { accionClick(sender, ev, button.Tag + ""); };
             }
         }
 
@@ -59,7 +60,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
-        private void accionBoton(object sender, EventArgs e, string numeroHistoria)
+        private void accionClick(object sender, EventArgs e, string numeroHistoria)
         {
             Juego juego = new Juego(padre, "Historia_" + numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
             juego.MdiParent = padre;

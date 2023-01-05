@@ -9,14 +9,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
     {
         Principal_Conectarse padre;
         Principal padre_bienvenida;
+        Bienvenida bienvenida;
         FormCollection listaInterfaces;
         int index;
         bool salir;
-        public Iniciar_Sesion(Principal_Conectarse padre, Principal padre_bienvenida)
+        public Iniciar_Sesion(Principal_Conectarse padre, Bienvenida bienvenida, Principal padre_bienvenida)
         {
             InitializeComponent();
             this.padre = padre;
             this.padre_bienvenida = padre_bienvenida;
+            this.bienvenida = bienvenida;
         }
 
         private void Iniciar_Sesion_Load(object sender, EventArgs e)
@@ -26,18 +28,36 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             salir = false;
         }
 
+        private void inisesBTN_Click(object sender, EventArgs e)
+        {
+            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
+
+            //Si coinciden usuario y contraseña, sino mostramos error
+            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
+            {
+                MessageBox.Show("Has iniciado sesion");
+                borrarVentana(bienvenida);
+                Bienvenida bienvenida1 = new Bienvenida(padre_bienvenida, txtUsuario.Text, true);
+                bienvenida1.MdiParent = padre_bienvenida;
+                this.Close();
+                borrarVentana(padre);
+                bienvenida1.Show();
+
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
+        }
+
         private void volverBTN_Click(object sender, EventArgs e)
         {
-            Conectarse conectarse = new Conectarse(padre);
+            Conectarse conectarse = new Conectarse(padre, bienvenida, padre_bienvenida);
             conectarse.MdiParent = padre;
             conectarse.Show();
             this.Close();
         }
 
-        private void inisesBTN_Click(object sender, EventArgs e, Form bienvenida)
-        {
-            
-        }
 
         private void borrarVentana(Form Ventana)
         {
@@ -76,7 +96,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void linkLabelCrearUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Registrarse registrarse = new Registrarse(padre);
+            Registrarse registrarse = new Registrarse(padre, bienvenida, padre_bienvenida);
             this.Close();
             registrarse.Show();
         }
@@ -104,28 +124,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             volverBTN.BackgroundImage = Resources.Volver_No_Pulsado;
             volverBTN.BackgroundImageLayout = ImageLayout.Stretch;
-        }
-
-        private void inisesBTN_Click(object sender, EventArgs e)
-        {
-            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
-
-            //Si coinciden usuario y contraseña, sino mostramos error
-            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
-            {
-                MessageBox.Show("Has iniciado sesion");
-                borrarVentana(Bienvenida.ActiveForm);
-                Bienvenida bienvenida1 = new Bienvenida(padre_bienvenida, txtUsuario.Text);
-                bienvenida1.MdiParent = padre_bienvenida;
-                this.Close();
-                borrarVentana(padre);
-                bienvenida1.Show();
-
-            }
-            else
-            {
-                lblError.Visible = true;
-            }
         }
     }
 }

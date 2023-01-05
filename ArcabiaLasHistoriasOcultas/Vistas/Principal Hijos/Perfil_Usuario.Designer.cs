@@ -50,9 +50,10 @@
             // lblErrorNombre
             // 
             this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNombre.Location = new System.Drawing.Point(314, 80);
+            this.lblErrorNombre.Location = new System.Drawing.Point(487, 67);
             this.lblErrorNombre.Name = "lblErrorNombre";
             this.lblErrorNombre.Size = new System.Drawing.Size(15, 18);
             this.lblErrorNombre.TabIndex = 28;
@@ -62,9 +63,10 @@
             // lblErrorApellidos
             // 
             this.lblErrorApellidos.AutoSize = true;
+            this.lblErrorApellidos.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorApellidos.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorApellidos.Location = new System.Drawing.Point(314, 130);
+            this.lblErrorApellidos.Location = new System.Drawing.Point(487, 117);
             this.lblErrorApellidos.Name = "lblErrorApellidos";
             this.lblErrorApellidos.Size = new System.Drawing.Size(15, 18);
             this.lblErrorApellidos.TabIndex = 27;
@@ -74,9 +76,10 @@
             // lblErrorNombreUsuario
             // 
             this.lblErrorNombreUsuario.AutoSize = true;
+            this.lblErrorNombreUsuario.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorNombreUsuario.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorNombreUsuario.Location = new System.Drawing.Point(314, 178);
+            this.lblErrorNombreUsuario.Location = new System.Drawing.Point(487, 165);
             this.lblErrorNombreUsuario.Name = "lblErrorNombreUsuario";
             this.lblErrorNombreUsuario.Size = new System.Drawing.Size(15, 18);
             this.lblErrorNombreUsuario.TabIndex = 26;
@@ -86,9 +89,10 @@
             // lblErrorCorreo
             // 
             this.lblErrorCorreo.AutoSize = true;
+            this.lblErrorCorreo.BackColor = System.Drawing.Color.Transparent;
             this.lblErrorCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorCorreo.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorCorreo.Location = new System.Drawing.Point(314, 229);
+            this.lblErrorCorreo.Location = new System.Drawing.Point(487, 216);
             this.lblErrorCorreo.Name = "lblErrorCorreo";
             this.lblErrorCorreo.Size = new System.Drawing.Size(15, 18);
             this.lblErrorCorreo.TabIndex = 25;
@@ -97,9 +101,9 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(361, 179);
+            this.btnCancelar.Location = new System.Drawing.Point(385, 269);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(144, 45);
+            this.btnCancelar.Size = new System.Drawing.Size(175, 45);
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -108,9 +112,9 @@
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
-            this.btnGuardar.Location = new System.Drawing.Point(361, 103);
+            this.btnGuardar.Location = new System.Drawing.Point(204, 269);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(142, 45);
+            this.btnGuardar.Size = new System.Drawing.Size(175, 45);
             this.btnGuardar.TabIndex = 23;
             this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -118,7 +122,7 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(58, 230);
+            this.txtCorreo.Location = new System.Drawing.Point(231, 217);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.ReadOnly = true;
             this.txtCorreo.Size = new System.Drawing.Size(250, 20);
@@ -127,7 +131,8 @@
             // lblCorreo
             // 
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(55, 214);
+            this.lblCorreo.BackColor = System.Drawing.Color.Transparent;
+            this.lblCorreo.Location = new System.Drawing.Point(94, 224);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(93, 13);
             this.lblCorreo.TabIndex = 21;
@@ -135,7 +140,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(58, 179);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(231, 166);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.ReadOnly = true;
             this.txtNombreUsuario.Size = new System.Drawing.Size(250, 20);
@@ -144,7 +149,8 @@
             // lblNombre_Usuario
             // 
             this.lblNombre_Usuario.AutoSize = true;
-            this.lblNombre_Usuario.Location = new System.Drawing.Point(55, 163);
+            this.lblNombre_Usuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombre_Usuario.Location = new System.Drawing.Point(94, 169);
             this.lblNombre_Usuario.Name = "lblNombre_Usuario";
             this.lblNombre_Usuario.Size = new System.Drawing.Size(81, 13);
             this.lblNombre_Usuario.TabIndex = 19;
@@ -152,7 +158,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(58, 128);
+            this.txtApellidos.Location = new System.Drawing.Point(231, 115);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.ReadOnly = true;
             this.txtApellidos.Size = new System.Drawing.Size(250, 20);
@@ -161,7 +167,8 @@
             // lblApellidos
             // 
             this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Location = new System.Drawing.Point(55, 112);
+            this.lblApellidos.BackColor = System.Drawing.Color.Transparent;
+            this.lblApellidos.Location = new System.Drawing.Point(94, 118);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(49, 13);
             this.lblApellidos.TabIndex = 17;
@@ -169,7 +176,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(58, 78);
+            this.txtNombre.Location = new System.Drawing.Point(231, 65);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
             this.txtNombre.Size = new System.Drawing.Size(250, 20);
@@ -178,7 +185,8 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(55, 62);
+            this.lblNombre.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombre.Location = new System.Drawing.Point(94, 68);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 15;
@@ -186,7 +194,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(58, 39);
+            this.txtId.Location = new System.Drawing.Point(231, 26);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(41, 20);
@@ -195,7 +203,8 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(55, 23);
+            this.lblId.BackColor = System.Drawing.Color.Transparent;
+            this.lblId.Location = new System.Drawing.Point(94, 29);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(16, 13);
             this.lblId.TabIndex = 29;
@@ -203,9 +212,9 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(361, 42);
+            this.btnEditar.Location = new System.Drawing.Point(23, 269);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(142, 33);
+            this.btnEditar.Size = new System.Drawing.Size(175, 45);
             this.btnEditar.TabIndex = 31;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -215,7 +224,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 314);
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(583, 335);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
@@ -233,8 +244,10 @@
             this.Controls.Add(this.lblApellidos);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
+            this.DoubleBuffered = true;
             this.Name = "Perfil_Usuario";
-            this.Text = "Perfil_Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Perfil Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 
