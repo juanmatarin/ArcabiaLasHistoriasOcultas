@@ -62,7 +62,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void accionClick(object sender, EventArgs e, string numeroHistoria)
         {
-            Juego juego = new Juego(padre, "Historia_" + numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
+            Juego juego = new Juego(padre, numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
             juego.MdiParent = padre;
             juego.Show();
             this.Close();

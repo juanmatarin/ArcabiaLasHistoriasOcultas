@@ -27,15 +27,22 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaHistorias;
         }
 
-        public static bool addHistoriaNuevaLocal(Historia historia, List<Acto> listaActos)
+        public static bool addHistoriaNuevaLocal(List<Acto> listaActos)
         {
             bool exito = false;
-            string html = "", json = "", directorioCompleto; //HTML Y JSON Sería el contenido que se sacaría de la BBDD.
-            int index = 0;
+            string html = "", directorioCompleto, nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
+            int index = 0, idHistoria;
+            Historia historiaNueva;
             List<Historia> listaHistorias = getHistorias();
             DirectoryInfo directorioHistoria, directorioActo;
 
-            directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historia.id); //Crea el directorio de la historia.
+            idHistoria = listaHistorias.Count + 1;
+            nombreHistoria = "Historia_" + idHistoria;
+            //rutaImagen se saca de la BBDD
+            historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
+            listaHistorias.Add(historiaNueva);
+
+            directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historiaNueva.id); //Crea el directorio de la historia.
             foreach (Acto acto in listaActos)
             {
                 directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + (acto.id + 1)); //Crea cada directorio de cada acto.
@@ -50,6 +57,28 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             }
 
             crearYEscribirJSON(directorioHistoria.FullName, listaActos); //Crea el Json de las instrucciones.
+            guardarHistorias(listaHistorias);
+            
+            return exito;
+        }
+
+        public static bool guardarHistorias(List<Historia> listaHistorias)
+        {
+            string ruta = @"..\..\Archivos\Historias\historias.json";
+            bool exito = false;
+            try
+            {
+                if (File.Exists(ruta))
+                {
+                    var contenido = JsonSerializer.SerializeToUtf8Bytes(listaHistorias);
+                    File.WriteAllBytes(ruta, contenido);
+                    exito = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error leyendo json " + e.Message);
+            }
             return exito;
         }
 

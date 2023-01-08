@@ -81,6 +81,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Partida elegida = (Partida)PartidasLST.SelectedValue;
+                    salir = false; //Se inicializa aquí la variable porque se pueden borrar varias partidas sin salirse de la ventana.
                     while (!salir)
                     {
                         if (listaPartidas[index].id == elegida.id)
@@ -98,7 +99,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                         }
                         else
                         {
-                            if (index == listaInterfaces.Count)
+                            if (index == listaPartidas.Count)
                             {
                                 salir = true; //Si llega al tope de la lista, sale del bucle
                                 index = 0;
