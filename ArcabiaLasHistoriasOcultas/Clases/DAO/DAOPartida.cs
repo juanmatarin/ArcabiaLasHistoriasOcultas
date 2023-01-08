@@ -24,7 +24,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                 
                 string fechaParseada = dtopartida.fechaGuardado.ToString();
 
-                string insert = "INSERT INTO Partida(id, historia, numeroActo, rutaInstrucciones,fechaGuardado) VALUES (" + dtopartida.id + ",'"
+                string insert = "INSERT INTO Partida(id, idUsuario, historia, numeroActo, rutaInstrucciones,fechaGuardado) VALUES (" + dtopartida.id + ", " + dtopartida.idUsuario +  ",'"
                     + dtopartida.historia + "', " + dtopartida.numeroActo + ", '" + dtopartida.rutaInstrucciones + "', '" + fechaParseada + "');";
                 session.Execute(insert);
                 insertada = true;
@@ -36,7 +36,17 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             }
             return insertada;
         }
-
+        public dynamic getPartidas()
+        {
+            var consulta = session.Execute("SELECT * FROM Partida;");
+            return consulta;
+        }
+        public dynamic getIds()
+        {
+            var consulta = session.Execute("SELECT id FROM Partida;");
+            return consulta;
+        }
+        
         public void update()
         {
             try
@@ -49,5 +59,21 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                 Console.WriteLine("Error al actualizar " + e.Message);
             }
         }
+        public bool delete(int id)
+        {
+            bool delete;
+            try
+            {
+                session.Execute("DELETE FROM Partida WHERE id = " + id);
+                delete = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al eliminar la partida" + e.Message);
+                delete = false;
+            }
+            return delete;
+        }
+
     }
 }

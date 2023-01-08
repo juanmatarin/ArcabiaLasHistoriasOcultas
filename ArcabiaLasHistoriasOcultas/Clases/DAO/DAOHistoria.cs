@@ -29,6 +29,17 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                 Console.WriteLine("Error en la inserción de datos" + e.Message);
             }
         }
+        public dynamic getContenido()
+        {
+            var consulta = session.Execute("select contenidoJSON from Historia ");
+            return consulta;
+        }
+        public dynamic getHistoria()
+        {
+            var consulta = "SELECT * FROM Partida where  ";
+            return consulta;
+            
+        }
 
     }
 }

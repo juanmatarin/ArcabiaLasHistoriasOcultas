@@ -177,11 +177,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\DAO\DAOActo.cs" />
     <Compile Include="Clases\DAO\DAOBaseDeDatos.cs" />
     <Compile Include="Clases\DAO\DAOHistoria.cs" />
+    <Compile Include="Clases\DAO\DAOOpcion.cs" />
     <Compile Include="Clases\DAO\DAOPartida.cs" />
     <Compile Include="Clases\DAO\DAOUsuario.cs" />
+    <Compile Include="Clases\DTO\DTOActo.cs" />
     <Compile Include="Clases\DTO\DTOHistoria.cs" />
+    <Compile Include="Clases\DTO\DTOOpcion.cs" />
     <Compile Include="Clases\DTO\DTOPartida.cs" />
     <Compile Include="Clases\DTO\DTOUsuario.cs" />
     <Compile Include="Clases\Acto.cs" />

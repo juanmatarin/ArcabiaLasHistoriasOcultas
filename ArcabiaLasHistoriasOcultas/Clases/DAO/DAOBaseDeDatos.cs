@@ -19,8 +19,8 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
            
             try
             {
-                Cluster cluster = Cluster.Builder().AddContactPoint("192.168.1.128").Build();
-                Session session = (Session)cluster.Connect("arcabialho_keyspace");
+                Cluster cluster = Cluster.Builder().AddContactPoint("192.168.1.131").Build();
+                Session session = (Session)cluster.Connect("arcabia_keyspace");
                 exito = true;
             }
             catch (Exception e)

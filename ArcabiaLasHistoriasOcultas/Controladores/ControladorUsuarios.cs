@@ -70,6 +70,19 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             var consulta = daousuario.getUsuario(username);
             return consulta;
         }
+        public static int getId(string username)
+        {
+            var consulta = daousuario.getId(username);
+            int id = 0;
+            foreach (var ids in consulta)
+            {
+                id = ids.GetValue<int>("id");
+                break;
+            }
+            return id;
+        }
+        
+            
     }
 }
 

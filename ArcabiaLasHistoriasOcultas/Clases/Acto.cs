@@ -13,7 +13,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         {
         }
 
-        public Acto(int id, string ruta, List<Opcion> opciones)
+        public Acto(int id, string ruta, List<Opcion> opciones,string ss)
         {
             this.id = id;
             this.ruta = ruta;

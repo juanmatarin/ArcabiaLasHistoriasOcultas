@@ -14,8 +14,8 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
         }
         public void conexion()
         {
-            Cluster cluster = Cluster.Builder().AddContactPoint("192.168.1.128").Build(); //En el contactPoint debes escribir la ip de tu equipo
-            session = (Session)cluster.Connect("arcabialho_keyspace");
+            Cluster cluster = Cluster.Builder().AddContactPoint("192.168.1.131").Build(); //En el contactPoint debes escribir la ip de tu equipo
+            session = (Session)cluster.Connect("arcabia_keyspace");
         }
 
         public dynamic getUsername(string username)
@@ -23,16 +23,10 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             var consulta = session.Execute("SELECT nombre_usuario FROM Usuario WHERE nombre_usuario = '" + username + "' ALLOW FILTERING;"); 
             return consulta; //ALLOW FILTERING tenemos que usarlo al filtrar por un valor o columna que no sea la clave primaria
         }
-        public int getId(string nombre_usuario)
+        public dynamic getId(string nombreUsuario)
         {
-            var consulta = session.Execute("SELECT id FROM Usuario WHERE nombre_usuario = '" + nombre_usuario + "' ALLOW FILTERING;");
-            int id = 0;
-            foreach(var valor in consulta)
-            {
-                id = valor.GetValue<int>("id");
-                break;
-            }
-            return id;
+            var consulta = session.Execute("SELECT id FROM Usuario WHERE nombre_usuario = '" + nombreUsuario + "' ALLOW FILTERING;");
+            return consulta;
 
         }
 
