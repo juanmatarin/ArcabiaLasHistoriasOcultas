@@ -22,7 +22,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases
             this.numeroActo = numeroActo;
             this.rutaInstrucciones = rutaInstrucciones;
             fechaGuardado = DateTime.Now;
-            nombreCompleto = "Historia " + historia[historia.Length - 1] + ", Acto " + (numeroActo + 1) + ", " + fechaGuardado.ToString();
+            nombreCompleto = "Partida " + id + ", Historia " + historia[historia.Length - 1] + ", Acto " + (numeroActo + 1) + ", " + fechaGuardado.ToString();
         }
     }
 }

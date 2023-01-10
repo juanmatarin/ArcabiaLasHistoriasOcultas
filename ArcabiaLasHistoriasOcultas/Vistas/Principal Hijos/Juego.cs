@@ -4,6 +4,7 @@ using ArcabiaLasHistoriasOcultas.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas
@@ -66,7 +67,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void GuardarBTN_Click(object sender, EventArgs e)
         {
-            Partida partidaGuardada = new Partida(listaPartidas.Count, historia, numeroActo, rutaPartida);
+            int id;
+            if (listaPartidas.Count > 0)
+            {
+                id = listaPartidas.Max(x => x.id) + 1;
+            }
+            else
+            {
+                id = 1;
+            }
+            Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
                 partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.

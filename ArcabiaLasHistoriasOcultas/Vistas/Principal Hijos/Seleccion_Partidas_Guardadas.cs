@@ -86,6 +86,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     {
                         if (listaPartidas[index].id == elegida.id)
                         {
+                            ControladorPartidas.borrarPartida(listaPartidas[index]);
                             listaPartidas.Remove(listaPartidas[index]);
                             ControladorPartidas.guardarPartidas(listaPartidas);
                             MessageBox.Show("Partida borrada con éxito");

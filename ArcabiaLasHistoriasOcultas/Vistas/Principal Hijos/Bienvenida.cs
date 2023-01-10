@@ -160,7 +160,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //FormClosing
         private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e) //Esto se ejecuta en el momento que se va a cerrar la ventana.
         {
-            if (haIniciadoSesion)
+            if (!haIniciadoSesion)
             {
                 if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
                    MessageBoxButtons.YesNo) == DialogResult.No)
