@@ -1,8 +1,15 @@
 ﻿using ArcabiaLasHistoriasOcultas.Properties;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArcabiaLasHistoriasOcultas.Vistas
+namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Conectarse_Hijos
 {
     public partial class Conectarse : Form
     {
@@ -23,6 +30,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             InitializeComponent();
             this.padre = padre;
         }
+
 
         //Load
         private void Conectarse_Load(object sender, EventArgs e)

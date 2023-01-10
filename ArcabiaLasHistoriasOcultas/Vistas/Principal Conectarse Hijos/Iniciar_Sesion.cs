@@ -1,5 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
+using ArcabiaLasHistoriasOcultas.Vistas.Principal_Conectarse_Hijos;
 using System;
 using System.Windows.Forms;
 

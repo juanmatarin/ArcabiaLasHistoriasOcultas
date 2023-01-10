@@ -1,6 +1,7 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Vistas.Principal_Conectarse_Hijos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

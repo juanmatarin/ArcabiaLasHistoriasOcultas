@@ -17,7 +17,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
 
             Image imagenDeFondo = Properties.Resources.Fondo;
-            this.BackgroundImage = imagenDeFondo;//redimensionarImagen(imagenDeFondo);
+            this.BackgroundImage = imagenDeFondo;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.BackColor = Color.Black;
 
@@ -28,20 +28,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             bienvenida.Location = new Point((this.ClientSize.Width - bienvenida.Width) / 2, 
                                             (this.ClientSize.Height - bienvenida.Height) / 2); //Esto es porque, de otra forma no se centra el hijo dentro del padre (desconozco el motivo de esto).
             bienvenida.Show();
-        }
-
-        private Image redimensionarImagen(Image imagen)
-        {
-            Bitmap b = new Bitmap(imagen.Width, imagen.Height);
-            Graphics g = Graphics.FromImage((System.Drawing.Image)b);
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            var altura = imagen.Height; /// this.Height;
-            var anchura = imagen.Width; /// this.Width;
-            // Draw image with new width and height  
-            g.DrawImage(imagen, 0, 0, altura, anchura);
-            g.Dispose();
-            
-            return b;
         }
 
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)

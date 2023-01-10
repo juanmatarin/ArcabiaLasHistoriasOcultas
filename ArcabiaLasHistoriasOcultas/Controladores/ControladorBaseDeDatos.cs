@@ -10,7 +10,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         public static bool comprobarConexión()
         {
             bool conectado = daobd.comprobarConexion();
-            if(conectado)
+            if (conectado)
             {
                 return true;
             }
