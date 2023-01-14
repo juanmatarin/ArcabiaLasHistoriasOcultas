@@ -46,11 +46,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 toolStripLabelUsuario.Text = nombreUsuario;
                 conectarseBTN.Visible = false;
             }
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = Resources.Título_de_inicio;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.BackColor = Color.Transparent;
         }
 
         //Click

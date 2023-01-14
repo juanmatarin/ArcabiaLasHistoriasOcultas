@@ -47,12 +47,15 @@
             // 
             // PartidasLST
             // 
-            this.PartidasLST.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PartidasLST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PartidasLST.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PartidasLST.Font = new System.Drawing.Font("Perpetua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PartidasLST.ForeColor = System.Drawing.Color.White;
             this.PartidasLST.FormattingEnabled = true;
-            this.PartidasLST.ItemHeight = 29;
+            this.PartidasLST.ItemHeight = 28;
             this.PartidasLST.Location = new System.Drawing.Point(12, 12);
             this.PartidasLST.Name = "PartidasLST";
-            this.PartidasLST.Size = new System.Drawing.Size(625, 323);
+            this.PartidasLST.Size = new System.Drawing.Size(625, 308);
             this.PartidasLST.TabIndex = 1;
             // 
             // volverBTN
@@ -81,11 +84,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(649, 423);
             this.Controls.Add(this.borrarBTN);
             this.Controls.Add(this.volverBTN);
             this.Controls.Add(this.PartidasLST);
             this.Controls.Add(this.seleccionarBTN);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Seleccion_Partidas_Guardadas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

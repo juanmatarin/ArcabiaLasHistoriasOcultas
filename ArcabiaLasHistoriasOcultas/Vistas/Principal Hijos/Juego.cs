@@ -35,7 +35,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Load
         private void Juego_Load(object sender, EventArgs e)
         {
-            apilicarFondos();
             listaActos = ControladorActos.getListaActos(rutaPartida);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
@@ -158,13 +157,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
 
         //Métodos Varios
-        private void apilicarFondos()
-        {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.BackgroundImage = Resources.FondoListas;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-        }
         private void cargarActo() 
         {
             borrarOpciones(); //Se borran los botones del panel

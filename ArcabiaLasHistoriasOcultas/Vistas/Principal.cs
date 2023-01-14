@@ -15,12 +15,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Principal_Load(object sender, EventArgs e)
         {
-
-            Image imagenDeFondo = Properties.Resources.Fondo;
-            this.BackgroundImage = imagenDeFondo;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.BackColor = Color.Black;
-
             //Principal hace de contenedor para el resto de ventanas poniendo cada una como vistas hijas de principal
             Bienvenida bienvenida = new Bienvenida(this);
             bienvenida.MdiParent = this;

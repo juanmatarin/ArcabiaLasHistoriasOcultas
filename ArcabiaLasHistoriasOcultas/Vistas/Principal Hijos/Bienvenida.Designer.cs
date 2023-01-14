@@ -60,6 +60,8 @@
             // 
             // usuarioConectado
             // 
+            this.usuarioConectado.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoBarra;
+            this.usuarioConectado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.usuarioConectado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton2,
             this.toolStripLabelUsuario});
@@ -86,14 +88,6 @@
             this.toolStripLabelUsuario.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabelUsuario.Name = "toolStripLabelUsuario";
             this.toolStripLabelUsuario.Size = new System.Drawing.Size(13, 22);
-            // 
-            // tuPerfilToolStripMenuItem1
-            // 
-            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
-            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
-            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
-            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
             // 
             // tuPerfilToolStripMenuItem1
             // 
@@ -196,6 +190,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Título_de_inicio;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(15, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(622, 235);
@@ -206,6 +203,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(649, 416);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
@@ -215,6 +214,7 @@
             this.Controls.Add(this.cargarPartidaBTN);
             this.Controls.Add(this.continuarPartidaBTN);
             this.Controls.Add(this.nuevaPartidaBTN);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Bienvenida";

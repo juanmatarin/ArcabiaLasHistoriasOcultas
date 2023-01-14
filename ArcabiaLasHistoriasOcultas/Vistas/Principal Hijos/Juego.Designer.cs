@@ -46,6 +46,8 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoListas;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(93, 498);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(782, 141);
@@ -94,12 +96,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1198, 697);
             this.Controls.Add(this.GuardarBTN);
             this.Controls.Add(this.cargarBTN);
             this.Controls.Add(this.salirBTN);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ventanaTexto);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Juego";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

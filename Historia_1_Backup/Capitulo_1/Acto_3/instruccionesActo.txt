@@ -1,2 +1,0 @@
-1=..\..\Archivos\Historia_1\Capitulo_1\Acto_3+Regatear+OPCION:
-2=..\..\Archivos\Historia_1\Capitulo_1\Acto_3+No Regatea+OPCION
