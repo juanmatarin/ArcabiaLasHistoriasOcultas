@@ -6,10 +6,6 @@
         public string nombre { get; set; }
         public string rutaImagen { get; set; }
 
-        public Historia()
-        {
-        }
-
         public Historia(int id, string nombre, string rutaImagen)
         {
             this.id = id;
@@ -17,4 +13,6 @@
             this.rutaImagen = rutaImagen;
         }
     }
+
+
 }

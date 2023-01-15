@@ -1,15 +1,19 @@
 ﻿
 using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DAO;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorActos
     {
-        public static List<Acto> getActos(string ruta)
+        static DAOActo daoActo = new DAOActo();
+        public static List<Acto> getListaActos(string ruta)
         {
             List<Acto> listaActos = new List<Acto>();
             ruta += @"\instrucciones.json"; //Siempre se añade el nombre del archivo a la ruta recibida,
@@ -58,6 +62,23 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 texto = File.ReadAllText(ruta);
             }
             return texto;
+        }
+        public static List<Acto> getActosBD(int idHistoriaRecibido)
+        {
+            List<DTOActo> listaActosBD = daoActo.select(idHistoriaRecibido);//Recibimos la lista de actos de la base de datos
+            listaActosBD.Sort((x,y) => x.id.CompareTo(y.id));
+            List<Acto> listaActos = new List<Acto>();//Vamos a guardar los valores de estos actos en objetos de la clase Acto, que es la que se va a usar en local
+            foreach (DTOActo dtoActo in listaActosBD)
+            {
+                
+                int idActo = dtoActo.id;
+                int idHistoria = dtoActo.idHistoria;
+                List<Opcion> listaOpcionesActo = ControladorOpciones.getOpcionesBD(dtoActo.id);
+                string contenidohtml = dtoActo.contenidoHTML;
+                listaActos.Add(new Acto(idActo, idHistoria, listaOpcionesActo, contenidohtml));
+
+            }
+            return listaActos;
         }
     }
 }

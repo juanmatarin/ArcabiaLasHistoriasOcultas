@@ -1,4 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
 using System;
@@ -18,8 +19,10 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         int ejeX, ejeY, numeroActo;
         string rutaPartida, historia;
         bool haSeleccionadoOpcion, partidaNueva, haGuardado;
+        bool haIniciadoSesion;
+        int idUsuarioConectado;
 
-        //Constructor
+        //Constructor normal
         public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida)
         {
             InitializeComponent();
@@ -31,6 +34,20 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.rutaPartida = rutaPartida;
             this.historia = historia;
         }
+        //Contructor si está conectado a la base de datos
+        public Juego(Principal padre, string historia, int numeroActo, bool partidaNueva, string rutaPartida, bool haIniciadoSesion, int idUsuarioConectado)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.ejeY = (panel1.Height * 20) / 100;
+            this.ejeX = (panel1.Width * 40) / 100;
+            this.numeroActo = numeroActo;
+            this.partidaNueva = partidaNueva;
+            this.rutaPartida = rutaPartida;
+            this.historia = historia;
+            this.haIniciadoSesion = haIniciadoSesion;
+            this.idUsuarioConectado= idUsuarioConectado;    
+        }
 
         //Load
         private void Juego_Load(object sender, EventArgs e)
@@ -38,7 +55,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             listaActos = ControladorActos.getActos(rutaPartida);
             ControladorHistorias.addHistoriaNuevaLocal(listaActos);
             listaOpciones = new List<Button>();
-            listaPartidas = ControladorPartidas.getPartidas();
+            listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
             haSeleccionadoOpcion = false;
             if (partidaNueva)
             {
@@ -88,9 +105,15 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 if (ControladorActos.guardarActos(listaActos, partidaGuardada.rutaInstrucciones))
                 {
-                    MessageBox.Show("Partida guardada con éxito");
+                    Console.WriteLine("Partida guardada en local");
                     haGuardado = true; //Se confirma que se ha guardado la partida.
-                    listaPartidas = ControladorPartidas.getPartidas();
+                    listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
+                    if (haIniciadoSesion)//Si estamos conectados, la partida se guarda en la base de datos
+                    {    
+                        DTOPartida dtopartida = new DTOPartida(id, historia, numeroActo, rutaPartida, idUsuarioConectado);
+                        ControladorPartidas.GuardarPartidaBD(dtopartida);
+                        Console.WriteLine("Partida guardada en local y en la base de datos");
+                    }
                 }
                 else
                 {
@@ -162,7 +185,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             borrarOpciones(); //Se borran los botones del panel
             ventanaTexto.DocumentText = ControladorActos.getTexto(listaActos[numeroActo].ruta); //Se carga en el webBrowser el archivo en la ruta especificada en el acto correspondiente (controlado por numeroActo).
-            crearOpcíones(listaActos[numeroActo].opciones); //Se crean los botones con todas las opciones.
+            crearOpciones(listaActos[numeroActo].opciones); //Se crean los botones con todas las opciones.
             foreach (Button button in listaOpciones)
             {
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Se añaden las acciones a cada botón.
@@ -174,7 +197,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             aux.Add(op); //Se añade la opcion recibida.
             borrarOpciones(); //Se borran las anteriores opciones.
             ventanaTexto.DocumentText = ControladorActos.getTexto(op.ruta); //Se carga el texto de la ruta especificada de la opcion.
-            crearOpcíones(aux); //Se crean los botones.
+            crearOpciones(aux); //Se crean los botones.
             foreach (Button button in listaOpciones)
             {
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Acciones para cada botón.
@@ -208,7 +231,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             
             if (!listaActos[numeroActo].ruta.Equals("[FIN]")) //Si el siguienteActo (variable de op) es 0, significa que la historia se ha acabado. 
             {
-                if (op.tipo.Equals("opcion") && haSeleccionadoOpcion == false) //Si la opcion es una entre varias (pudiendo desenvocar en distintos resultados)
+                if (op.tipo.Equals("opcion") && haSeleccionadoOpcion == false) //Si la opcion es una entre varias (pudiendo desenbocar en distintos resultados)
                                                                                //y es la primera vez que se selecciona
                                                                                //(ya que, en el json debe de acceder a su propia ruta para mostrar el texto) accede al condicionante.
                 {
@@ -262,7 +285,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 
             }
         }
-        private void crearOpcíones(List<Opcion> opciones)
+        private void crearOpciones(List<Opcion> opciones)
         {
             string descripcion;
             bool masDeUnaOpcion;

@@ -16,6 +16,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         List<Partida> listaPartidas;
         string nombreUsuario;
         bool haIniciadoSesion;
+        int idUsuarioConectado;
+        bool descargarHistoriasBD;
 
         //Constructor
         public Bienvenida(Principal padre)
@@ -29,7 +31,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             this.padre = padre; //Recibe la vista padre
             this.nombreUsuario = nombreUsuario;
             this.haIniciadoSesion = haIniciadoSesion; //Indica si bienvenida se ha abierto tras iniciar sesion
-            
+            idUsuarioConectado = ControladorUsuarios.getId(nombreUsuario); 
 
         }
 
@@ -45,24 +47,58 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 usuarioConectado.Visible = true;
                 toolStripLabelUsuario.Text = nombreUsuario;
                 conectarseBTN.Visible = false;
+                if (MessageBox.Show("¿Quieres descargar la historia/s que existan en la base de datos?", "Arcabia: Las Historias Ocultas",
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    /////////////Aqui descargamos las historias que haya en la base de datos, para poder usarlas en local
+                    descargarHistoriasBD = true;
+                    ControladorHistorias.addHistoriaNuevaLocal();
+                }
             }
+           
+            this.BackgroundImage = Resources.FondoVentanas;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = Resources.Título_de_inicio;
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.BackColor = Color.Transparent;
         }
 
         //Click
         private void nuevaPartidaBTN_Click(object sender, EventArgs e)
         {
-            Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
-            seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
-            seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+            if(haIniciadoSesion)//Si está conectado, se lo pasamos por parámetro a Seleccion historias
+            {
+                Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre, haIniciadoSesion, idUsuarioConectado);
+                seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
+                seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+            }
+            else
+            {
+                Seleccion_Historias seleccion_Historias = new Seleccion_Historias(padre);
+                seleccion_Historias.MdiParent = padre; //Se establece la vista padre como MdiParent
+                seleccion_Historias.Show(); //Al mostrarla se mostrará dentro de Principal
+
+            }
+            
         }
         private void cargarPartidaBTN_Click(object sender, EventArgs e)
         {
-            listaPartidas = ControladorPartidas.getPartidas();
+            listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
             if (listaPartidas.Count != 0) //Si hay partidas guardadas muestra la ventana de manera normal
             {
-                Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, false); //False es para determinar que no está en una partida ya empezada.
-                seleccion_Partidas_Guardadas.MdiParent = padre;
-                seleccion_Partidas_Guardadas.Show();
+                if (haIniciadoSesion)
+                {
+                    Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, false, haIniciadoSesion, idUsuarioConectado); //False es para determinar que no está en una partida ya empezada.
+                    seleccion_Partidas_Guardadas.MdiParent = padre;
+                    seleccion_Partidas_Guardadas.Show();
+                }
+                else
+                {
+                    Seleccion_Partidas_Guardadas seleccion_Partidas_Guardadas = new Seleccion_Partidas_Guardadas(padre, false); //False es para determinar que no está en una partida ya empezada.
+                    seleccion_Partidas_Guardadas.MdiParent = padre;
+                    seleccion_Partidas_Guardadas.Show();
+                }
+                
             }
             else
             {
@@ -71,7 +107,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void continuarPartidaBTN_Click(object sender, EventArgs e)
         {
-            listaPartidas = ControladorPartidas.getPartidas(); //Carga la lista de partidas
+            listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion); //Carga la lista de partidas
             if (listaPartidas.Count != 0) //Si es mayor de 0 compara las fechas de la lista para ordenarlas por fecha
                                           //y sacar la última partida guardada por fecha
             {
@@ -169,6 +205,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             Perfil_Usuario perfil_Usuario = new Perfil_Usuario(nombreUsuario);
             perfil_Usuario.Show();
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.haIniciadoSesion= false;
+            usuarioConectado.Visible= false;
+            conectarseBTN.Visible= true;
         }
     }
 }

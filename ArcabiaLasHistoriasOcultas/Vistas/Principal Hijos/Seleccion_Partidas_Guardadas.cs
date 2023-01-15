@@ -1,4 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Properties;
 using System;
@@ -13,12 +14,21 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         List<Partida> listaPartidas;
         FormCollection listaInterfaces;
         int index;
-        bool salir, partidaEmpezada;
+        bool salir, partidaEmpezada, haIniciadoSesion;
+        int idUsuarioConectado;
         public Seleccion_Partidas_Guardadas(Principal padre, bool partidaEmpezada)
         {
             InitializeComponent();
             this.padre = padre;
             this.partidaEmpezada = partidaEmpezada;
+        }
+        public Seleccion_Partidas_Guardadas(Principal padre, bool partidaEmpezada, bool haIniciadoSesion, int idUsuarioConectado)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.partidaEmpezada = partidaEmpezada;
+            this.haIniciadoSesion = haIniciadoSesion;
+            this.idUsuarioConectado = idUsuarioConectado;
         }
         private void Seleccion_Partidas_Guardadas_Load(object sender, EventArgs e)
         {
@@ -30,12 +40,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         public void cargarLista()
         {
-            listaPartidas = ControladorPartidas.getPartidas();
-            listaPartidas.Sort((x, y) => DateTime.Compare(x.fechaGuardado, y.fechaGuardado));
-            PartidasLST.DataSource = listaPartidas;
-            PartidasLST.DisplayMember = "nombreCompleto";
+            if (haIniciadoSesion)
+            {
+                listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
+                listaPartidas.Sort((x, y) => DateTime.Compare(x.fechaGuardado, y.fechaGuardado));
+                PartidasLST.DataSource = listaPartidas;
+                PartidasLST.DisplayMember = "nombreCompleto";
+            }
+            else
+            {
+                listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
+                listaPartidas.Sort((x, y) => DateTime.Compare(x.fechaGuardado, y.fechaGuardado));
+                PartidasLST.DataSource = listaPartidas;
+                PartidasLST.DisplayMember = "nombreCompleto";
+            }
+            
         }
-
         private void seleccionarBTN_Click(object sender, EventArgs e)
         {
 
@@ -51,7 +71,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     }
                     else
                     {
-                        if (index == listaInterfaces.Count)
+                        if (index == listaPartidas.Count)
                         {
                             salir = true; //Si llega al tope de la lista, sale del bucle
                             index = 0;
@@ -79,15 +99,34 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Partida elegida = (Partida)PartidasLST.SelectedValue;
-                    salir = false; //Se inicializa aquí la variable porque se pueden borrar varias partidas sin salirse de la ventana.
+                    salir = false;
                     while (!salir)
                     {
                         if (listaPartidas[index].id == elegida.id)
                         {
-                            ControladorPartidas.borrarPartida(listaPartidas[index]);
-                            listaPartidas.Remove(listaPartidas[index]);
-                            ControladorPartidas.guardarPartidas(listaPartidas);
-                            MessageBox.Show("Partida borrada con éxito");
+                            //Hay que borrar la partida en local, y en la base de datos, aunque no esté conectado
+                            if (ControladorPartidas.comprobarIdPartida(elegida.id))
+                            {
+                                if (haIniciadoSesion)//Si esta partida existe en la base de datos, y estamos conectados, es borrada
+                                {
+                                    ControladorPartidas.borrarPartidaBD(elegida.id);
+                                    listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
+                                    ControladorPartidas.guardarPartidas(listaPartidas);
+                                    MessageBox.Show("Partida borrada en local y en la base de datos con éxito");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Esta partida no se puede borrar al no haber iniciado sesión");
+                                }
+                            }
+                            else//Si esta partida no está en la base de datos, solo se borra de local
+                            {
+                                listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
+                                ControladorPartidas.guardarPartidas(listaPartidas);
+                                MessageBox.Show("Partida borrada con éxito");
+                            }
+                            
+                            
                             cargarLista();
                             salir = true;
                             index = 0;

@@ -20,8 +20,6 @@ namespace ArcabiaLasHistoriasOcultas
             Principal principal = new Principal();
             principal.Show();
             Application.Run();
-            
-            
         }
     }
 }

@@ -13,18 +13,27 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         Principal padre;
         List<Historia> listaHistorias;
         List<Button> listaOpciones;
-        int ejeX, ejeY, index;
+        int ejeX, ejeY;
+        bool haIniciadoSesion;
+        string nombreUsuario;
+        int idUsuarioConectado;
         public Seleccion_Historias(Principal padre)
         {
             InitializeComponent();
             this.padre = padre;
+        }
+        public Seleccion_Historias(Principal padre, bool haIniciadoSesion,int idUsuarioConectado)
+        {
+            InitializeComponent();
+            this.padre = padre;
+            this.haIniciadoSesion = haIniciadoSesion;
+            this.idUsuarioConectado = idUsuarioConectado;
         }
 
         private void Seleccion_Historias_Load(object sender, EventArgs e)
         {
             listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
-            index = 0;
             cargarBotones();
             foreach (Button button in listaOpciones)
             {
@@ -56,12 +65,30 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
+        private void VolverBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+
         private void accionClick(object sender, EventArgs e, string numeroHistoria)
         {
-            Juego juego = new Juego(padre, numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
-            juego.MdiParent = padre;
-            juego.Show();
-            this.Close();
+            if (haIniciadoSesion)//Si está conectado, Juego tiene que saberlo, asi que se lo pasamos por parámetro
+            {
+                Juego juego = new Juego(padre, numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria, haIniciadoSesion, idUsuarioConectado);
+                juego.MdiParent = padre;
+                juego.Show();
+                this.Close();
+            }
+            else
+            {
+                Juego juego = new Juego(padre, numeroHistoria, 0, true, @"..\..\Archivos\Historias\" + numeroHistoria);
+                juego.MdiParent = padre;
+                juego.Show();
+                this.Close();
+            }
+            
         }
     }
 }
