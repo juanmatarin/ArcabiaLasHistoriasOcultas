@@ -1,2 +1,0 @@
-1=..\..\Archivos\Historia_1\Capitulo_1\Acto_6+Persuadir al objetivo+OPCION:
-2=..\..\Archivos\Capitulo_1\Acto_6+Arremeter directamente+OPCION

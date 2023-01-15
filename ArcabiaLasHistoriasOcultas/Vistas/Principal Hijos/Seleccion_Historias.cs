@@ -32,7 +32,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
         private void Seleccion_Historias_Load(object sender, EventArgs e)
         {
-            aplicarFondos();
             listaHistorias = ControladorHistorias.getHistorias();
             listaOpciones = new List<Button>();
             cargarBotones();
@@ -42,12 +41,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
-        private void aplicarFondos()
+        private void volverBTN_Click(object sender, EventArgs e)
         {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            panel.BackgroundImage = Resources.FondoListas2;
-            panel.BackgroundImageLayout = ImageLayout.Stretch;
+            this.Close();
         }
 
         private void cargarBotones()

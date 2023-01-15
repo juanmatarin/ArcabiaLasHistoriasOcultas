@@ -1,2 +1,0 @@
-1=..\..\Archivos\Historia_1\Capitulo_2\Acto_3+Acabar con la raíz del problema+OPCION:
-2=..\..\Archivos\Historia_1\Capitulo_2\Acto_3+Huir de Damescu+OPCION

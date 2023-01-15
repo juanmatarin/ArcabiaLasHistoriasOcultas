@@ -1,3 +1,0 @@
-1=..\..\Archivos\Historia_1\Capitulo_1\Acto_5+Infiltrarse provocando una distracción+OPCION:
-2=..\..\Archivos\Historia_1\Capitulo_1\Acto_5+Disfrazarse de uno de los Guardias+OPCION:
-3=..\..\Archivos\Historia_1\Capitulo_1\Acto_5+Decide escalar+OPCION

@@ -52,8 +52,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Load
         private void Juego_Load(object sender, EventArgs e)
         {
-            aplicarFondos();
             listaActos = ControladorActos.getListaActos(rutaPartida);
+            ControladorHistorias.addHistoriaNuevaLocal(listaActos);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
             haSeleccionadoOpcion = false;
@@ -96,7 +96,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
-                partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.
+                partidaGuardada.rutaInstrucciones = ControladorIO.crearDirectorio(@"..\..\Archivos\Partidas\Partida_", id); //... se crea un directorio para la nueva partida a guardar.
 
             }
             listaPartidas.Add(partidaGuardada);
@@ -181,13 +181,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
 
         //Métodos Varios
-        private void aplicarFondos()
-        {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.BackgroundImage = Resources.FondoListas;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-        }
         private void cargarActo() 
         {
             borrarOpciones(); //Se borran los botones del panel

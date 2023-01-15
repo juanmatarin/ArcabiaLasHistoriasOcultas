@@ -32,8 +32,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void Seleccion_Partidas_Guardadas_Load(object sender, EventArgs e)
         {
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
             listaInterfaces = Application.OpenForms;
             cargarLista();
             salir = false;

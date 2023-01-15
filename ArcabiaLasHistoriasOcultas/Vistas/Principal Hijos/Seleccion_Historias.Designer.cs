@@ -29,36 +29,41 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.VolverBTN = new System.Windows.Forms.Button();
+            this.volverBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel
             // 
             this.panel.AutoScroll = true;
+            this.panel.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoListas2;
             this.panel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(851, 619);
+            this.panel.Size = new System.Drawing.Size(851, 568);
             this.panel.TabIndex = 0;
             // 
-            // VolverBTN
+            // volverBTN
             // 
-            this.VolverBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VolverBTN.Location = new System.Drawing.Point(739, 637);
-            this.VolverBTN.Name = "VolverBTN";
-            this.VolverBTN.Size = new System.Drawing.Size(124, 45);
-            this.VolverBTN.TabIndex = 1;
-            this.VolverBTN.Text = "Volver";
-            this.VolverBTN.UseVisualStyleBackColor = true;
-            this.VolverBTN.Click += new System.EventHandler(this.VolverBTN_Click);
+            this.volverBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Volver_No_Pulsado;
+            this.volverBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.volverBTN.Cursor = System.Windows.Forms.Cursors.Default;
+            this.volverBTN.Location = new System.Drawing.Point(688, 586);
+            this.volverBTN.Name = "volverBTN";
+            this.volverBTN.Size = new System.Drawing.Size(175, 45);
+            this.volverBTN.TabIndex = 6;
+            this.volverBTN.UseVisualStyleBackColor = true;
+            this.volverBTN.Click += new System.EventHandler(this.volverBTN_Click);
             // 
             // Seleccion_Historias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 698);
-            this.Controls.Add(this.VolverBTN);
+            this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(875, 643);
+            this.Controls.Add(this.volverBTN);
             this.Controls.Add(this.panel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Seleccion_Historias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -71,6 +76,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel panel;
-        private System.Windows.Forms.Button VolverBTN;
+        private System.Windows.Forms.Button volverBTN;
     }
 }

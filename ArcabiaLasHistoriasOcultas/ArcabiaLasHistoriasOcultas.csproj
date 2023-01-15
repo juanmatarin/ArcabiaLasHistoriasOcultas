@@ -195,6 +195,7 @@
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Controladores\ControladorActos.cs" />
     <Compile Include="Controladores\ControladorBaseDeDatos.cs" />
+    <Compile Include="Controladores\ControladorIO.cs" />
     <Compile Include="Controladores\ControladorHistorias.cs" />
     <Compile Include="Controladores\ControladorOpciones.cs" />
     <Compile Include="Controladores\ControladorPartidas.cs" />
@@ -206,17 +207,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Principal Hijos\Bienvenida.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vistas\Principal Hijos\Bienvenida.Designer.cs">
-      <DependentUpon>Bienvenida.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Principal Conectarse Hijos\Conectarse.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vistas\Principal Conectarse Hijos\Conectarse.Designer.cs">
       <DependentUpon>Conectarse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Principal Hijos\Bienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Principal Hijos\Bienvenida.Designer.cs">
+      <DependentUpon>Bienvenida.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Principal Conectarse Hijos\Iniciar_Sesion.cs">
       <SubType>Form</SubType>
@@ -279,9 +280,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal Hijos\Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\Principal Conectarse Hijos\Conectarse.resx">
-      <DependentUpon>Conectarse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal Conectarse Hijos\Iniciar_Sesion.resx">
       <DependentUpon>Iniciar_Sesion.cs</DependentUpon>
@@ -475,7 +473,7 @@
     <None Include="Archivos\Imagenes\Interfaz\ajustes.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Archivos\Imagenes\Interfaz\cerrarsesion.png" />
+    <None Include="Archivos\Imagenes\Interfaz\FondoBarra.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

@@ -4,6 +4,7 @@ using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.Json;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
@@ -33,11 +34,10 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         public static bool addHistoriaNuevaLocal(/*List<Acto> listaActos*/)
         {
             bool exito = false;
-            string html = "", directorioCompleto, nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
-            int index = 0, idHistoria;
+            string html = "", nombreHistoria, rutaImagen = "", directorioHistoria = "", directorioActo = ""; //HTML Sería el contenido que se sacaría de la BBDD.
+            int idHistoria;
             Historia historiaNueva;
             List<Historia> listaHistorias = getHistorias();
-            DirectoryInfo directorioHistoria, directorioActo;
 
 
             //Hay que coger la historia/s de la base de datos
