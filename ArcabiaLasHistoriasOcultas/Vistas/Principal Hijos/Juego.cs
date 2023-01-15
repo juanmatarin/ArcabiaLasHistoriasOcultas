@@ -36,6 +36,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         private void Juego_Load(object sender, EventArgs e)
         {
             listaActos = ControladorActos.getListaActos(rutaPartida);
+            ControladorHistorias.addHistoriaNuevaLocal(listaActos);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
             haSeleccionadoOpcion = false;
@@ -78,7 +79,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
-                partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.
+                partidaGuardada.rutaInstrucciones = ControladorDirectorios.crearDirectorio(@"..\..\Archivos\Partidas\Partida_", id); //... se crea un directorio para la nueva partida a guardar.
 
             }
             listaPartidas.Add(partidaGuardada);

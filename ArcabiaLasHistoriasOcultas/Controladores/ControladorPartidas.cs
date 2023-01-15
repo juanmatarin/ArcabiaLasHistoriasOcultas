@@ -46,13 +46,6 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             }
             return guardar;
         }
-
-        public static string crearDirectorio(int numeroPartida)
-        {
-            DirectoryInfo di = Directory.CreateDirectory(@"..\..\Archivos\Partidas\"+numeroPartida);
-            return di.FullName;
-        }
-
         public static bool borrarPartida(Partida partida)
         {
             bool exito = false;

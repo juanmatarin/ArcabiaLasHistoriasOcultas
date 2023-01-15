@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.Json;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
@@ -30,11 +31,10 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         public static bool addHistoriaNuevaLocal(List<Acto> listaActos)
         {
             bool exito = false;
-            string html = "", directorioCompleto, nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
-            int index = 0, idHistoria;
+            string html = "", nombreHistoria, rutaImagen = "", directorioHistoria = "", directorioActo = ""; //HTML Sería el contenido que se sacaría de la BBDD.
+            int idHistoria;
             Historia historiaNueva;
             List<Historia> listaHistorias = getHistorias();
-            DirectoryInfo directorioHistoria, directorioActo;
 
             idHistoria = listaHistorias.Count + 1;
             nombreHistoria = "Historia_" + idHistoria;
@@ -42,21 +42,24 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
             listaHistorias.Add(historiaNueva);
 
-            directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historiaNueva.id); //Crea el directorio de la historia.
+            directorioHistoria = ControladorDirectorios.crearDirectorio(@"..\..\Archivos\Historias\Historia_", historiaNueva.id);
             foreach (Acto acto in listaActos)
             {
-                directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + (acto.id + 1)); //Crea cada directorio de cada acto.
-                crearYEscribirHTML(directorioActo.FullName, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
+                directorioActo = ControladorDirectorios.crearDirectorio(directorioHistoria + @"\Acto_",  (acto.id + 1)); //Crea cada directorio de cada acto.
+                escribirHTML(directorioActo, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
                 if (acto.opciones.Count != 0)
                 {
-                    foreach (Opcion opcion in listaActos[index].opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
+                    foreach (Opcion opcion in acto.opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
                     {
-                        crearYEscribirHTML(directorioActo.FullName, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                        if (!opcion.tipo.Equals("acto"))
+                        {
+                            escribirHTML(directorioActo, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                        }
                     }
                 }
             }
 
-            crearYEscribirJSON(directorioHistoria.FullName, listaActos); //Crea el Json de las instrucciones.
+            crearYEscribirJSON(directorioHistoria, listaActos); //Crea el Json de las instrucciones.
             guardarHistorias(listaHistorias);
             
             return exito;
@@ -84,16 +87,15 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 
         private static void crearYEscribirJSON(string ruta, List<Acto> listaActos)
         {
-            string rutaCompleta = ruta + @"instrucciones.json", json;
-            File.Create(rutaCompleta);
+            string rutaCompleta = ruta + @"\instrucciones.json", json;
             json = JsonSerializer.Serialize(listaActos);
-            File.WriteAllText(rutaCompleta, json);
+            File.WriteAllBytes(rutaCompleta, Encoding.ASCII.GetBytes(json));
         }
 
-        private static void crearYEscribirHTML(string ruta, string tipo, int numero, string contenido)
+        private static void escribirHTML(string ruta, string tipo, int numero, string contenido)
         {
-            File.Create(ruta + "acto" + numero + ".html");
-            File.WriteAllText(ruta, contenido);
+            ruta += @"\" + tipo + numero + ".html";
+            File.WriteAllBytes(ruta, Encoding.ASCII.GetBytes(contenido));
         }
     }
 }

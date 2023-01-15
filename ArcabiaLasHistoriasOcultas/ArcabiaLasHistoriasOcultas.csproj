@@ -191,6 +191,7 @@
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Controladores\ControladorActos.cs" />
     <Compile Include="Controladores\ControladorBaseDeDatos.cs" />
+    <Compile Include="Controladores\ControladorDirectorios.cs" />
     <Compile Include="Controladores\ControladorHistorias.cs" />
     <Compile Include="Controladores\ControladorPartidas.cs" />
     <Compile Include="Controladores\ControladorUsuarios.cs" />
