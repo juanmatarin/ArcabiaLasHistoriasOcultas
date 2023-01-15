@@ -79,7 +79,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
-                partidaGuardada.rutaInstrucciones = ControladorDirectorios.crearDirectorio(@"..\..\Archivos\Partidas\Partida_", id); //... se crea un directorio para la nueva partida a guardar.
+                partidaGuardada.rutaInstrucciones = ControladorIO.crearDirectorio(@"..\..\Archivos\Partidas\Partida_", id); //... se crea un directorio para la nueva partida a guardar.
 
             }
             listaPartidas.Add(partidaGuardada);

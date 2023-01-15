@@ -42,24 +42,24 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
             listaHistorias.Add(historiaNueva);
 
-            directorioHistoria = ControladorDirectorios.crearDirectorio(@"..\..\Archivos\Historias\Historia_", historiaNueva.id);
+            directorioHistoria = ControladorIO.crearDirectorio(@"..\..\Archivos\Historias\Historia_", historiaNueva.id);
             foreach (Acto acto in listaActos)
             {
-                directorioActo = ControladorDirectorios.crearDirectorio(directorioHistoria + @"\Acto_",  (acto.id + 1)); //Crea cada directorio de cada acto.
-                escribirHTML(directorioActo, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
+                directorioActo = ControladorIO.crearDirectorio(directorioHistoria + @"\Acto_",  (acto.id + 1)); //Crea cada directorio de cada acto.
+                ControladorIO.escribirHTML(directorioActo, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
                 if (acto.opciones.Count != 0)
                 {
                     foreach (Opcion opcion in acto.opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
                     {
                         if (!opcion.tipo.Equals("acto"))
                         {
-                            escribirHTML(directorioActo, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                            ControladorIO.escribirHTML(directorioActo, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
                         }
                     }
                 }
             }
 
-            crearYEscribirJSON(directorioHistoria, listaActos); //Crea el Json de las instrucciones.
+            ControladorIO.crearYEscribirJSON(directorioHistoria, listaActos); //Crea el Json de las instrucciones.
             guardarHistorias(listaHistorias);
             
             return exito;
@@ -83,19 +83,6 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 Console.WriteLine("Error leyendo json " + e.Message);
             }
             return exito;
-        }
-
-        private static void crearYEscribirJSON(string ruta, List<Acto> listaActos)
-        {
-            string rutaCompleta = ruta + @"\instrucciones.json", json;
-            json = JsonSerializer.Serialize(listaActos);
-            File.WriteAllBytes(rutaCompleta, Encoding.ASCII.GetBytes(json));
-        }
-
-        private static void escribirHTML(string ruta, string tipo, int numero, string contenido)
-        {
-            ruta += @"\" + tipo + numero + ".html";
-            File.WriteAllBytes(ruta, Encoding.ASCII.GetBytes(contenido));
         }
     }
 }
