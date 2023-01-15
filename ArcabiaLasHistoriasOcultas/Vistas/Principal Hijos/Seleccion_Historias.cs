@@ -69,6 +69,11 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
         }
 
+        private void VolverBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
         private void accionClick(object sender, EventArgs e, string numeroHistoria)

@@ -133,6 +133,16 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cerrarsesion {
+            get {
+                object obj = ResourceManager.GetObject("cerrarsesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ContinuarPartida_No_Pulsado {
             get {
                 object obj = ResourceManager.GetObject("ContinuarPartida_No_Pulsado", resourceCulture);

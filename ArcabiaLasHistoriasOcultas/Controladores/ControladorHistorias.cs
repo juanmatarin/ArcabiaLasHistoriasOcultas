@@ -1,4 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
+using ArcabiaLasHistoriasOcultas.Clases.DAO;
+using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +10,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorHistorias
     {
+        static DAOHistoria daoHistoria = new DAOHistoria();
         public static List<Historia> getHistorias()
         {
             List<Historia> listaHistorias = new List<Historia>();
@@ -27,7 +30,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaHistorias;
         }
 
-        public static bool addHistoriaNuevaLocal(List<Acto> listaActos)
+        public static bool addHistoriaNuevaLocal(/*List<Acto> listaActos*/)
         {
             bool exito = false;
             string html = "", directorioCompleto, nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
@@ -36,28 +39,54 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             List<Historia> listaHistorias = getHistorias();
             DirectoryInfo directorioHistoria, directorioActo;
 
-            idHistoria = listaHistorias.Count + 1;
-            nombreHistoria = "Historia_" + idHistoria;
-            //rutaImagen se saca de la BBDD
-            historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
-            listaHistorias.Add(historiaNueva);
 
-            directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historiaNueva.id); //Crea el directorio de la historia.
-            foreach (Acto acto in listaActos)
+            //Hay que coger la historia/s de la base de datos
+            List<Historia> listaHistoriasBD = getHistoriasBD();
+            
+            foreach (Historia historia in listaHistoriasBD)
             {
-                directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + (acto.id + 1)); //Crea cada directorio de cada acto.
-                crearYEscribirHTML(directorioActo.FullName, "acto", (acto.id + 1), html); //Llama al método para crear el archivo
-                if (acto.opciones.Count != 0)
+                
+                idHistoria = listaHistorias.Count + 1;//La historia recibida de la BD puede tener un id diferente al que hay que usar para crear la historia en local,
+                //Por ejemplo, en la BD la historia que recibimos puede tener id=1, pero si en local ya existen 3 partidas, esta historia pasará a tener id=4, por lo que se actualiza en la bd
+                nombreHistoria = "Historia_" + idHistoria;//Lo mismo ocurre con su nombre
+                
+                rutaImagen = historia.rutaImagen;
+                historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
+
+                directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historiaNueva.id); //Crea el directorio de la historia.
+
+                List<Acto> listaActosBD = ControladorActos.getActosBD(historia.id); 
+                foreach (Acto acto in listaActosBD)
                 {
-                    foreach (Opcion opcion in listaActos[index].opciones) //Por cada opción dentro de el respectivo acto se hace lo mismo:
+                    //int idHistoria = acto.idHistoria;
+                    int idActo = acto.id;
+                    string htmlActo = acto.contenidoHTML;
+                    directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + acto.id); //Crea cada directorio de cada acto.
+                    crearYEscribirHTML(directorioActo.FullName, "acto", (acto.id ), htmlActo); //Llama al método para crear el archivo
+                    
+                    
+                    if (acto.opciones.Count != 0)
                     {
-                        crearYEscribirHTML(directorioActo.FullName, "opcion", (opcion.id + 1), html); //Método para crear el archivo.
+                        
+                        foreach (Opcion opcion in acto.opciones) //Por cada opción dentro del respectivo acto se hace lo mismo:
+                        {
+                            if (!opcion.tipo.Equals("acto"))
+                            {
+                                string htmlOpcion = opcion.contenidoHTML;
+                                crearYEscribirHTML(directorioActo.FullName, opcion.tipo, (opcion.id + 1), htmlOpcion); //Método para crear el archivo.
+                            }
+                            
+                        }
                     }
                 }
-            }
 
+                listaHistorias.Add(historiaNueva);
+            }
+           
+/*
             crearYEscribirJSON(directorioHistoria.FullName, listaActos); //Crea el Json de las instrucciones.
             guardarHistorias(listaHistorias);
+*/
             
             return exito;
         }
@@ -92,8 +121,37 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 
         private static void crearYEscribirHTML(string ruta, string tipo, int numero, string contenido)
         {
-            File.Create(ruta + "acto" + numero + ".html");
+            ruta = ruta + @"\" + tipo + numero + ".html";
             File.WriteAllText(ruta, contenido);
+        }
+
+        public static List<Historia> getHistoriasBD()
+        {
+            List<DTOHistoria> listaHistoriaBD = daoHistoria.select();
+            List<Historia> listaHistorias = new List<Historia>();
+
+            foreach (DTOHistoria dtoHistoria in listaHistoriaBD)
+            {
+                int id = dtoHistoria.id;
+                string nombre = dtoHistoria.nombre;
+                string rutaImagen = dtoHistoria.rutaImagen;
+
+                Historia historiaAGuardar = new Historia(id, nombre, rutaImagen);
+                listaHistorias.Add(historiaAGuardar);
+
+            }
+            return listaHistorias;
+        }
+        public static int getIdHistoria()
+        {
+            var consulta = daoHistoria.getId();
+            int id = 0;
+            foreach (var ids in consulta)
+            {
+                id = ids.GetValue<int>("id");
+                break;
+            }
+            return id;
         }
     }
 }

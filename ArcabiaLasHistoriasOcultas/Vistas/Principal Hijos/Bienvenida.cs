@@ -17,6 +17,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         string nombreUsuario;
         bool haIniciadoSesion;
         int idUsuarioConectado;
+        bool descargarHistoriasBD;
 
         //Constructor
         public Bienvenida(Principal padre)
@@ -46,7 +47,15 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 usuarioConectado.Visible = true;
                 toolStripLabelUsuario.Text = nombreUsuario;
                 conectarseBTN.Visible = false;
+                if (MessageBox.Show("¿Quieres descargar la historia/s que existan en la base de datos?", "Arcabia: Las Historias Ocultas",
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    /////////////Aqui descargamos las historias que haya en la base de datos, para poder usarlas en local
+                    descargarHistoriasBD = true;
+                    ControladorHistorias.addHistoriaNuevaLocal();
+                }
             }
+           
             this.BackgroundImage = Resources.FondoVentanas;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Image = Resources.Título_de_inicio;
@@ -196,6 +205,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             Perfil_Usuario perfil_Usuario = new Perfil_Usuario(nombreUsuario);
             perfil_Usuario.Show();
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.haIniciadoSesion= false;
+            usuarioConectado.Visible= false;
+            conectarseBTN.Visible= true;
         }
     }
 }

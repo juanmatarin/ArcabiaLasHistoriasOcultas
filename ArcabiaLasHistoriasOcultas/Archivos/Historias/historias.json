@@ -3,10 +3,5 @@
         "id" : 0,
         "nombre" : "Historia_1",
         "rutaImagen": "..\\..\\Archivos\\Historias\\Historia_1\\UnEncargoInusual.png"
-    },
-    {
-        "id" : 1,
-        "nombre" : "Historia_2",
-        "rutaImagen": "..\\..\\Archivos\\Historias\\Historia_2\\UnEncargoInusual.png"
     }
 ]

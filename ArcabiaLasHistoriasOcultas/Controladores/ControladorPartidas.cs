@@ -22,8 +22,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 {
                     if (haIniciadoSesion)
                     {
-                        List<Partida> listaPartidasBD = CargarPartidasBD();
-                        foreach (var p in listaPartidasBD)
+                        foreach (Partida p in getPartidasBD())
                         {
                             listaPartidas.Add(p);
                         }
@@ -73,21 +72,22 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         {
             if (daoPartida.insert(dtopartida))
             {
-                MessageBox.Show("Partida guardada en la base de datos");
+                MessageBox.Show("Partida guardada en local y en la base de datos");
                 Console.WriteLine("Partida registrada");
             }
         }
         
-        public static List<Partida> CargarPartidasBD()
+        public static List<Partida> getPartidasBD()
         {
+            List<DTOPartida> listaPartidasBD = daoPartida.select();
             List<Partida> listaPartidas = new List<Partida>();
-            var info = daoPartida.getPartidas();
-            foreach (var partida in info)
+            
+            foreach (DTOPartida dtoPartida in listaPartidasBD)
             {
-                int id = partida.GetValue<int>("id");
-                string historia = partida.GetValue<string>("historia");
-                int numeroActo = partida.GetValue<int>("numeroacto");
-                string rutaIntrucciones = partida.GetValue<string>("rutainstrucciones");
+                int id = dtoPartida.id;
+                string historia = dtoPartida.historia;
+                int numeroActo = dtoPartida.numeroActo;
+                string rutaIntrucciones = dtoPartida.rutaInstrucciones;
 
 
                 Partida partidaAGuardar = new Partida(id, historia, numeroActo, rutaIntrucciones);
@@ -95,7 +95,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             }
             return listaPartidas;
         }
-        public static void BorrarPartidaBD(int id)
+        public static void borrarPartidaBD(int id)
         {
             if (daoPartida.delete(id))
             {

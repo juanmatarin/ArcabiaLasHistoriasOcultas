@@ -5,6 +5,7 @@ using ArcabiaLasHistoriasOcultas.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas
@@ -83,7 +84,16 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void GuardarBTN_Click(object sender, EventArgs e)
         {
-            Partida partidaGuardada = new Partida(listaPartidas.Count, historia, numeroActo, rutaPartida);
+            int id;
+            if (listaPartidas.Count > 0)
+            {
+                id = listaPartidas.Max(x => x.id) + 1;
+            }
+            else
+            {
+                id = 1;
+            }
+            Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
                 partidaGuardada.rutaInstrucciones = ControladorPartidas.crearDirectorio(partidaGuardada.id);//... se crea un directorio para la nueva partida a guardar.
@@ -95,14 +105,14 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 if (ControladorActos.guardarListaActos(listaActos, partidaGuardada.rutaInstrucciones))
                 {
-                    MessageBox.Show("Partida guardada con éxito");
+                    Console.WriteLine("Partida guardada en local");
                     haGuardado = true; //Se confirma que se ha guardado la partida.
                     listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
                     if (haIniciadoSesion)//Si estamos conectados, la partida se guarda en la base de datos
-                    {
-                        
-                        DTOPartida dtopartida = new DTOPartida(listaPartidas.Count, historia, numeroActo, rutaPartida, idUsuarioConectado);
+                    {    
+                        DTOPartida dtopartida = new DTOPartida(id, historia, numeroActo, rutaPartida, idUsuarioConectado);
                         ControladorPartidas.GuardarPartidaBD(dtopartida);
+                        Console.WriteLine("Partida guardada en local y en la base de datos");
                     }
                 }
                 else
@@ -182,7 +192,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             borrarOpciones(); //Se borran los botones del panel
             ventanaTexto.DocumentText = ControladorActos.getTexto(listaActos[numeroActo].ruta); //Se carga en el webBrowser el archivo en la ruta especificada en el acto correspondiente (controlado por numeroActo).
-            crearOpcíones(listaActos[numeroActo].opciones); //Se crean los botones con todas las opciones.
+            crearOpciones(listaActos[numeroActo].opciones); //Se crean los botones con todas las opciones.
             foreach (Button button in listaOpciones)
             {
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Se añaden las acciones a cada botón.
@@ -194,7 +204,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             aux.Add(op); //Se añade la opcion recibida.
             borrarOpciones(); //Se borran las anteriores opciones.
             ventanaTexto.DocumentText = ControladorActos.getTexto(op.ruta); //Se carga el texto de la ruta especificada de la opcion.
-            crearOpcíones(aux); //Se crean los botones.
+            crearOpciones(aux); //Se crean los botones.
             foreach (Button button in listaOpciones)
             {
                 button.Click += delegate (object sender, EventArgs ev) { accionBoton(sender, ev, listaActos[numeroActo].opciones[Int32.Parse(button.Tag.ToString())]); }; //Acciones para cada botón.
@@ -228,7 +238,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             
             if (!listaActos[numeroActo].ruta.Equals("[FIN]")) //Si el siguienteActo (variable de op) es 0, significa que la historia se ha acabado. 
             {
-                if (op.tipo.Equals("opcion") && haSeleccionadoOpcion == false) //Si la opcion es una entre varias (pudiendo desenvocar en distintos resultados)
+                if (op.tipo.Equals("opcion") && haSeleccionadoOpcion == false) //Si la opcion es una entre varias (pudiendo desenbocar en distintos resultados)
                                                                                //y es la primera vez que se selecciona
                                                                                //(ya que, en el json debe de acceder a su propia ruta para mostrar el texto) accede al condicionante.
                 {
@@ -282,7 +292,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 
             }
         }
-        private void crearOpcíones(List<Opcion> opciones)
+        private void crearOpciones(List<Opcion> opciones)
         {
             string descripcion;
             bool masDeUnaOpcion;

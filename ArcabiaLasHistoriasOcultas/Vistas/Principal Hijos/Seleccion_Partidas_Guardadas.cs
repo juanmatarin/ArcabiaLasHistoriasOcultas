@@ -106,20 +106,29 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     {
                         if (listaPartidas[index].id == elegida.id)
                         {
-                            listaPartidas.Remove(listaPartidas[index]);
-                            ControladorPartidas.guardarPartidas(listaPartidas);
-                            if (haIniciadoSesion)
+                            //Hay que borrar la partida en local, y en la base de datos, aunque no esté conectado
+                            if (ControladorPartidas.comprobarIdPartida(elegida.id))
                             {
-                                if (ControladorPartidas.comprobarIdPartida(elegida.id))//Si esta partida existe en la base de datos, es borrada
+                                if (haIniciadoSesion)//Si esta partida existe en la base de datos, y estamos conectados, es borrada
                                 {
-                                    ControladorPartidas.BorrarPartidaBD(elegida.id);
+                                    ControladorPartidas.borrarPartidaBD(elegida.id);
+                                    listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
+                                    ControladorPartidas.guardarPartidas(listaPartidas);
+                                    MessageBox.Show("Partida borrada en local y en la base de datos con éxito");
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Esa partida no se borrará de la base de datos");
+                                    MessageBox.Show("Esta partida no se puede borrar al no haber iniciado sesión");
                                 }
                             }
-                            MessageBox.Show("Partida borrada con éxito");
+                            else//Si esta partida no está en la base de datos, solo se borra de local
+                            {
+                                listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
+                                ControladorPartidas.guardarPartidas(listaPartidas);
+                                MessageBox.Show("Partida borrada con éxito");
+                            }
+                            
+                            
                             cargarLista();
                             salir = true;
                             index = 0;

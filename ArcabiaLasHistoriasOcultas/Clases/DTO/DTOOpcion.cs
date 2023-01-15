@@ -22,9 +22,10 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DTO
         public int opcionAMostrar { get; set; }
         public string contenidoHTML { get; set; }
 
-        public DTOOpcion(int id, string descripcion, string ruta, string tipo, string descripcionOpcion, int siguienteActo, bool decisionCondicionante, bool decisionElegida, int decisionAConsiderarActo, int decisionAConsiderarOpcion, int opcionAMostrar, string contenidoHTMLOpcion)
+        public DTOOpcion(int id, int idActo, string descripcion, string ruta, string tipo, string descripcionOpcion, int siguienteActo, bool decisionCondicionante, bool decisionElegida, int decisionAConsiderarActo, int decisionAConsiderarOpcion, int opcionAMostrar, string contenidoHTML)
         {
             this.id = id;
+            this.idActo = idActo;
             this.descripcion = descripcion;
             this.ruta = ruta;
             this.tipo = tipo;
@@ -35,7 +36,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DTO
             this.decisionAConsiderarActo = decisionAConsiderarActo;
             this.decisionAConsiderarOpcion = decisionAConsiderarOpcion;
             this.opcionAMostrar = opcionAMostrar;
-           // this.contenidoHTMLOpcion = contenidoHTMLOpcion;
+            this.contenidoHTML = contenidoHTML;
         }
     }
 }

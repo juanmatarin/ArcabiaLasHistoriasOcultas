@@ -38,26 +38,15 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
         }
         public void mostrarDatosUsuario()
         {
-            var consulta = ControladorUsuarios.CargarUsuario(nombreUsuario);//consulta recibe el valor de una serie de datos del usuario con el nombreUsuario enviado por parámetro
+            Usuario usuario = ControladorUsuarios.CargarUsuario(nombreUsuario);//consulta recibe el valor de una serie de datos del usuario con el nombreUsuario enviado por parámetro
 
-            foreach (var usuario in consulta)
-            {
-                //Recogemos estos valores
-                int id = usuario.GetValue<int>("id");
-                string nombre = usuario.GetValue<string>("nombre");
-                string apellidos = usuario.GetValue<string>("apellidos");
-                string nombreUsuario = usuario.GetValue<string>("nombre_usuario");
-                string correo = usuario.GetValue<string>("correo");
-
-                //Los mostramos en los campos de texto
-                txtId.Text = "" + id + "";
-                txtNombre.Text = nombre;
-                txtApellidos.Text = apellidos;
-                txtNombreUsuario.Text = nombreUsuario;
-                txtCorreo.Text = correo;
-
-                break;
-            }
+            //Los mostramos en los campos de texto
+            txtId.Text = "" + usuario.id + "";
+            txtNombre.Text = usuario.nombre;
+            txtApellidos.Text = usuario.apellidos;
+            txtNombreUsuario.Text = usuario.nombreUsuario;
+            txtCorreo.Text = usuario.correo;
+ 
         }
 
         private bool ValidarDatos()
