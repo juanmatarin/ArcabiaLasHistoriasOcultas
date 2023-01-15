@@ -9,7 +9,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorActos
     {
-        public static List<Acto> getListaActos(string ruta)
+        public static List<Acto> getActos(string ruta)
         {
             List<Acto> listaActos = new List<Acto>();
             ruta += @"\instrucciones.json"; //Siempre se añade el nombre del archivo a la ruta recibida,
@@ -29,7 +29,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaActos;
         }
 
-        public static bool guardarListaActos(List<Acto> listaActos, string ruta)
+        public static bool guardarActos(List<Acto> listaActos, string ruta)
         {
             bool guardar = false;
             

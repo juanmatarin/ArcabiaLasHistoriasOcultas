@@ -59,7 +59,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 }
             }
 
-            ControladorIO.crearYEscribirJSON(directorioHistoria, listaActos); //Crea el Json de las instrucciones.
+            ControladorIO.escribirJSON(directorioHistoria, listaActos); //Crea el Json de las instrucciones.
             guardarHistorias(listaHistorias);
             
             return exito;

@@ -7,7 +7,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
     public  class ControladorBaseDeDatos
     {
         static DAOBaseDeDatos daobd = new DAOBaseDeDatos();
-        public static bool comprobarConexión()
+        public static bool comprobarConexion()
         {
             bool conectado = daobd.comprobarConexion();
             if (conectado)

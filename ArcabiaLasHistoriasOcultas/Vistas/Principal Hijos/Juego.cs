@@ -35,7 +35,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         //Load
         private void Juego_Load(object sender, EventArgs e)
         {
-            listaActos = ControladorActos.getListaActos(rutaPartida);
+            listaActos = ControladorActos.getActos(rutaPartida);
             ControladorHistorias.addHistoriaNuevaLocal(listaActos);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas();
@@ -86,7 +86,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
 
             if (ControladorPartidas.guardarPartidas(listaPartidas)) //Comprueba si no hay ningún fallo al guardar
             {
-                if (ControladorActos.guardarListaActos(listaActos, partidaGuardada.rutaInstrucciones))
+                if (ControladorActos.guardarActos(listaActos, partidaGuardada.rutaInstrucciones))
                 {
                     MessageBox.Show("Partida guardada con éxito");
                     haGuardado = true; //Se confirma que se ha guardado la partida.

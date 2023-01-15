@@ -16,7 +16,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             DirectoryInfo di = Directory.CreateDirectory(ruta + numero);
             return di.FullName;
         }
-        public static void crearYEscribirJSON(string ruta, List<Acto> listaActos)
+        public static void escribirJSON(string ruta, List<Acto> listaActos)
         {
             string rutaCompleta = ruta + @"\instrucciones.json", json;
             json = JsonSerializer.Serialize(listaActos);

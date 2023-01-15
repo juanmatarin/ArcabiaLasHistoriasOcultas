@@ -90,7 +90,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         }
         private void conectarseBTN_Click(object sender, EventArgs e)
         {
-            if (ControladorBaseDeDatos.comprobarConexión())
+            if (ControladorBaseDeDatos.comprobarConexion())
             {
                 Principal_Conectarse conectarse = new Principal_Conectarse(padre, this);
                 conectarse.Show();
