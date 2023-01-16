@@ -381,6 +381,15 @@ namespace ArcabiaLasHistoriasOcultas.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a https://media.discordapp.net/attachments/910615650521722892/1064316577211764858/cerrarsesion.png?width=680&amp;height=701.
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Título_de_inicio {

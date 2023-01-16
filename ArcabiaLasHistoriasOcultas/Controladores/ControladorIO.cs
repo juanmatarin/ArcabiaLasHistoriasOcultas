@@ -28,5 +28,20 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             ruta += @"\" + tipo + numero + ".html";
             File.WriteAllBytes(ruta, Encoding.ASCII.GetBytes(contenido));
         }
+
+        public static bool borrarPartidaLocal(int id)
+        {
+            bool exito = false;
+            string ruta;
+
+            ruta = @"..\..\Archivos\Partidas\";
+
+            if (File.Exists(ruta + "Partida_" + id + @"\instrucciones.json"))
+            {
+                File.Delete(ruta + "Partida_" + id + @"\instrucciones.json");
+                Directory.Delete(ruta + "Partida_" + id);
+            }
+            return exito;
+        }
     }
 }

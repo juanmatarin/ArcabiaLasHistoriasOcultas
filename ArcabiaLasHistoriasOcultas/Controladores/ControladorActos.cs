@@ -12,8 +12,8 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorActos
     {
-        static DAOActo daoActo = new DAOActo();
-        public static List<Acto> getListaActos(string ruta)
+        static DAOActo daoActo;
+        public static List<Acto> getActos(string ruta)
         {
             List<Acto> listaActos = new List<Acto>();
             ruta += @"\instrucciones.json"; //Siempre se añade el nombre del archivo a la ruta recibida,

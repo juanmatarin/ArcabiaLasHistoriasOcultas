@@ -53,7 +53,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         private void Juego_Load(object sender, EventArgs e)
         {
             listaActos = ControladorActos.getActos(rutaPartida);
-            ControladorHistorias.addHistoriaNuevaLocal(listaActos);
             listaOpciones = new List<Button>();
             listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
             haSeleccionadoOpcion = false;
@@ -105,14 +104,14 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 if (ControladorActos.guardarActos(listaActos, partidaGuardada.rutaInstrucciones))
                 {
-                    Console.WriteLine("Partida guardada en local");
+                    MessageBox.Show("Partida guardada en local");
                     haGuardado = true; //Se confirma que se ha guardado la partida.
                     listaPartidas = ControladorPartidas.getPartidas(haIniciadoSesion);
                     if (haIniciadoSesion)//Si estamos conectados, la partida se guarda en la base de datos
                     {    
                         DTOPartida dtopartida = new DTOPartida(id, historia, numeroActo, rutaPartida, idUsuarioConectado);
                         ControladorPartidas.GuardarPartidaBD(dtopartida);
-                        Console.WriteLine("Partida guardada en local y en la base de datos");
+                        MessageBox.Show("Partida guardada en la Base de Datos");
                     }
                 }
                 else

@@ -30,16 +30,16 @@
         {
             this.conectarseBTN = new System.Windows.Forms.Button();
             this.usuarioConectado = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabelUsuario = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tuPerfilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLblUsuario = new System.Windows.Forms.ToolStripSplitButton();
             this.tuPerfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.tuPerfilToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirBTN = new System.Windows.Forms.Button();
             this.cargarPartidaBTN = new System.Windows.Forms.Button();
             this.continuarPartidaBTN = new System.Windows.Forms.Button();
@@ -73,6 +73,15 @@
             this.usuarioConectado.TabIndex = 14;
             this.usuarioConectado.Text = "toolStrip1";
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
             // toolStripLabelUsuario
             // 
             this.toolStripLabelUsuario.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -86,9 +95,17 @@
             // 
             this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
             this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
-            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
             this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.cerrarsesion;
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // toolStripLblUsuario
             // 
@@ -127,36 +144,14 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Título_de_inicio;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(15, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(622, 235);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.fotoUsuario;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // tuPerfilToolStripMenuItem1
-            // 
-            this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
-            this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
-            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
-            this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
-            // 
-            // cerrarSesiónToolStripMenuItem
-            // 
-            this.cerrarSesiónToolStripMenuItem.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.cerrarsesion;
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // salirBTN
             // 
@@ -206,13 +201,13 @@
             this.nuevaPartidaBTN.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.NuevaPartida_No_Pulsado;
             this.nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.nuevaPartidaBTN.Location = new System.Drawing.Point(26, 290);
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(15, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(622, 235);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.nuevaPartidaBTN.Name = "nuevaPartidaBTN";
+            this.nuevaPartidaBTN.Size = new System.Drawing.Size(146, 82);
+            this.nuevaPartidaBTN.TabIndex = 16;
+            this.nuevaPartidaBTN.UseVisualStyleBackColor = false;
+            this.nuevaPartidaBTN.Click += new System.EventHandler(this.nuevaPartidaBTN_Click);
+            this.nuevaPartidaBTN.MouseLeave += new System.EventHandler(this.nuevaPartidaBTN_MouseLeave);
+            this.nuevaPartidaBTN.MouseHover += new System.EventHandler(this.nuevaPartidaBTN_MouseHover);
             // 
             // Bienvenida
             // 

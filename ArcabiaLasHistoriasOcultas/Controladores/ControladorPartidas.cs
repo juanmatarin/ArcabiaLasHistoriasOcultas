@@ -11,7 +11,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorPartidas
     {
-        static DAOPartida daoPartida= new DAOPartida();
+        static DAOPartida daoPartida;
         public static List<Partida> getPartidas(bool haIniciadoSesion)
         {
             List<Partida> listaPartidas = new List<Partida>();
@@ -26,15 +26,9 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                         {
                             listaPartidas.Add(p);
                         }
-                        var contenido = File.ReadAllBytes(ruta);
-                        listaPartidas = JsonSerializer.Deserialize<List<Partida>>(contenido);
                     }
-                    else
-                    {
-                        var contenido = File.ReadAllBytes(ruta);
-                        listaPartidas = JsonSerializer.Deserialize<List<Partida>>(contenido);
-                    }
-                    
+                    var contenido = File.ReadAllBytes(ruta);
+                    listaPartidas = JsonSerializer.Deserialize<List<Partida>>(contenido);
                 }
             }
             catch (Exception e)
@@ -61,20 +55,6 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 Console.WriteLine("Error leyendo json " + e.Message);
             }
             return guardar;
-        }
-        public static bool borrarPartida(Partida partida)
-        {
-            bool exito = false;
-            string ruta;
-
-            ruta = @"..\..\Archivos\Partidas\";
-
-            if (File.Exists(ruta + partida.id + @"\instrucciones.json"))
-            {
-                File.Delete(ruta + partida.id + @"\instrucciones.json");
-                Directory.Delete(ruta + partida.id);
-            }
-            return exito;
         }
         public static void GuardarPartidaBD(DTOPartida dtopartida)
         {

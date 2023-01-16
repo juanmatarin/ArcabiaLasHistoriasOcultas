@@ -11,7 +11,8 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorHistorias
     {
-        static DAOHistoria daoHistoria = new DAOHistoria();
+        static DAOHistoria daoHistoria;
+
         public static List<Historia> getHistorias()
         {
             List<Historia> listaHistorias = new List<Historia>();
@@ -31,14 +32,14 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaHistorias;
         }
 
-        public static bool addHistoriaNuevaLocal(/*List<Acto> listaActos*/)
+        public static bool addHistoriaNuevaLocal()
         {
             bool exito = false;
-            string html = "", nombreHistoria, rutaImagen = "", directorioHistoria = "", directorioActo = ""; //HTML Sería el contenido que se sacaría de la BBDD.
+            string html = "", nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
             int idHistoria;
             Historia historiaNueva;
             List<Historia> listaHistorias = getHistorias();
-
+            DirectoryInfo directorioHistoria, directorioActo;
 
             //Hay que coger la historia/s de la base de datos
             List<Historia> listaHistoriasBD = getHistoriasBD();

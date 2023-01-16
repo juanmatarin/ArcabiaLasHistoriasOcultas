@@ -11,7 +11,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorOpciones
     {
-        static DAOOpcion daoOpcion = new DAOOpcion();
+        static DAOOpcion daoOpcion;
 
         public string getContenidoHtmlBD(int id)
         {

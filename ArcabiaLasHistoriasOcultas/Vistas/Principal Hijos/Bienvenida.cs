@@ -55,12 +55,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     ControladorHistorias.addHistoriaNuevaLocal();
                 }
             }
-           
-            this.BackgroundImage = Resources.FondoVentanas;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = Resources.Título_de_inicio;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.BackColor = Color.Transparent;
         }
 
         //Click

@@ -8,7 +8,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 {
     public class ControladorUsuarios
     {
-        static DAOUsuario daoUsuario = new DAOUsuario();
+        static DAOUsuario daoUsuario;
         public static void AñadirUsuarioBD(DTOUsuario dtousuario)
         {
             if (daoUsuario.insert(dtousuario))
