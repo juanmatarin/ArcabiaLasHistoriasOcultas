@@ -101,24 +101,30 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Volver_No_Pulsado;
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelar.Location = new System.Drawing.Point(385, 269);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(175, 45);
             this.btnCancelar.TabIndex = 24;
-            this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
+            this.btnCancelar.MouseHover += new System.EventHandler(this.btnCancelar_MouseHover);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Guardar_No_Pulsado;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGuardar.Enabled = false;
             this.btnGuardar.Location = new System.Drawing.Point(204, 269);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(175, 45);
             this.btnGuardar.TabIndex = 23;
-            this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.MouseLeave += new System.EventHandler(this.btnGuardar_MouseLeave);
+            this.btnGuardar.MouseHover += new System.EventHandler(this.btnGuardar_MouseHover);
             // 
             // txtCorreo
             // 
@@ -132,9 +138,10 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.BackColor = System.Drawing.Color.Transparent;
-            this.lblCorreo.Location = new System.Drawing.Point(94, 224);
+            this.lblCorreo.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreo.Location = new System.Drawing.Point(94, 218);
             this.lblCorreo.Name = "lblCorreo";
-            this.lblCorreo.Size = new System.Drawing.Size(93, 13);
+            this.lblCorreo.Size = new System.Drawing.Size(121, 18);
             this.lblCorreo.TabIndex = 21;
             this.lblCorreo.Text = "Correo electrónico";
             // 
@@ -150,9 +157,10 @@
             // 
             this.lblNombre_Usuario.AutoSize = true;
             this.lblNombre_Usuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombre_Usuario.Location = new System.Drawing.Point(94, 169);
+            this.lblNombre_Usuario.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre_Usuario.Location = new System.Drawing.Point(94, 167);
             this.lblNombre_Usuario.Name = "lblNombre_Usuario";
-            this.lblNombre_Usuario.Size = new System.Drawing.Size(81, 13);
+            this.lblNombre_Usuario.Size = new System.Drawing.Size(104, 18);
             this.lblNombre_Usuario.TabIndex = 19;
             this.lblNombre_Usuario.Text = "Nombre usuario";
             // 
@@ -168,9 +176,10 @@
             // 
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.BackColor = System.Drawing.Color.Transparent;
-            this.lblApellidos.Location = new System.Drawing.Point(94, 118);
+            this.lblApellidos.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidos.Location = new System.Drawing.Point(94, 116);
             this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(49, 13);
+            this.lblApellidos.Size = new System.Drawing.Size(63, 18);
             this.lblApellidos.TabIndex = 17;
             this.lblApellidos.Text = "Apellidos";
             // 
@@ -186,9 +195,10 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombre.Location = new System.Drawing.Point(94, 68);
+            this.lblNombre.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(94, 66);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(58, 18);
             this.lblNombre.TabIndex = 15;
             this.lblNombre.Text = "Nombre";
             // 
@@ -204,21 +214,25 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.BackColor = System.Drawing.Color.Transparent;
-            this.lblId.Location = new System.Drawing.Point(94, 29);
+            this.lblId.Font = new System.Drawing.Font("Perpetua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(94, 27);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.Size = new System.Drawing.Size(19, 18);
             this.lblId.TabIndex = 29;
             this.lblId.Text = "Id";
             // 
             // btnEditar
             // 
+            this.btnEditar.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.Editar_No_Pulsado;
+            this.btnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEditar.Location = new System.Drawing.Point(23, 269);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(175, 45);
             this.btnEditar.TabIndex = 31;
-            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditar_MouseLeave);
+            this.btnEditar.MouseHover += new System.EventHandler(this.btnEditar_MouseHover);
             // 
             // Perfil_Usuario
             // 

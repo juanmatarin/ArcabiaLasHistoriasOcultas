@@ -15,6 +15,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 
         public string getContenidoHtmlBD(int id)
         {
+            daoOpcion = new DAOOpcion();
             var consulta = daoOpcion.getContenidoHTML(id);
             string html = consulta.ToString();
             foreach (var info in consulta)
@@ -26,7 +27,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static List<Opcion> getOpcionesBD(int idActo)
         {
-            
+            daoOpcion = new DAOOpcion();
             List<DTOOpcion> listaOpcionesBD = daoOpcion.select(idActo);
             listaOpcionesBD.Sort((x, y) => x.id.CompareTo(y.id));
             List<Opcion> listaOpciones = new List<Opcion>();

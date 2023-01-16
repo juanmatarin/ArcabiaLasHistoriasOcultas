@@ -19,7 +19,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
         public void conexion()
         {
             Cluster cluster = Cluster.Builder().AddContactPoint(ConfigurationManager.ConnectionStrings["IpEquipo"].ConnectionString).Build();
-            session = (Session)cluster.Connect("arcabia_keyspace");
+            session = (Session)cluster.Connect("arcabialho_keyspace");
         }
         public dynamic getContenidoHTML(int idActo)
         {

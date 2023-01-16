@@ -58,15 +58,16 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static void GuardarPartidaBD(DTOPartida dtopartida)
         {
+            daoPartida = new DAOPartida();
             if (daoPartida.insert(dtopartida))
             {
-                MessageBox.Show("Partida guardada en local y en la base de datos");
                 Console.WriteLine("Partida registrada");
             }
         }
         
         public static List<Partida> getPartidasBD()
         {
+            daoPartida = new DAOPartida();
             List<DTOPartida> listaPartidasBD = daoPartida.select();
             List<Partida> listaPartidas = new List<Partida>();
             
@@ -85,6 +86,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static void borrarPartidaBD(int id)
         {
+            daoPartida = new DAOPartida();
             if (daoPartida.delete(id))
             {
                 Console.WriteLine("Partida eliminada de la base de datos");
@@ -92,6 +94,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static bool comprobarIdPartida(int idRecibido)
         {
+            daoPartida = new DAOPartida();
             var consulta = daoPartida.getIds();
             bool idExiste = false;
             foreach (var ids in consulta)
@@ -108,6 +111,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static bool comprobarIdUsuario(int idRecibido)
         {
+            daoPartida = new DAOPartida();
             var consulta = daoPartida.getIds();
             bool idExiste = false;
             foreach (var ids in consulta)

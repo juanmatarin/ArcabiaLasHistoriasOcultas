@@ -34,6 +34,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 
         public static bool addHistoriaNuevaLocal()
         {
+            daoHistoria = new DAOHistoria();
             bool exito = false;
             string html = "", nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
             int idHistoria;
@@ -128,6 +129,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
 
         public static List<Historia> getHistoriasBD()
         {
+            daoHistoria = new DAOHistoria();
             List<DTOHistoria> listaHistoriaBD = daoHistoria.select();
             List<Historia> listaHistorias = new List<Historia>();
 
@@ -145,6 +147,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static int getIdHistoria()
         {
+            daoHistoria = new DAOHistoria();
             var consulta = daoHistoria.getId();
             int id = 0;
             foreach (var ids in consulta)

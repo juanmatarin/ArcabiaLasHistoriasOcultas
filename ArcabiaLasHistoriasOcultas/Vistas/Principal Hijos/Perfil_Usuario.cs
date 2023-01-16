@@ -1,5 +1,6 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Controladores;
+using ArcabiaLasHistoriasOcultas.Properties;
 using Cassandra;
 using System;
 using System.Collections.Generic;
@@ -129,6 +130,45 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
             txtNombreUsuario.ReadOnly = false;
             txtCorreo.ReadOnly= false; 
             btnGuardar.Enabled= true;    
+        }
+
+        //MouseHover
+
+        private void btnEditar_MouseHover(object sender, EventArgs e)
+        {
+            btnEditar.BackgroundImage = Resources.Editar_Pulsado;
+            btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btnGuardar_MouseHover(object sender, EventArgs e)
+        {
+            btnGuardar.BackgroundImage = Resources.Guardar_Pulsado;
+            btnGuardar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btnCancelar_MouseHover(object sender, EventArgs e)
+        {
+            btnCancelar.BackgroundImage = Resources.Volver_Pulsado;
+            btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        //MouseLeave
+        private void btnEditar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEditar.BackgroundImage = Resources.Editar_No_Pulsado;
+            btnEditar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        {
+            btnGuardar.BackgroundImage = Resources.Editar_No_Pulsado;
+            btnGuardar.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackgroundImage = Resources.Editar_No_Pulsado;
+            btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
         }
     }
 }

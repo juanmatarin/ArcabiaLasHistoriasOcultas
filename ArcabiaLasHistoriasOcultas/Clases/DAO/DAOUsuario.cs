@@ -16,7 +16,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
         public void conexion()
         {
             Cluster cluster = Cluster.Builder().AddContactPoint(ConfigurationManager.ConnectionStrings["IpEquipo"].ConnectionString).Build(); //En el contactPoint debes escribir la ip de tu equipo
-            session = (Session)cluster.Connect("arcabia_keyspace");
+            session = (Session)cluster.Connect("arcabialho_keyspace");
         }
 
         public dynamic getNombreUsuario(string nombreUsuario)//Método que devuelve el nombre_usuario de un usuario

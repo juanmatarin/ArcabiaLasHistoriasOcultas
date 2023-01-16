@@ -65,6 +65,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         }
         public static List<Acto> getActosBD(int idHistoriaRecibido)
         {
+            daoActo = new DAOActo();
             List<DTOActo> listaActosBD = daoActo.select(idHistoriaRecibido);//Recibimos la lista de actos de la base de datos
             listaActosBD.Sort((x,y) => x.id.CompareTo(y.id));
             List<Acto> listaActos = new List<Acto>();//Vamos a guardar los valores de estos actos en objetos de la clase Acto, que es la que se va a usar en local
