@@ -45,6 +45,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 ControladorUsuarios.AñadirUsuarioBD(nuevoUsuario);
                 Conectarse conectarse = new Conectarse(padre, bienvenida, padre_bienvenida);
                 conectarse.MdiParent = padre;
+                conectarse.Show();
                 this.Close();
             }
         }
