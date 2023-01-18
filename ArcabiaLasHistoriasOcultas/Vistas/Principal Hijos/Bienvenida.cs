@@ -4,7 +4,6 @@ using ArcabiaLasHistoriasOcultas.Properties;
 using ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 

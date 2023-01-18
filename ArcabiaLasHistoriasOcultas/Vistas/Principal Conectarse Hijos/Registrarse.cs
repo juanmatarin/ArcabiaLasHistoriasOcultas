@@ -1,16 +1,8 @@
-﻿using ArcabiaLasHistoriasOcultas.Clases;
-using ArcabiaLasHistoriasOcultas.Clases.DTO;
+﻿using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
 using ArcabiaLasHistoriasOcultas.Vistas.Principal_Conectarse_Hijos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Vistas

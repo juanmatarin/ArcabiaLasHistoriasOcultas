@@ -1,7 +1,5 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
-using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using ArcabiaLasHistoriasOcultas.Controladores;
-using ArcabiaLasHistoriasOcultas.Properties;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

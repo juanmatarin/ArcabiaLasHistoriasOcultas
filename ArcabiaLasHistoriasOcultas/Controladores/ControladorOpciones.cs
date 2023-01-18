@@ -1,11 +1,7 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases;
 using ArcabiaLasHistoriasOcultas.Clases.DAO;
 using ArcabiaLasHistoriasOcultas.Clases.DTO;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
 {

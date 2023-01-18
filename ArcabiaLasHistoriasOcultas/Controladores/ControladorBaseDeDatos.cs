@@ -1,6 +1,4 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases.DAO;
-using Cassandra;
-using System;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
 {

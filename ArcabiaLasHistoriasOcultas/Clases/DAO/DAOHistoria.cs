@@ -1,9 +1,7 @@
 ﻿using ArcabiaLasHistoriasOcultas.Clases.DTO;
 using Cassandra;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq.Expressions;
 
 namespace ArcabiaLasHistoriasOcultas.Clases.DAO
 {

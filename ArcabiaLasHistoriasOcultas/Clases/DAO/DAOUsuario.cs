@@ -2,7 +2,6 @@
 using Cassandra;
 using System;
 using System.Configuration;
-using System.Linq;
 
 namespace ArcabiaLasHistoriasOcultas.Clases.DAO
 {
