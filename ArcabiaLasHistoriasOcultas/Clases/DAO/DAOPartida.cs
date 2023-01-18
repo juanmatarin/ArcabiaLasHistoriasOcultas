@@ -60,19 +60,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             var consulta = session.Execute("SELECT id FROM Partida;");
             return consulta;
         }
-        
-        public void update()
-        {
-            try
-            {
-               /* session.Execute("update Partida  from Usuario set historia = '" + historia + "',set apellidos = '" +
-                numeroActo + "', set nombre_usuario = '" + nombre_usuario + "', set correo = ';");*/
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error al actualizar " + e.Message);
-            }
-        }
         public bool delete(int id)//Método para eliminar una partida cuyo id recibe por parámetro
         {
             bool delete;

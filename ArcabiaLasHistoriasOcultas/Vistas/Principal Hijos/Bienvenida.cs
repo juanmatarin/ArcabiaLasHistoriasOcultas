@@ -182,19 +182,6 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             nuevaPartidaBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         }
 
-        //FormClosing
-        private void Bienvenida_FormClosing(object sender, FormClosingEventArgs e) //Esto se ejecuta en el momento que se va a cerrar la ventana.
-        {
-            if (!haIniciadoSesion)
-            {
-                if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
-                   MessageBoxButtons.YesNo) == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
         private void tuPerfilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Perfil_Usuario perfil_Usuario = new Perfil_Usuario(nombreUsuario);

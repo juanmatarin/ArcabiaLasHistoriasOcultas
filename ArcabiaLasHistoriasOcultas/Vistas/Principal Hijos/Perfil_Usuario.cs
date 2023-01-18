@@ -161,13 +161,13 @@ namespace ArcabiaLasHistoriasOcultas.Vistas.Principal_Hijos
 
         private void btnGuardar_MouseLeave(object sender, EventArgs e)
         {
-            btnGuardar.BackgroundImage = Resources.Editar_No_Pulsado;
+            btnGuardar.BackgroundImage = Resources.Guardar_No_Pulsado;
             btnGuardar.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
-            btnCancelar.BackgroundImage = Resources.Editar_No_Pulsado;
+            btnCancelar.BackgroundImage = Resources.Volver_No_Pulsado;
             btnCancelar.BackgroundImageLayout = ImageLayout.Stretch;
         }
     }

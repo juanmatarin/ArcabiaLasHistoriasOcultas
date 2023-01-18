@@ -12,7 +12,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         Principal padre_bienvenida;
         Bienvenida bienvenida;
         FormCollection listaInterfaces;
-        int index;
+        int index, contadorError;
         bool salir;
         public Iniciar_Sesion(Principal_Conectarse padre, Bienvenida bienvenida, Principal padre_bienvenida)
         {
@@ -26,30 +26,45 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             listaInterfaces = Application.OpenForms;
             index = 0;
+            contadorError = 0;
             salir = false;
         }
 
         private void inisesBTN_Click(object sender, EventArgs e)
         {
-            //Globales.GrabarLog("Usuario " + txtUsuario.Text + " intentando entrar");
 
             //Si coinciden usuario y contraseña, sino mostramos error
-            if (ControladorUsuarios.ValidarLogin(txtUsuario.Text, txtContraseña.Text))
+            if (validarCampos())
             {
-                MessageBox.Show("Has iniciado sesion");
-                borrarVentana(bienvenida);
-                Bienvenida bienvenida1 = new Bienvenida(padre_bienvenida, txtUsuario.Text, true);
-                bienvenida1.MdiParent = padre_bienvenida;
-                this.Close();
-                borrarVentana(padre);
-                bienvenida1.Show();
-
-            }
-            else
-            {
-                lblError.Visible = true;
+                if (ControladorUsuarios.comprobarSiUsuarioExiste(txtUsuario.Text))
+                {
+                    if (ControladorUsuarios.validarLogin(txtUsuario.Text, txtContraseña.Text))
+                    {
+                        MessageBox.Show("Has iniciado sesion");
+                        borrarVentana(bienvenida);
+                        Bienvenida bienvenida1 = new Bienvenida(padre_bienvenida, txtUsuario.Text, true);
+                        bienvenida1.MdiParent = padre_bienvenida;
+                        this.Close();
+                        borrarVentana(padre);
+                        bienvenida1.Show();
+                    }
+                    else
+                    {
+                        lblError.Visible = true;
+                        contadorError++;
+                        if (contadorError >= 3)
+                        {
+                            linkLabelContrasenaOlvidada.Visible = true;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El usuario introducido no existe");
+                }
             }
         }
+
 
         private void volverBTN_Click(object sender, EventArgs e)
         {
@@ -121,10 +136,42 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             inisesBTN.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
+        private void linkLabelContrasenaOlvidada_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CambiarContrasena cambiarContrasena = new CambiarContrasena(padre, bienvenida, padre_bienvenida, txtUsuario.Text);
+            cambiarContrasena.MdiParent = padre;
+            this.Close();
+            cambiarContrasena.Show();
+        }
+
         private void volverBTN_MouseLeave(object sender, EventArgs e)
         {
             volverBTN.BackgroundImage = Resources.Volver_No_Pulsado;
             volverBTN.BackgroundImageLayout = ImageLayout.Stretch;
         }
+
+        private bool validarCampos()
+        {
+            bool noHayError = true;
+
+            //comprobamos el Nombre
+            if (txtUsuario.Text.Trim() == "")
+            {
+                MessageBox.Show("El usuario no puede estar vacío");
+                txtUsuario.SelectAll();
+                txtUsuario.Focus();
+                noHayError = false;
+            }
+            //comprobamos la Contraseña
+            if (txtContraseña.Text.Trim() == "")
+            {
+                MessageBox.Show("La contraseña no puede estar vacía");
+                txtContraseña.SelectAll();
+                txtContraseña.Focus();
+                noHayError = false;
+            }
+            return noHayError;
+        }
+
     }
 }

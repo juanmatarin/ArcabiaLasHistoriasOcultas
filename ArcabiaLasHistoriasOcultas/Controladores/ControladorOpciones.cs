@@ -13,18 +13,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
     {
         static DAOOpcion daoOpcion;
 
-        public string getContenidoHtmlBD(int id)
-        {
-            daoOpcion = new DAOOpcion();
-            var consulta = daoOpcion.getContenidoHTML(id);
-            string html = consulta.ToString();
-            foreach (var info in consulta)
-            {
-                html = info.getValue<string>("contenidohtml");
-                break;
-            }
-            return html;
-        }
+        
         public static List<Opcion> getOpcionesBD(int idActo)
         {
             daoOpcion = new DAOOpcion();
@@ -34,7 +23,6 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             foreach (DTOOpcion dtoOpcion in listaOpcionesBD)
             {
                 int id = dtoOpcion.id;
-                int idActoConsulta = dtoOpcion.idActo;
                 string ruta = dtoOpcion.ruta;
                 string descripcion = dtoOpcion.descripcion;
                 string tipo = dtoOpcion.tipo;
@@ -45,16 +33,21 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 int decisionAConsiderarActo = dtoOpcion.decisionAConsiderarActo;
                 int decisionAConsiderarOpcion = dtoOpcion.decisionAConsiderarOpcion;
                 int opcionAMostrar = dtoOpcion.opcionAMostrar;
-                string contenidoHtml = dtoOpcion.contenidoHTML;
 
 
                 //Creamos un objeto de opcion con estas variables cada vez que pasamos por el bucle, y lo metemos en la lista de opciones
-                Opcion opcionAGuardar = new Opcion(id, idActoConsulta, ruta, descripcion, tipo, descripcionOpcion, siguienteActo, decisionCondicionante,
-                    decisionElegida, decisionAConsiderarActo, decisionAConsiderarOpcion,opcionAMostrar, contenidoHtml);
+                Opcion opcionAGuardar = new Opcion(id, descripcion, ruta, tipo, descripcionOpcion, siguienteActo, decisionCondicionante,
+                    decisionElegida, decisionAConsiderarActo, decisionAConsiderarOpcion,opcionAMostrar);
                 listaOpciones.Add(opcionAGuardar);
 
             }
             return listaOpciones;
+        }
+
+        public static string cargarHtml(int id)
+        {
+            return daoOpcion.getContenidoHTML(id);
+
         }
     }
 }

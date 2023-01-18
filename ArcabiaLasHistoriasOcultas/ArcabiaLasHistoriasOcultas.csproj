@@ -207,6 +207,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Principal Conectarse Hijos\CambiarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Principal Conectarse Hijos\CambiarContrasena.Designer.cs">
+      <DependentUpon>CambiarContrasena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Principal Conectarse Hijos\Conectarse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Principal Conectarse Hijos\CambiarContrasena.resx">
+      <DependentUpon>CambiarContrasena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Principal Hijos\Perfil_Usuario.resx">
       <DependentUpon>Perfil_Usuario.cs</DependentUpon>

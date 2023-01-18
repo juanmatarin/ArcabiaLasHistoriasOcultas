@@ -18,7 +18,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             }
         }
 
-        public static bool ValidarLogin(string nombreUsuario, string claveRecibida)
+        public static bool validarLogin(string nombreUsuario, string claveRecibida)
         {
             bool login = false;
             var consulta = daoUsuario.login(nombreUsuario);//Consulta va a tener el valor de la contraseña de ese usuario
@@ -29,7 +29,6 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 if (contraseña == claveRecibida) //Si la contraseña recibida en la consulta es igual a la clave recibida, salimos y devolvemos true
                 {
                     login = true;
-                    break;
                 }
             }
             return login;
@@ -44,26 +43,16 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             }
         }
 
-        public static bool comprobarUsuarioUnico(string nombreUsuarioRecibido)
+        public static bool comprobarSiUsuarioExiste(string nombreUsuarioRecibido)
         {
-            var consulta = daoUsuario.getNombreUsuario(nombreUsuarioRecibido);//La variable consulta va a tener el valor del username de ese usuario
-            bool noUnico = false;
-            foreach ( var nombreUsuarioConsulta in consulta)
+            string nombreUsuario = daoUsuario.getNombreUsuario(nombreUsuarioRecibido);//La variable consulta va a tener el valor del username de ese usuario
+            bool existe = false;
+            if (nombreUsuario.Equals(nombreUsuarioRecibido))
             {
-                string username = nombreUsuarioConsulta.GetValue<string>("nombre_usuario");//Esta variable string va a tener el valor de la columna username que hemos recibido en la consulta
-                if(username == null)//Si no, no existe existe ningún usuario con ese username
-                {
-                    noUnico = false;
-                    break;
-                }
-                else if(username == nombreUsuarioRecibido) //Si username es igual al username que hemos recibido por parámetro, significa que ya existe un usuario con ese username
-                                                      
-                {
-                    noUnico = true;
-                    break;
-                }
+                existe = true;
             }
-            return noUnico;
+
+            return existe;
         }
 
         public static Usuario CargarUsuario(string nombreUsuario)
@@ -76,8 +65,15 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         {
             return daoUsuario.getId(nombreUsuario);
         }
-        
-            
+
+        public static void actualizarContraseña(string nombreUsuario, string contraseña)
+        {
+            if (daoUsuario.updateContraseña(nombreUsuario, contraseña))
+            {
+                MessageBox.Show("La contraseña ha sido actualizada");
+            }
+        }
+
     }
 }
 

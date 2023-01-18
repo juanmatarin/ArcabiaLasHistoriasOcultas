@@ -28,5 +28,14 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
         {
             Application.Exit();
         }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que quiere salir del juego?", "Arcabia: Las Historias Ocultas",
+                   MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

@@ -64,13 +64,13 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 Console.WriteLine("Partida registrada");
             }
         }
-        
+
         public static List<Partida> getPartidasBD()
         {
             daoPartida = new DAOPartida();
             List<DTOPartida> listaPartidasBD = daoPartida.select();
             List<Partida> listaPartidas = new List<Partida>();
-            
+
             foreach (DTOPartida dtoPartida in listaPartidasBD)
             {
                 int id = dtoPartida.id;
@@ -78,8 +78,7 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 int numeroActo = dtoPartida.numeroActo;
                 string rutaIntrucciones = dtoPartida.rutaInstrucciones;
 
-
-                Partida partidaAGuardar = new Partida(id, historia, numeroActo, rutaIntrucciones);
+                Partida partidaAGuardar = new Partida(id, historia, numeroActo, rutaIntrucciones, true);
                 listaPartidas.Add(partidaAGuardar);
             }
             return listaPartidas;

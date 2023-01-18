@@ -104,20 +104,22 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                     {
                         if (listaPartidas[index].id == elegida.id)
                         {
-                            //Hay que borrar la partida en local, y en la base de datos, aunque no esté conectado
-                            if (haIniciadoSesion)
+                            if (elegida.guardadaEnBD) //Si la partida está guardada en la base de datos, solo se puede borrar si estamos conectados
                             {
-                                if (ControladorPartidas.comprobarIdPartida(elegida.id))//Si esta partida existe en la base de datos, y estamos conectados, es borrada
+                                if (haIniciadoSesion)
                                 {
-                                    ControladorPartidas.borrarPartidaBD(elegida.id);
-                                    ControladorIO.borrarPartidaLocal(elegida.id);
-                                    listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
-                                    ControladorPartidas.guardarPartidas(listaPartidas);
-                                    MessageBox.Show("Partida borrada en local y en la base de datos con éxito.");
+                                    if (ControladorPartidas.comprobarIdPartida(elegida.id)) //Si estamos conectados, podemos borrarla de la base de datos
+                                    {
+                                        ControladorPartidas.borrarPartidaBD(elegida.id); //Borramos la partida de la base de datos
+                                        ControladorIO.borrarPartidaLocal(elegida.id); //Borramos la partida en local
+                                        listaPartidas.Remove(listaPartidas[index]);
+                                        ControladorPartidas.guardarPartidas(listaPartidas);
+                                        MessageBox.Show("Partida borrada en local y en la base de datos con éxito");
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Esta partida no se puede borrar al no haber iniciado sesión ya que se creó en la nube.");
+                                    MessageBox.Show("Esta partida no se puede borrar al no haber iniciado sesión");
                                 }
                             }
                             else//Si esta partida no está en la base de datos, solo se borra de local
@@ -125,10 +127,9 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                                 ControladorIO.borrarPartidaLocal(elegida.id);
                                 listaPartidas.Remove(listaPartidas[index]);//También la borramos en local
                                 ControladorPartidas.guardarPartidas(listaPartidas);
-                                MessageBox.Show("Partida borrada en local con éxito.");
+                                MessageBox.Show("Partida borrada con éxito");
                             }
-                            
-                            
+
                             cargarLista();
                             salir = true;
                             index = 0;
@@ -156,7 +157,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 MessageBox.Show("No se pueden eliminar partidas cuando hay una en transcurso. Accede a esta opción desde el menú principal");
             }
-            
+
         }
 
         private void volverBTN_Click(object sender, EventArgs e)

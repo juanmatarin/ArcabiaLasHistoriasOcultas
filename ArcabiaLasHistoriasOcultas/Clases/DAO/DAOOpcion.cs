@@ -21,10 +21,16 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             Cluster cluster = Cluster.Builder().AddContactPoint(ConfigurationManager.ConnectionStrings["IpEquipo"].ConnectionString).Build();
             session = (Session)cluster.Connect("arcabialho_keyspace");
         }
-        public dynamic getContenidoHTML(int idActo)
+        public string getContenidoHTML(int id)
         {
-            var consulta = session.Execute("SELECT contenidohtml FROM Opcion WHERE idActo = " + idActo + ";");
-            return consulta;
+            var consulta = session.Execute("SELECT contenidohtml FROM Opcion WHERE id = " + id + ";");
+            string html = null;
+            foreach (var htmlConsulta in consulta)
+            {
+                html = htmlConsulta.GetValue<string>("contenidohtml");
+            }
+
+            return html;
         }
         public List<DTOOpcion> select(int idActo)
         {
@@ -47,8 +53,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                 int decisionAConsiderarOpcion = opcion.GetValue<int>("decisionaconsideraropcion");
                 int opcionAMostrar = opcion.GetValue<int>("opcionamostrar");
                 string contenidoHtml = opcion.GetValue<string>("contenidohtml");
-                //Para decodificar el contenido html recibido de la base de datos
-               // string contenidoHtmlDecodificado = System.Convert.FromBase64String(contenidoHtml).ToString();
 
                 //Creamos un objeto de opcion con estas variables cada vez que pasamos por el bucle, y lo metemos en la lista de opciones
                 DTOOpcion opcionAGuardar = new DTOOpcion(id, idActoConsulta, descripcion, ruta, tipo, descripcionOpcion, siguienteActo, decisionCondicionante,
@@ -59,4 +63,5 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             return listaOpcionesBD;
         }
     }
+
 }

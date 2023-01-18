@@ -21,14 +21,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             Cluster cluster = Cluster.Builder().AddContactPoint(ConfigurationManager.ConnectionStrings["IpEquipo"].ConnectionString).Build();
             session = (Session)cluster.Connect("arcabialho_keyspace");
         }
-        public int getId()
-        {
-            int id = 0;
-            //var consulta = session.Execute("SELECT contenidohtml FROM Opcion WHERE id = " + id + ";");
-
-            //return consulta;
-            return id;
-        }
         public List<DTOActo> select(int idHistoriaRecibido)
         {
             var consulta = session.Execute("SELECT * FROM Acto where idHistoria = " + idHistoriaRecibido + " ALLOW FILTERING;");

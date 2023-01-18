@@ -95,7 +95,7 @@
             // 
             this.tuPerfilToolStripMenuItem1.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.ajustes;
             this.tuPerfilToolStripMenuItem1.Name = "tuPerfilToolStripMenuItem1";
-            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.tuPerfilToolStripMenuItem1.Size = new System.Drawing.Size(146, 22);
             this.tuPerfilToolStripMenuItem1.Text = "Tu Perfil";
             this.tuPerfilToolStripMenuItem1.Click += new System.EventHandler(this.tuPerfilToolStripMenuItem1_Click);
             // 
@@ -103,7 +103,7 @@
             // 
             this.cerrarSesiónToolStripMenuItem.Image = global::ArcabiaLasHistoriasOcultas.Properties.Resources.cerrarsesion;
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
@@ -231,7 +231,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenida";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bienvenida_FormClosing);
             this.Load += new System.EventHandler(this.Bienvenida_Load);
             this.usuarioConectado.ResumeLayout(false);
             this.usuarioConectado.PerformLayout();

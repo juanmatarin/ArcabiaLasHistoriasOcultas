@@ -51,6 +51,8 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             if (ValidarDatos())
             {
                 ControladorUsuarios.AñadirUsuarioBD(nuevoUsuario);
+                Conectarse conectarse = new Conectarse(padre, bienvenida, padre_bienvenida);
+                conectarse.MdiParent = padre;
                 this.Close();
             }
         }
@@ -101,7 +103,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             }
             else
             {
-                if (ControladorUsuarios.comprobarUsuarioUnico(txtUsername.Text)) //Comprobamos que el nombre de usuario sea único
+                if (ControladorUsuarios.comprobarSiUsuarioExiste(txtUsername.Text)) //Comprobamos que el nombre de usuario sea único
                 {
                     MessageBox.Show("Ya existe un usuario con ese nombre, prueba con otro");
                     lblErrorUsername.Visible = true;

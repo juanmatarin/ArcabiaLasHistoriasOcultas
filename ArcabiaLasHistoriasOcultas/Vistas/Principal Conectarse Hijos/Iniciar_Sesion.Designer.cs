@@ -36,6 +36,7 @@
             this.volverBTN = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
             this.linkLabelCrearUser = new System.Windows.Forms.LinkLabel();
+            this.linkLabelContrasenaOlvidada = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -130,6 +131,19 @@
             this.linkLabelCrearUser.Text = "En caso de no tener un usuario creado, pulsa aquí para registrar tu usuario";
             this.linkLabelCrearUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCrearUser_LinkClicked);
             // 
+            // linkLabelContrasenaOlvidada
+            // 
+            this.linkLabelContrasenaOlvidada.AutoSize = true;
+            this.linkLabelContrasenaOlvidada.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabelContrasenaOlvidada.Location = new System.Drawing.Point(134, 158);
+            this.linkLabelContrasenaOlvidada.Name = "linkLabelContrasenaOlvidada";
+            this.linkLabelContrasenaOlvidada.Size = new System.Drawing.Size(151, 13);
+            this.linkLabelContrasenaOlvidada.TabIndex = 20;
+            this.linkLabelContrasenaOlvidada.TabStop = true;
+            this.linkLabelContrasenaOlvidada.Text = "¿Has Olvidado la Contraseña?";
+            this.linkLabelContrasenaOlvidada.Visible = false;
+            this.linkLabelContrasenaOlvidada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelContrasenaOlvidada_LinkClicked);
+            // 
             // Iniciar_Sesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,6 +151,7 @@
             this.BackgroundImage = global::ArcabiaLasHistoriasOcultas.Properties.Resources.FondoVentanas;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(405, 239);
+            this.Controls.Add(this.linkLabelContrasenaOlvidada);
             this.Controls.Add(this.linkLabelCrearUser);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.volverBTN);
@@ -166,5 +181,6 @@
         private System.Windows.Forms.Button volverBTN;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.LinkLabel linkLabelCrearUser;
+        private System.Windows.Forms.LinkLabel linkLabelContrasenaOlvidada;
     }
 }

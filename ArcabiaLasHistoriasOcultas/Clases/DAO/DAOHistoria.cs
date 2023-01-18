@@ -19,19 +19,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             Cluster cluster = Cluster.Builder().AddContactPoint(ConfigurationManager.ConnectionStrings["IpEquipo"].ConnectionString).Build();
             session = (Session)cluster.Connect("arcabialho_keyspace");
         }
-        public void insert(DTOHistoria dtohistoria)
-        {
-            try
-            {
-                /*string insert = "INSERT INTO Historia(id, nombre, rutaImagen, contenidoJSON) VALUES (" + dtohistoria.id + ",'"
-                    + dtohistoria.nombre + "', " + dtohistoria.rutaImagen + ", '" + dtohistoria.contenidoJSON + "');";
-                session.Execute(insert);*/
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error en la inserción de datos" + e.Message);
-            }
-        }
+        
         public List<DTOHistoria> select()
         {
             var consulta = session.Execute("select * from Historia;");

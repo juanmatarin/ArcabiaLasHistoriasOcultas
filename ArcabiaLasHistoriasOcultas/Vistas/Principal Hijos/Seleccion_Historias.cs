@@ -56,7 +56,7 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
                 botonHistoria.Name = historia.id + "";
                 botonHistoria.Size = new System.Drawing.Size(200, 300);
                 botonHistoria.TabIndex = 0;
-                botonHistoria.Tag = "Historia_" + (historia.id + 1);
+                botonHistoria.Tag = "Historia_" + historia.id;
                 botonHistoria.BackgroundImage = Image.FromFile(@"" + historia.rutaImagen);
                 botonHistoria.BackgroundImageLayout = ImageLayout.Stretch;
                 botonHistoria.UseVisualStyleBackColor = true;

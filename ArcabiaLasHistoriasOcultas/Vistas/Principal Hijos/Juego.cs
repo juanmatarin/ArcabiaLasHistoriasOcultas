@@ -92,7 +92,17 @@ namespace ArcabiaLasHistoriasOcultas.Vistas
             {
                 id = 1;
             }
-            Partida partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida);
+
+            Partida partidaGuardada;
+            if (haIniciadoSesion) // Si hemos iniciado sesión, en el contructor de la nueva partida, le damos valor true al parámetro guardadaEnBD,
+                                  //porque esta partida también se guardará en la base de datos a parte de en local
+            {
+                partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida, true);
+            }
+            else //Si no hemos iniciado sesión, en el contructor de la nueva partida, le damos valor falso al parámetro guardadaEnBD
+            {
+                partidaGuardada = new Partida(id, historia, numeroActo, rutaPartida, false);
+            }
             if (partidaNueva) //Si la partida es una comenzada de nuevo...
             {
                 partidaGuardada.rutaInstrucciones = ControladorIO.crearDirectorio(@"..\..\Archivos\Partidas\Partida_", id); //... se crea un directorio para la nueva partida a guardar.

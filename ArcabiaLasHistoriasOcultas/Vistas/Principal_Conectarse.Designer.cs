@@ -41,7 +41,7 @@
             this.IsMdiContainer = true;
             this.Name = "Principal_Conectarse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal_Conectarse";
+            this.Text = "Conectarse";
             this.Load += new System.EventHandler(this.Principal_Conectarse_Load);
             this.ResumeLayout(false);
 

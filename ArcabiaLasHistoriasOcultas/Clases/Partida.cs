@@ -10,17 +10,19 @@ namespace ArcabiaLasHistoriasOcultas.Clases
         public string rutaInstrucciones { get; set; } //Indica la ruta de instrucciones que la partida guardada debe de usar.
         public DateTime fechaGuardado { get; set; } //Guarda la fecha en la que se guardó la partida.
         public string nombreCompleto { get; set; } //Junta los campos en un campo de texto para ser mostrados.
+        public bool guardadaEnBD { get; set; } //Comprueba si está partida está guardada en la base de datos
 
         public Partida()
         {
         }
 
-        public Partida(int id, string historia, int numeroActo, string rutaInstrucciones)
+        public Partida(int id, string historia, int numeroActo, string rutaInstrucciones, bool guardadoEnBD)
         {
             this.id = id;
             this.historia = historia;
             this.numeroActo = numeroActo;
             this.rutaInstrucciones = rutaInstrucciones;
+            this.guardadaEnBD = guardadoEnBD;
             fechaGuardado = DateTime.Now;
             nombreCompleto = "Partida " + id + ", Historia " + historia[historia.Length - 1] + ", Acto " + (numeroActo + 1) + ", " + fechaGuardado.ToString();
         }

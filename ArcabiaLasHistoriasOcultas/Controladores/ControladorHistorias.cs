@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace ArcabiaLasHistoriasOcultas.Controladores
 {
@@ -32,65 +33,104 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
             return listaHistorias;
         }
 
-        public static bool addHistoriaNuevaLocal()
+        public static void addHistoriaNuevaLocal()
         {
             daoHistoria = new DAOHistoria();
-            bool exito = false;
-            string html = "", nombreHistoria, rutaImagen = ""; //HTML Sería el contenido que se sacaría de la BBDD.
+
+            //Declaramos las variables que vayamos a usar
+            string html = "", nombreHistoria, rutaImagen = "", directorioHistoria = "", directorioActo = ""; //HTML Sería el contenido que se sacaría de la BBDD.
             int idHistoria;
             Historia historiaNueva;
-            List<Historia> listaHistorias = getHistorias();
-            DirectoryInfo directorioHistoria, directorioActo;
+            List<Historia> listaHistorias = getHistorias(); //Recibimos la historia/s en local
+            List<Historia> listaHistoriasBD = getHistoriasBD(); //Recibimos la historia/s de la base de datos
 
-            //Hay que coger la historia/s de la base de datos
-            List<Historia> listaHistoriasBD = getHistoriasBD();
-            
+            //Declaramos las listas de actos que vamos a usar
+            List<DTOActo> listaActosBD = null;
+            List<Acto> actosJson = null;
+            int contadorHistoriasNuevas = 0;
+
             foreach (Historia historia in listaHistoriasBD)
             {
-                
-                idHistoria = listaHistorias.Count + 1;//La historia recibida de la BD puede tener un id diferente al que hay que usar para crear la historia en local,
-                //Por ejemplo, en la BD la historia que recibimos puede tener id=1, pero si en local ya existen 3 partidas, esta historia pasará a tener id=4, por lo que se actualiza en la bd
-                nombreHistoria = "Historia_" + idHistoria;//Lo mismo ocurre con su nombre
-                
-                rutaImagen = historia.rutaImagen;
-                historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);
-
-                directorioHistoria = Directory.CreateDirectory(@"..\..\Archivos\Historias\Historia_" + historiaNueva.id); //Crea el directorio de la historia.
-
-                List<Acto> listaActosBD = ControladorActos.getActosBD(historia.id); 
-                foreach (Acto acto in listaActosBD)
+                if (comprobarHistoriaDescargada(listaHistorias, historia.id) == false)
                 {
-                    //int idHistoria = acto.idHistoria;
-                    int idActo = acto.id;
-                    string htmlActo = acto.contenidoHTML;
-                    directorioActo = Directory.CreateDirectory(directorioHistoria.FullName + @"\Acto_" + acto.id); //Crea cada directorio de cada acto.
-                    crearYEscribirHTML(directorioActo.FullName, "acto", (acto.id ), htmlActo); //Llama al método para crear el archivo
-                    
-                    
-                    if (acto.opciones.Count != 0)
+                    idHistoria = listaHistorias.Count + 1;//La historia recibida de la BD puede tener un id diferente al que hay que usar para crear la historia en local,
+                                                          //Por ejemplo, en la BD la historia que recibimos puede tener id=1, pero si en local ya existen 3 partidas, esta historia pasará a tener id=4, por lo que se actualiza en la bd
+                    nombreHistoria = "Historia_" + idHistoria;//Lo mismo ocurre con su nombre
+                    rutaImagen = historia.rutaImagen;
+
+                    historiaNueva = new Historia(idHistoria, nombreHistoria, rutaImagen);//Creamos una historia nueva con los datos de la historia que está recorriendo el foreach
+
+                    directorioHistoria = ControladorIO.crearDirectorio(@"..\..\Archivos\Historias\Historia_", historiaNueva.id); //Crea el directorio de la historia.
+
+                    listaActosBD = ControladorActos.getActosBD(historia.id);//Recibimos los actos que tengan este id historia de la base de datos
+                    actosJson = new List<Acto>();//Lista de actos que vamos a usar para crear el json
+
+                    foreach (DTOActo dtoacto in listaActosBD)//Recorremos la lista de actos de la base de dato
                     {
-                        
-                        foreach (Opcion opcion in acto.opciones) //Por cada opción dentro del respectivo acto se hace lo mismo:
+
+                        directorioActo = ControladorIO.crearDirectorio(directorioHistoria + @"\Acto_", (dtoacto.id + 1));//Crea un directorio de cada acto.
+                        ControladorIO.escribirHTML(directorioActo, "acto", (dtoacto.id + 1), dtoacto.contenidoHTML); //Llama al método para crear el archivo
+
+                        List<Opcion> opcionesBD = ControladorOpciones.getOpcionesBD(dtoacto.id);//Cogemos las opciones que tenga este idActo de la base de datos
+                        List<Opcion> opcionesJSON = new List<Opcion>();//Esta lista de opciones será la que vamos a usar para escribir el json
+
+                        string rutaActoJson = "..\\..\\Archivos\\Historias\\" + nombreHistoria + @"\Acto_" + (dtoacto.id + 1) + @"\acto" + (dtoacto.id + 1) + ".html";//Creamos ka
+                        Acto actoJson = null;
+                        Opcion opcionJson = null;
+                        int contadorOpcionHTML = 1; int contadorOpcionJSON = 0;
+                        string htmlOpcion;
+
+                        foreach (Opcion opcion in opcionesBD) //Recorremos la lista de opciones que hemos declarado antes
                         {
-                            if (!opcion.tipo.Equals("acto"))
+                            //Si la opción es tipo opción o tipo decisión, se crea su html
+                            if (opcion.tipo.Equals("opcion"))
                             {
-                                string htmlOpcion = opcion.contenidoHTML;
-                                crearYEscribirHTML(directorioActo.FullName, opcion.tipo, (opcion.id + 1), htmlOpcion); //Método para crear el archivo.
+                                htmlOpcion = ControladorOpciones.cargarHtml(opcion.id);
+                                ControladorIO.escribirHTML(directorioActo, "opcion", contadorOpcionHTML, htmlOpcion); //Método para crear el archivo.
+                                opcionJson = new Opcion(contadorOpcionJSON, opcion.descripcion, opcion.ruta, opcion.tipo, opcion.descripcionOpcion,
+                                opcion.siguienteActo, opcion.decisionCondicionante, opcion.decisionElegida, opcion.decisionAConsiderarActo, opcion.decisionAConsiderarOpcion, opcion.opcionAMostrar);
+                                contadorOpcionJSON++; //Vamos actualizando el contador de las opciones que guardamos en el json
                             }
-                            
+                            else if (opcion.tipo.Equals("acto"))
+                            {
+                                opcionJson = new Opcion(contadorOpcionJSON, opcion.descripcion, opcion.ruta, opcion.tipo, opcion.descripcionOpcion,
+                                opcion.siguienteActo, opcion.decisionCondicionante, opcion.decisionElegida, opcion.decisionAConsiderarActo, opcion.decisionAConsiderarOpcion, opcion.opcionAMostrar);
+                                contadorOpcionJSON++; //Vamos actualizando el contador de las opciones que guardamos en el json
+                            }
+                            else if (opcion.tipo.Equals("decision"))
+                            {
+                                htmlOpcion = ControladorOpciones.cargarHtml(opcion.id);
+                                ControladorIO.escribirHTML(directorioActo, "opcion", contadorOpcionHTML, htmlOpcion);
+                                opcionJson = new Opcion(contadorOpcionJSON, opcion.descripcion, opcion.ruta, opcion.tipo, opcion.descripcionOpcion,
+                                opcion.siguienteActo, opcion.decisionCondicionante, opcion.decisionElegida, opcion.decisionAConsiderarActo, opcion.decisionAConsiderarOpcion, opcion.opcionAMostrar);
+                                contadorOpcionJSON++;
+                            }
+
+                            opcionesJSON.Add(opcionJson);
+                            actoJson = new Acto(dtoacto.id, rutaActoJson, opcionesJSON); //Creamos el acto que se va a guardar en lista que se usará para crear el json
+                            contadorOpcionHTML++; //Actualizamos este contador, que se usa para crear el html de las opciones
+
                         }
+
+                        actosJson.Add(actoJson); //Vamos añadiendo cada actoJson creado en la lista de actosJson
                     }
+
+                    listaHistorias.Add(historiaNueva); //Añadimos esta historia a la lista de historias local
+                    contadorHistoriasNuevas++;
+                }
+                if (contadorHistoriasNuevas > 0)
+                {
+                    ControladorIO.escribirJSON(directorioHistoria, actosJson); //Crea el Json de las instrucciones.
+                    guardarHistorias(listaHistorias);
                 }
 
-                listaHistorias.Add(historiaNueva);
+
             }
-           
-/*
-            crearYEscribirJSON(directorioHistoria.FullName, listaActos); //Crea el Json de las instrucciones.
-            guardarHistorias(listaHistorias);
-*/
-            
-            return exito;
+            if (contadorHistoriasNuevas == 0)
+            {
+                MessageBox.Show("Todas las partidas de la base de datos están descargadas");
+            }
+
         }
 
         public static bool guardarHistorias(List<Historia> listaHistorias)
@@ -156,6 +196,21 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
                 break;
             }
             return id;
+        }
+
+        public static bool comprobarHistoriaDescargada(List<Historia> listaHistoriasLocal, int idHistoriaBD)
+        {
+            bool partidaDescargada = false;
+
+            foreach (Historia historiaLocal in listaHistoriasLocal)
+            {
+                if (historiaLocal.id == idHistoriaBD)
+                {
+                    partidaDescargada = true;
+                }
+
+            }
+            return partidaDescargada;
         }
     }
 }

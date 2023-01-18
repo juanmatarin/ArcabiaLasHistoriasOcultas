@@ -20,13 +20,13 @@ namespace ArcabiaLasHistoriasOcultas.Controladores
         {
             string rutaCompleta = ruta + @"\instrucciones.json", json;
             json = JsonSerializer.Serialize(listaActos);
-            File.WriteAllBytes(rutaCompleta, Encoding.ASCII.GetBytes(json));
+            File.WriteAllBytes(rutaCompleta, Encoding.UTF8.GetBytes(json));
         }
 
         public static void escribirHTML(string ruta, string tipo, int numero, string contenido)
         {
             ruta += @"\" + tipo + numero + ".html";
-            File.WriteAllBytes(ruta, Encoding.ASCII.GetBytes(contenido));
+            File.WriteAllBytes(ruta, Encoding.UTF8.GetBytes(contenido));
         }
 
         public static bool borrarPartidaLocal(int id)

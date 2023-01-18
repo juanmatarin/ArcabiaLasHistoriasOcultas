@@ -19,18 +19,20 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             session = (Session)cluster.Connect("arcabialho_keyspace");
         }
 
-        public dynamic getNombreUsuario(string nombreUsuario)//Método que devuelve el nombre_usuario de un usuario
+        public string getNombreUsuario(string nombreUsuarioRecibido)//Método que devuelve el nombre_usuario de un usuario
         {
-            var consulta = session.Execute("SELECT nombre_usuario FROM Usuario WHERE nombre_usuario = '" + nombreUsuario + "' ALLOW FILTERING;"); 
-            return consulta; //ALLOW FILTERING tenemos que usarlo al filtrar por un valor o columna que no sea la clave primaria
+            var consulta = session.Execute("SELECT nombre_usuario FROM Usuario WHERE nombre_usuario = '" + nombreUsuarioRecibido + "' ALLOW FILTERING;");//ALLOW FILTERING tenemos que usarlo al filtrar por un valor o columna que no sea la clave primaria
+            string nombreUsuario = "";
+            foreach (var info in consulta)
+            {
+                nombreUsuario = info.GetValue<string>("nombre_usuario");
+            }
+            return nombreUsuario;
         }
         public int getId(string nombreUsuario)//Método para obtener el id de un determinado usuario
         {
             
             var consulta = session.Execute("SELECT id FROM Usuario WHERE nombre_usuario = '" + nombreUsuario + "' ALLOW FILTERING;");
-            //PreparedStatement prepared = session.Prepare("SELECT id FROM Usuario WHERE nombre_usuario = ? ALLOW FILTERING");
-            //BoundStatement bound = prepared.Bind(nombreUsuario);
-            // var consulta = session.Execute(bound);
             int id = 0;
             foreach (var idConsulta in consulta)
             {
@@ -69,9 +71,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                 string fecha = "";
                 string insert = "";
 
-                PreparedStatement preparedStatement = null;
-                BoundStatement bound = null;
-
                 if (dia < 10 && mes < 10)//Cuando el dia y el mes son menores de 10 hacemos lo siguiente
                 {
                     string diaValido = "0" + dia;// Esto se hace porque tanto para los dias como para los meses del 1 al 9, debe tener un 0 antes,                                                 
@@ -80,9 +79,7 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                     
                     insert = "INSERT INTO Usuario(id,nombre,apellidos,nombre_usuario,fecha_nacimiento,correo,contrasenia) VALUES (" + idADevolver + ",'" + dtousuario.nombre + "', '" + dtousuario.apellidos + "', '" + dtousuario.nombreUsuario + "'," +
                         " '" + fecha + "', '" + dtousuario.correo + "', '" + dtousuario.contraseña + "')"; 
-                   /* preparedStatement = session.Prepare("INSERT INTO Usuario(id, nombre, apellidos, nombre_usuario, fecha_nacimiento, correo, contrasenia) VALUES(?,?,?,?,?,?,?)");
-                    bound = preparedStatement.Bind(idADevolver, dtousuario.nombre, dtousuario.apellidos, dtousuario.nombreUsuario, fecha, dtousuario.correo, dtousuario.contraseña);
-                   */
+                   
 
                 }
                 else if(dia < 10)
@@ -92,9 +89,6 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                     insert = "INSERT INTO Usuario(id,nombre,apellidos,nombre_usuario,fecha_nacimiento,correo,contrasenia) VALUES (" + idADevolver + ",'" + dtousuario.nombre + "', '" + dtousuario.apellidos + "', '" + dtousuario.nombreUsuario + "', '" +
                     año + "-" + mes + "-" + diaValido + "', '" + dtousuario.correo + "', '" + dtousuario.contraseña + "')";  
 
-                    /*preparedStatement = session.Prepare("INSERT INTO Usuario(id, nombre, apellidos, nombre_usuario, fecha_nacimiento, correo, contrasenia) VALUES(?,?,?,?,?,?,?)");
-                    bound = preparedStatement.Bind(idADevolver, dtousuario.nombre, dtousuario.apellidos, dtousuario.nombreUsuario, fecha, dtousuario.correo, dtousuario.contraseña);
-                    */
                 }
                 else if(mes < 10)
                 {
@@ -103,19 +97,13 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
                     insert = "INSERT INTO Usuario(id,nombre,apellidos,nombre_usuario,fecha_nacimiento,correo,contrasenia) VALUES (" + idADevolver + ",'" + dtousuario.nombre + "', '" + dtousuario.apellidos + "', '" + dtousuario.nombreUsuario + "', '" +
                     año + "-" + mesValido + "-" + dia + "', '" + dtousuario.correo + "', '" + dtousuario.contraseña + "')"; 
 
-                   /* preparedStatement = session.Prepare("INSERT INTO Usuario(id, nombre, apellidos, nombre_usuario, fecha_nacimiento, correo, contrasenia) VALUES(?,?,?,?,?,?,?)");
-                    bound = preparedStatement.Bind(idADevolver, dtousuario.nombre, dtousuario.apellidos, dtousuario.nombreUsuario, fecha, dtousuario.correo, dtousuario.contraseña);
-                   */
                 }
                 else if(dia > 10 && mes > 10)
                 {
                     insert = "INSERT INTO Usuario(id,nombre,apellidos,nombre_usuario,fecha_nacimiento,correo,contrasenia) VALUES (" + idADevolver + ",'" + dtousuario.nombre + "', '" + dtousuario.apellidos + "', '" + dtousuario.nombreUsuario + "', '" +
                     año + "-" + mes + "-" + dia + "', '" + dtousuario.correo + "', '" + dtousuario.contraseña + "')"; 
                     fecha = año + "-" + mes + "-" + dia; 
-                    /*
-                    preparedStatement = session.Prepare("INSERT INTO Usuario(id, nombre, apellidos, nombre_usuario, fecha_nacimiento, correo, contrasenia) VALUES(?,?,?,?,?,?,?)");
-                    bound = preparedStatement.Bind(idADevolver, dtousuario.nombre, dtousuario.apellidos, dtousuario.nombreUsuario, fecha, dtousuario.correo, dtousuario.contraseña);
-                    */
+                    
                 }
                 
                 session.Execute(insert);//Ejecutamos el insert
@@ -181,5 +169,23 @@ namespace ArcabiaLasHistoriasOcultas.Clases.DAO
             }
             return actualizado;
         }
+
+        public bool updateContraseña(string nombreUsuario_Recibido, string contraseña)//Método update, para actualizar datos de la tabla Usuario
+        {
+            bool actualizado;
+            int id = getId(nombreUsuario_Recibido);
+            try
+            {
+                session.Execute("update Usuario set contrasenia = '" + contraseña + "' WHERE id = " + id + ";");
+                actualizado = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al actualizar la contraseña" + e.Message);
+                actualizado = false;
+            }
+            return actualizado;
+        }
+
     }
 }
